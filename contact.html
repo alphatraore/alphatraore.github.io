@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Your Name</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="index.html">Your Name</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a class="active" href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Contact</h1>
+    <p class="lead">Let’s connect.</p>
+
+    <div class="card">
+      <p><b>Email:</b> <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+      <p><b>LinkedIn:</b> <a href="#">linkedin.com/in/yourname</a></p>
+      <p><b>GitHub:</b> <a href="#">github.com/yourusername</a></p>
+    </div>
+  </main>
+
+  <footer class="footer">© <span id="y"></span> Your Name</footer>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
