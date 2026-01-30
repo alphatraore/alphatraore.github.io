@@ -1,0 +1,77 @@
+/* ---------------------------
+   Remove any remaining numbering
+---------------------------- */
+.header-section-number,
+.sidebar .chapter-number,
+.sidebar .toc-section-number,
+#TOC .toc-section-number {
+  display: none !important;
+}
+
+/* ---------------------------
+   Page typography
+---------------------------- */
+.content {
+  max-width: 980px;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+/* ---------------------------
+   Sidebar polish
+---------------------------- */
+.sidebar {
+  border-right: 1px solid rgba(0,0,0,.08);
+}
+
+.sidebar-navigation {
+  padding-top: .5rem;
+}
+
+.sidebar-navigation .sidebar-item {
+  margin: 0.1rem 0;
+}
+
+.sidebar-navigation .sidebar-item .sidebar-item-text {
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
+
+.sidebar-navigation .sidebar-item.section > .sidebar-item-container {
+  margin-top: 0.85rem;
+}
+
+.sidebar-navigation .sidebar-item.section > .sidebar-item-container > .sidebar-item-text {
+  font-size: 0.80rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.70;
+}
+
+.sidebar-navigation .sidebar-item.active > .sidebar-item-container > .sidebar-item-text {
+  font-weight: 800;
+}
+
+.sidebar-navigation .sidebar-item .sidebar-item-text:hover {
+  text-decoration: none;
+}
+
+/* Indentation for nested chapters */
+.sidebar-navigation .sidebar-item .sidebar-item-container {
+  padding-left: 0.25rem;
+}
+.sidebar-navigation .sidebar-item .sidebar-item {
+  padding-left: 0.65rem;
+}
+
+/* ---------------------------
+   Code blocks: slightly cleaner
+---------------------------- */
+pre code {
+  font-size: 0.92rem;
+}
