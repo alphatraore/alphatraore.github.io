@@ -1,0 +1,197 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sample Codes",
+    "section": "",
+    "text": "Alpha Traore\nExperienced Data Analyst focused on quality and traceability\nThis site showcases end-to-end, reproducible examples for clinical programming workflows:",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sample Codes</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-find-here",
+    "href": "index.html#what-youll-find-here",
+    "title": "Sample Codes",
+    "section": "What you’ll find here",
+    "text": "What you’ll find here\n\n\n\n\n\n\nNoteTraceability-first mindset\n\n\n\nEvery result should be traceable: TLF → ADaM → SDTM → Source",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sample Codes</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-run",
+    "href": "index.html#how-to-run",
+    "title": "Sample Codes",
+    "section": "How to run",
+    "text": "How to run\n\nLocal\n```bash quarto preview\nWelcome. Use the sidebar to navigate.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sample Codes</span>"
+    ]
+  },
+  {
+    "objectID": "overview-SDTM.html",
+    "href": "overview-SDTM.html",
+    "title": "Overview",
+    "section": "",
+    "text": "This section covers DM, AE, VS.",
+    "crumbs": [
+      "SDTM",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "sdtm-DM.html",
+    "href": "sdtm-DM.html",
+    "title": "SDTM DM",
+    "section": "",
+    "text": "Describe DM build + key variables.\nSpec HTML\nDM Program HTML",
+    "crumbs": [
+      "SDTM",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>SDTM DM</span>"
+    ]
+  },
+  {
+    "objectID": "sdtm-AE.html",
+    "href": "sdtm-AE.html",
+    "title": "SDTM AE",
+    "section": "",
+    "text": "Describe AE build + mappings.",
+    "crumbs": [
+      "SDTM",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>SDTM AE</span>"
+    ]
+  },
+  {
+    "objectID": "sdtm-VS.html",
+    "href": "sdtm-VS.html",
+    "title": "SDTM VS",
+    "section": "",
+    "text": "Describe VS build + visits.",
+    "crumbs": [
+      "SDTM",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>SDTM VS</span>"
+    ]
+  },
+  {
+    "objectID": "overview-ADAM.html",
+    "href": "overview-ADAM.html",
+    "title": "Overview",
+    "section": "",
+    "text": "This section covers ADSL, ADAE, ADVS.",
+    "crumbs": [
+      "ADaM",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "adam-adsl.html",
+    "href": "adam-adsl.html",
+    "title": "ADaM ADSL",
+    "section": "",
+    "text": "Population flags, baseline, key vars.\nSpec HTML\nADSL Program HTML",
+    "crumbs": [
+      "ADaM",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>ADaM ADSL</span>"
+    ]
+  },
+  {
+    "objectID": "adam-adae.html",
+    "href": "adam-adae.html",
+    "title": "ADaM ADAE",
+    "section": "",
+    "text": "TEAE derivations + traceability.",
+    "crumbs": [
+      "ADaM",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>ADaM ADAE</span>"
+    ]
+  },
+  {
+    "objectID": "adam-advs.html",
+    "href": "adam-advs.html",
+    "title": "ADaM ADVS",
+    "section": "",
+    "text": "Change from baseline, visits, params.",
+    "crumbs": [
+      "ADaM",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>ADaM ADVS</span>"
+    ]
+  },
+  {
+    "objectID": "overview-tlg.html",
+    "href": "overview-tlg.html",
+    "title": "Overview",
+    "section": "",
+    "text": "Tables generated from ADaM.",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Overview</span>"
+    ]
+  },
+  {
+    "objectID": "tlg-table1.html",
+    "href": "tlg-table1.html",
+    "title": "Table 1: Demographics",
+    "section": "",
+    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Table 1: Demographics</span>"
+    ]
+  },
+  {
+    "objectID": "tlg-table2.html",
+    "href": "tlg-table2.html",
+    "title": "Table 2. TEAE by SOC/PT",
+    "section": "",
+    "text": "Put this at the top so installs work during rendering\n\n\nCode\noptions(repos = c(CRAN = \"https://cloud.r-project.org\"))\n\n\n\n\nCode\n# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))\n\n\nInstall + load packages (run once; safe to re-run)\n\n\nCode\npacman::p_load(haven, dplyr, tidyr, purrr, glue, lubridate, stringr, EDCimport, pharmaRTF, data.table, gtsummary, gt, flextable, hms)\n\n\nPrepare the data\n\n\nCode\nadsl &lt;- read_xpt(\"adsl.xpt\")\n\nsbj &lt;- bind_rows(\n           adsl |&gt;  mutate(trtn = trt01an, trt = trt01a),\n           adsl |&gt;  mutate(trtn = 99,     trt = \"Overall\")) |&gt; \n           filter(saffl==\"Y\")\n\n\nadae &lt;- read_xpt(\"adae.xpt\")\n\nae &lt;- bind_rows(\n           adae |&gt;  mutate(trtn = trtan, trt = trta),\n           adae |&gt;  mutate(trtn = 99,     trt = \"Overall\")) |&gt; \n           filter(saffl==\"Y\",trtemfl==\"Y\")\n\n\nGet the columns headers with big N and Treatment Name\n\n\nCode\nbign &lt;- sbj |&gt;\n  distinct(usubjid, trtn, trt) |&gt;\n  count(trtn, trt, name = \"N\")\n\nfinalsbj &lt;- sbj |&gt;\n  left_join(bign, by = c(\"trtn\", \"trt\")) |&gt;\n  mutate(trtlab = glue(\"{trt} (N= {N})\")) \n \n#finalae &lt;- ae |&gt;\n#  left_join(bign, by = c(\"trtn\", \"trt\")) |&gt;\n#  mutate(trtlab = glue(\"{trt} (N= {N})\"))\n\nbigN &lt;- finalsbj |&gt; distinct(trtn, trtlab, N) |&gt; \n  arrange(trtn)\n\nbigN\n\n\n# A tibble: 4 × 3\n   trtn trtlab              N\n  &lt;dbl&gt; &lt;glue&gt;          &lt;int&gt;\n1     1 Placebo (N= 5)      5\n2     2 TRT A (N= 5)        5\n3     3 TRT B (N= 5)        5\n4    99 Overall (N= 15)    15\n\n\nImpute Zeros for Treatment Arms with N = 0\n\n\nCode\ndummytrt&lt;- tibble(trtn = c(1, 2, 3, 99))\n\n\n\n\nCode\ntemptrtN&lt;-sbj |&gt; count(trtn, trt)\ntemptrtN\n\n\n# A tibble: 4 × 3\n   trtn trt         n\n  &lt;dbl&gt; &lt;chr&gt;   &lt;int&gt;\n1     1 Placebo     5\n2     2 TRT A       5\n3     3 TRT B       5\n4    99 Overall    15\n\n\n\n\nCode\ntrtN&lt;-dummytrt  |&gt; \n    left_join(temptrtN ,by=c(\"trtn\")) |&gt; \n    mutate(N=if_else(is.na(n),0,n)) |&gt; \n    select(-n)\n\ntrtN\n\n\n# A tibble: 4 × 3\n   trtn trt         N\n  &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;\n1     1 Placebo     5\n2     2 TRT A       5\n3     3 TRT B       5\n4    99 Overall    15\n\n\nTOP row : Overall: Number of subjects with at least one TEAE.\n\n\nCode\nsub_n&lt;- ae |&gt; \n    group_by(trtn) |&gt; \n    summarise(label= \"Overall\", count = n_distinct(usubjid), events=n()) |&gt; \n    ungroup()\n\nsub_n\n\n\n# A tibble: 4 × 4\n   trtn label   count events\n  &lt;dbl&gt; &lt;chr&gt;   &lt;int&gt;  &lt;int&gt;\n1     1 Overall     4     19\n2     2 Overall     4     30\n3     3 Overall     5     25\n4    99 Overall    13     74\n\n\nSOC rows: Number of subjects with at least one TEAE in the specified SOC.\n\n\nCode\nsoc_n &lt;- ae |&gt;\n    group_by(aebodsys, trtn) |&gt;\n    summarise(\n    count  = n_distinct(usubjid),\n    events = n(),\n    .groups = \"drop\"        # or \"drop_last\" / \"keep\"\n  )\n\nsoc_n\n\n\n# A tibble: 28 × 4\n   aebodsys                                              trtn count events\n   &lt;chr&gt;                                                &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;\n 1 CARDIAC DISORDERS                                        1     2      2\n 2 CARDIAC DISORDERS                                       99     2      2\n 3 EYE DISORDERS                                            1     1      3\n 4 EYE DISORDERS                                           99     1      3\n 5 GASTROINTESTINAL DISORDERS                               1     2      3\n 6 GASTROINTESTINAL DISORDERS                              99     2      3\n 7 GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS     1     2      3\n 8 GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS     2     3     13\n 9 GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS     3     5     19\n10 GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS    99    10     35\n# ℹ 18 more rows\n\n\nPT Rows: Number of subjects with at least one TEAE in the specified PT.\n\n\nCode\npt_n &lt;- ae |&gt;\n    group_by(aebodsys, aedecod,trtn) |&gt;\n    summarise(\n    count  = n_distinct(usubjid),\n    events = n(),\n    .groups = \"drop\"\n  )\n\npt_n\n\n\n# A tibble: 74 × 5\n   aebodsys          aedecod                               trtn count events\n   &lt;chr&gt;             &lt;chr&gt;                                &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;\n 1 CARDIAC DISORDERS ATRIOVENTRICULAR BLOCK SECOND DEGREE     1     1      1\n 2 CARDIAC DISORDERS ATRIOVENTRICULAR BLOCK SECOND DEGREE    99     1      1\n 3 CARDIAC DISORDERS BUNDLE BRANCH BLOCK LEFT                 1     1      1\n 4 CARDIAC DISORDERS BUNDLE BRANCH BLOCK LEFT                99     1      1\n 5 EYE DISORDERS     EYE ALLERGY                              1     1      1\n 6 EYE DISORDERS     EYE ALLERGY                             99     1      1\n 7 EYE DISORDERS     EYE PRURITUS                             1     1      1\n 8 EYE DISORDERS     EYE PRURITUS                            99     1      1\n 9 EYE DISORDERS     EYE SWELLING                             1     1      1\n10 EYE DISORDERS     EYE SWELLING                            99     1      1\n# ℹ 64 more rows\n\n\nCombine Top Row (Overall), SOC-level, and PT-level counts into a single dataset and replace missing values (NAs) with blanks.\n\n\nCode\nall_Ntemp &lt;- bind_rows(sub_n, soc_n, pt_n) |&gt; \n    mutate(across(c(label, aebodsys, aedecod), ~ if_else(is.na(.), \"\", .)))\n\n\nCreate zero counts for treatment groups where an event is not observed.\n\nGet all available SOC and PT values (Overall, SOC, and SOC/PT combinations).\nCreate one row per treatment group for each Overall/SOC/PT row.\n\n\n\nCode\ndummy_ae&lt;-all_Ntemp |&gt; \n    complete(nesting(label,aebodsys,aedecod),trtn=c(1,2,3,99)) |&gt; \n    select(-count,-events)\ndummy_ae\n\n\n# A tibble: 168 × 4\n   label aebodsys          aedecod                                 trtn\n   &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;                                  &lt;dbl&gt;\n 1 \"\"    CARDIAC DISORDERS \"\"                                         1\n 2 \"\"    CARDIAC DISORDERS \"\"                                         2\n 3 \"\"    CARDIAC DISORDERS \"\"                                         3\n 4 \"\"    CARDIAC DISORDERS \"\"                                        99\n 5 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DEGREE\"     1\n 6 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DEGREE\"     2\n 7 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DEGREE\"     3\n 8 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DEGREE\"    99\n 9 \"\"    CARDIAC DISORDERS \"BUNDLE BRANCH BLOCK LEFT\"                 1\n10 \"\"    CARDIAC DISORDERS \"BUNDLE BRANCH BLOCK LEFT\"                 2\n# ℹ 158 more rows\n\n\nMerge the dummy AE grid with the observed counts.\nFor rows not present in the data, set subject counts and event counts to 0.\n\n\nCode\nall_Ntemp2&lt;-dummy_ae |&gt; \n    left_join(all_Ntemp,by=c(\"label\",\"aebodsys\", \"aedecod\", \"trtn\")) |&gt;\n    mutate(across(c(count,events),~if_else(is.na(.),0,.)))\n\nall_Ntemp2\n\n\n# A tibble: 168 × 6\n   label aebodsys          aedecod                             trtn count events\n   &lt;chr&gt; &lt;chr&gt;             &lt;chr&gt;                              &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1 \"\"    CARDIAC DISORDERS \"\"                                     1     2      2\n 2 \"\"    CARDIAC DISORDERS \"\"                                     2     0      0\n 3 \"\"    CARDIAC DISORDERS \"\"                                     3     0      0\n 4 \"\"    CARDIAC DISORDERS \"\"                                    99     2      2\n 5 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DE…     1     1      1\n 6 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DE…     2     0      0\n 7 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DE…     3     0      0\n 8 \"\"    CARDIAC DISORDERS \"ATRIOVENTRICULAR BLOCK SECOND DE…    99     1      1\n 9 \"\"    CARDIAC DISORDERS \"BUNDLE BRANCH BLOCK LEFT\"             1     1      1\n10 \"\"    CARDIAC DISORDERS \"BUNDLE BRANCH BLOCK LEFT\"             2     0      0\n# ℹ 158 more rows\n\n\nMerge with the denominator Big N count for percentage calculation\n\n\nCode\nall_N&lt;-all_Ntemp2 %&gt;%\n    left_join(bigN,by=\"trtn\")\n\n\nCompute the percentage column and concatenate with count\n\n\nCode\nall_Perc&lt;-all_N |&gt; \n    mutate(\n    percent=if_else(N!=0,count/N*100,0),\n    percentc=str_c(\" (\",sprintf(\"%.1f\",percent),\"%)\"),\n    cp=if_else(count==0,\"0\",str_c(count, percentc))\n )\n\nall_Perc\n\n\n# A tibble: 168 × 11\n   label aebodsys aedecod  trtn count events trtlab     N percent percentc cp   \n   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;glue&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;\n 1 \"\"    CARDIAC… \"\"          1     2      2 Place…     5   40    \" (40.0… 2 (4…\n 2 \"\"    CARDIAC… \"\"          2     0      0 TRT A…     5    0    \" (0.0%… 0    \n 3 \"\"    CARDIAC… \"\"          3     0      0 TRT B…     5    0    \" (0.0%… 0    \n 4 \"\"    CARDIAC… \"\"         99     2      2 Overa…    15   13.3  \" (13.3… 2 (1…\n 5 \"\"    CARDIAC… \"ATRIO…     1     1      1 Place…     5   20    \" (20.0… 1 (2…\n 6 \"\"    CARDIAC… \"ATRIO…     2     0      0 TRT A…     5    0    \" (0.0%… 0    \n 7 \"\"    CARDIAC… \"ATRIO…     3     0      0 TRT B…     5    0    \" (0.0%… 0    \n 8 \"\"    CARDIAC… \"ATRIO…    99     1      1 Overa…    15    6.67 \" (6.7%… 1 (6…\n 9 \"\"    CARDIAC… \"BUNDL…     1     1      1 Place…     5   20    \" (20.0… 1 (2…\n10 \"\"    CARDIAC… \"BUNDL…     2     0      0 TRT A…     5    0    \" (0.0%… 0    \n# ℹ 158 more rows\n\n\nCreate the row labels column;\n\n\nCode\nprefinal1&lt;-all_Perc |&gt; \n    mutate(\n    label=case_when(\n    aebodsys==\"\" & aedecod==\"\" ~ label,\n    aebodsys!=\"\" & aedecod==\"\" ~ aebodsys,\n    aebodsys!=\"\" & aedecod!=\"\" ~ str_c(\"\\u00A0\\u00A0\\u00A0\",aedecod),\n    TRUE~\"\"\n )\n )\n\nprefinal1\n\n\n# A tibble: 168 × 11\n   label aebodsys aedecod  trtn count events trtlab     N percent percentc cp   \n   &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;glue&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;\n 1 CARD… CARDIAC… \"\"          1     2      2 Place…     5   40    \" (40.0… 2 (4…\n 2 CARD… CARDIAC… \"\"          2     0      0 TRT A…     5    0    \" (0.0%… 0    \n 3 CARD… CARDIAC… \"\"          3     0      0 TRT B…     5    0    \" (0.0%… 0    \n 4 CARD… CARDIAC… \"\"         99     2      2 Overa…    15   13.3  \" (13.3… 2 (1…\n 5    A… CARDIAC… \"ATRIO…     1     1      1 Place…     5   20    \" (20.0… 1 (2…\n 6    A… CARDIAC… \"ATRIO…     2     0      0 TRT A…     5    0    \" (0.0%… 0    \n 7    A… CARDIAC… \"ATRIO…     3     0      0 TRT B…     5    0    \" (0.0%… 0    \n 8    A… CARDIAC… \"ATRIO…    99     1      1 Overa…    15    6.67 \" (6.7%… 1 (6…\n 9    B… CARDIAC… \"BUNDL…     1     1      1 Place…     5   20    \" (20.0… 1 (2…\n10    B… CARDIAC… \"BUNDL…     2     0      0 TRT A…     5    0    \" (0.0%… 0    \n# ℹ 158 more rows\n\n\n\n\nCode\nprefinal2 &lt;- prefinal1 |&gt; \n    pivot_wider(\n    id_cols = c(aebodsys, aedecod, label),\n    names_from = trtlab,\n    values_from = cp) |&gt; \n arrange(aebodsys,aedecod,label)\n \nprefinal2\n\n\n# A tibble: 42 × 7\n   aebodsys         aedecod label `Placebo (N= 5)` `TRT A (N= 5)` `TRT B (N= 5)`\n   &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            &lt;chr&gt;          &lt;chr&gt;         \n 1 \"\"               \"\"      Over… 4 (80.0%)        4 (80.0%)      5 (100.0%)    \n 2 \"CARDIAC DISORD… \"\"      CARD… 2 (40.0%)        0              0             \n 3 \"CARDIAC DISORD… \"ATRIO…    A… 1 (20.0%)        0              0             \n 4 \"CARDIAC DISORD… \"BUNDL…    B… 1 (20.0%)        0              0             \n 5 \"EYE DISORDERS\"  \"\"      EYE … 1 (20.0%)        0              0             \n 6 \"EYE DISORDERS\"  \"EYE A…    E… 1 (20.0%)        0              0             \n 7 \"EYE DISORDERS\"  \"EYE P…    E… 1 (20.0%)        0              0             \n 8 \"EYE DISORDERS\"  \"EYE S…    E… 1 (20.0%)        0              0             \n 9 \"GASTROINTESTIN… \"\"      GAST… 2 (40.0%)        0              0             \n10 \"GASTROINTESTIN… \"DIARR…    D… 1 (20.0%)        0              0             \n# ℹ 32 more rows\n# ℹ 1 more variable: `Overall (N= 15)` &lt;chr&gt;\n\n\n\n\nCode\n# view(counts06)\nfinal &lt;- prefinal2 |&gt; \n    select( -aebodsys, -aedecod )\n\nglimpse(final)\n\n\nRows: 42\nColumns: 5\n$ label             &lt;chr&gt; \"Overall\", \"CARDIAC DISORDERS\", \"   ATRIOVENTRICULAR…\n$ `Placebo (N= 5)`  &lt;chr&gt; \"4 (80.0%)\", \"2 (40.0%)\", \"1 (20.0%)\", \"1 (20.0%)\", …\n$ `TRT A (N= 5)`    &lt;chr&gt; \"4 (80.0%)\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\",…\n$ `TRT B (N= 5)`    &lt;chr&gt; \"5 (100.0%)\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\", \"0\"…\n$ `Overall (N= 15)` &lt;chr&gt; \"13 (86.7%)\", \"2 (13.3%)\", \"1 (6.7%)\", \"1 (6.7%)\", \"…\n\n\n\n\nCode\ntlf_gt &lt;- function(df,\n                   title = \"Table X. Treatment-Emergent Adverse Events by System Organ Class and Preferred Term\",\n                   subtitle = \"Safety Population\",\n                   stub_width = gt::px(420),   # &lt;-- add\n                   trt_width  = gt::px(90)) {  # &lt;-- optional\n\n  df &lt;- as.data.frame(df)\n\n  stub     &lt;- names(df)[1]\n  trt_cols &lt;- names(df)[-1]\n\n  # Section header rows = all treatment cells blank/NA\n  is_section &lt;- apply(df[, trt_cols, drop = FALSE], 1, function(x) {\n    all(is.na(x) | trimws(as.character(x)) == \"\")\n  })\n\n  # Sub-rows = stub starts with spaces\n  is_sub &lt;- grepl(\"^\\\\s+\", df[[stub]])\n  df[[stub]] &lt;- sub(\"^\\\\s+\", \"\", df[[stub]])   # remove spaces; we’ll indent via gt\n\n  # 2-line column headers: \"Placebo (N= 19)\" -&gt; \"Placebo&lt;br&gt;(N=19)\"\n  lab_trt &lt;- setNames(lapply(trt_cols, function(x) {\n    x2 &lt;- gsub(\"\\\\s+\", \" \", x)\n    gt::html(sub(\"\\\\s*\\\\(N\\\\s*=\\\\s*([0-9]+)\\\\s*\\\\)\\\\s*$\",\n                 \"&lt;br&gt;(N=\\\\1)\", x2, perl = TRUE))\n  }), trt_cols)\n\n  labs &lt;- c(setNames(list(gt::html(\"\")), stub), lab_trt)\n\n  # ---- key fix: embed width values in formulas (no 'stub_width' symbol to resolve later) ----\n  f_stub &lt;- rlang::new_formula(1, stub_width, env = environment())                   # col 1\n  f_trt  &lt;- rlang::new_formula(dplyr::all_of(trt_cols), trt_width, env = environment())\n\n  g &lt;- gt::gt(df) %&gt;%\n    gt::tab_header(\n      title = gt::md(paste0(\"**\", title, \"**\")),\n      subtitle = subtitle\n    ) %&gt;%\n    gt::opt_row_striping() %&gt;%\n    gt::cols_width(f_stub, f_trt) %&gt;%                      # &lt;-- widen first col\n    gt::cols_align(\"left\",   columns = 1) %&gt;%              # &lt;-- use col position (robust)\n    gt::cols_align(\"center\", columns = dplyr::all_of(trt_cols)) %&gt;%\n    gt::opt_table_font(font = list(\"Courier New\", \"Consolas\", \"monospace\")) %&gt;%\n    gt::tab_options(\n      table.font.size = gt::px(12),\n      data_row.padding = gt::px(2),\n\n      table.border.top.style = \"solid\",\n      table.border.top.width = gt::px(2),\n      column_labels.border.bottom.style = \"solid\",\n      column_labels.border.bottom.width = gt::px(2),\n      table.border.bottom.style = \"solid\",\n      table.border.bottom.width = gt::px(2),\n\n      table_body.hlines.style = \"none\",\n      table_body.vlines.style = \"none\",\n      column_labels.vlines.style = \"none\"\n    )\n\n  # apply labels (programmatically)\n  g &lt;- do.call(gt::cols_label, c(list(g), labs))\n\n  # Bold section headers (first column)\n  g &lt;- g %&gt;%\n    gt::tab_style(\n      style = gt::cell_text(weight = \"bold\"),\n      locations = gt::cells_body(columns = 1, rows = is_section)\n    ) %&gt;%\n    # Indent sub-rows (first column)\n    gt::tab_style(\n      style = gt::cell_text(indent = gt::px(18)),\n      locations = gt::cells_body(columns = 1, rows = is_sub & !is_section)\n    ) %&gt;%\n    gt::tab_source_note(gt::md(\"*Percentages are based on the column N.*\"))\n\n  g\n}\n\n\n\n\nCode\n# tlf_gt(final, stub_width = gt::px(420))\n# or\n# tlf_gt(final, stub_width = gt::pct(60))\n\ntlf_gt(final, stub_width = gt::px(420), trt_width = gt::px(85))\n\n\n\n\n\n\n\n\nTable X. Treatment-Emergent Adverse Events by System Organ Class and Preferred Term\n\n\nSafety Population\n\n\n\nPlacebo\n(N=5)\nTRT A\n(N=5)\nTRT B\n(N=5)\nOverall\n(N=15)\n\n\n\n\nOverall\n4 (80.0%)\n4 (80.0%)\n5 (100.0%)\n13 (86.7%)\n\n\nCARDIAC DISORDERS\n2 (40.0%)\n0\n0\n2 (13.3%)\n\n\n   ATRIOVENTRICULAR BLOCK SECOND DEGREE\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\n   BUNDLE BRANCH BLOCK LEFT\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\nEYE DISORDERS\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\n   EYE ALLERGY\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\n   EYE PRURITUS\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\n   EYE SWELLING\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\nGASTROINTESTINAL DISORDERS\n2 (40.0%)\n0\n0\n2 (13.3%)\n\n\n   DIARRHOEA\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\n   HIATUS HERNIA\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\nGENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS\n2 (40.0%)\n3 (60.0%)\n5 (100.0%)\n10 (66.7%)\n\n\n   APPLICATION SITE DERMATITIS\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\n   APPLICATION SITE ERYTHEMA\n1 (20.0%)\n1 (20.0%)\n4 (80.0%)\n6 (40.0%)\n\n\n   APPLICATION SITE IRRITATION\n0\n1 (20.0%)\n1 (20.0%)\n2 (13.3%)\n\n\n   APPLICATION SITE PAIN\n0\n0\n1 (20.0%)\n1 (6.7%)\n\n\n   APPLICATION SITE PRURITUS\n1 (20.0%)\n2 (40.0%)\n5 (100.0%)\n8 (53.3%)\n\n\n   APPLICATION SITE URTICARIA\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\n   APPLICATION SITE VESICLES\n0\n1 (20.0%)\n1 (20.0%)\n2 (13.3%)\n\n\n   FATIGUE\n0\n1 (20.0%)\n2 (40.0%)\n3 (20.0%)\n\n\n   PYREXIA\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\nINFECTIONS AND INFESTATIONS\n2 (40.0%)\n1 (20.0%)\n1 (20.0%)\n4 (26.7%)\n\n\n   CELLULITIS\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\n   LOWER RESPIRATORY TRACT INFECTION\n0\n0\n1 (20.0%)\n1 (6.7%)\n\n\n   UPPER RESPIRATORY TRACT INFECTION\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\n   URINARY TRACT INFECTION\n1 (20.0%)\n0\n0\n1 (6.7%)\n\n\nMUSCULOSKELETAL AND CONNECTIVE TISSUE DISORDERS\n0\n1 (20.0%)\n1 (20.0%)\n2 (13.3%)\n\n\n   ARTHRALGIA\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\n   FLANK PAIN\n0\n0\n1 (20.0%)\n1 (6.7%)\n\n\nRENAL AND URINARY DISORDERS\n0\n1 (20.0%)\n1 (20.0%)\n2 (13.3%)\n\n\n   CALCULUS URETHRAL\n0\n0\n1 (20.0%)\n1 (6.7%)\n\n\n   MICTURITION URGENCY\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\nRESPIRATORY, THORACIC AND MEDIASTINAL DISORDERS\n1 (20.0%)\n1 (20.0%)\n1 (20.0%)\n3 (20.0%)\n\n\n   EPISTAXIS\n0\n0\n1 (20.0%)\n1 (6.7%)\n\n\n   NASAL CONGESTION\n1 (20.0%)\n1 (20.0%)\n0\n2 (13.3%)\n\n\n   PHARYNGOLARYNGEAL PAIN\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\nSKIN AND SUBCUTANEOUS TISSUE DISORDERS\n2 (40.0%)\n2 (40.0%)\n1 (20.0%)\n5 (33.3%)\n\n\n   ACTINIC KERATOSIS\n0\n0\n1 (20.0%)\n1 (6.7%)\n\n\n   ERYTHEMA\n1 (20.0%)\n2 (40.0%)\n0\n3 (20.0%)\n\n\n   PRURITUS\n1 (20.0%)\n1 (20.0%)\n0\n2 (13.3%)\n\n\n   PRURITUS GENERALISED\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\n   URTICARIA\n0\n1 (20.0%)\n0\n1 (6.7%)\n\n\n\nPercentages are based on the column N.",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Table 2. TEAE by SOC/PT</span>"
+    ]
+  },
+  {
+    "objectID": "tlg-table3.html",
+    "href": "tlg-table3.html",
+    "title": "Table 3: PFS Summary Table",
+    "section": "",
+    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Table 3: PFS Summary Table</span>"
+    ]
+  },
+  {
+    "objectID": "tlg-table4.html",
+    "href": "tlg-table4.html",
+    "title": "Table 4: Objective Response Rate (ORR)",
+    "section": "",
+    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Table 4: Objective Response Rate (ORR)</span>"
+    ]
+  },
+  {
+    "objectID": "tlg-table5.html",
+    "href": "tlg-table5.html",
+    "title": "Figure 1: Cumulative–Incidence Plot (PFS)",
+    "section": "",
+    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Figure 1: Cumulative–Incidence Plot (PFS)</span>"
+    ]
+  },
+  {
+    "objectID": "tlg-table6.html",
+    "href": "tlg-table6.html",
+    "title": "Figure 2: Kaplan–Meier Plot (PFS)",
+    "section": "",
+    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "crumbs": [
+      "TLG",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Figure 2: Kaplan–Meier Plot (PFS)</span>"
+    ]
+  }
+]
