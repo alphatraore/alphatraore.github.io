@@ -43,12 +43,12 @@
   {
     "objectID": "sdtm-DM.html",
     "href": "sdtm-DM.html",
-    "title": "SDTM DM",
+    "title": "SDTM DM (Demographics)",
     "section": "",
-    "text": "Describe DM build + key variables.\nSpec HTML\nDM Program HTML",
+    "text": "Core subject-level domain built from raw sources to define one record per subject, including study/site identifiers, demographic attributes, and key reference dates.\n\nDM Specifications\nDM Build Program (R)",
     "crumbs": [
       "SDTM",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>SDTM DM</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>SDTM DM (Demographics)</span>"
     ]
   },
   {
@@ -87,12 +87,12 @@
   {
     "objectID": "adam-adsl.html",
     "href": "adam-adsl.html",
-    "title": "ADaM ADSL",
+    "title": "ADaM ADSL (Subject-Level Analysis Dataset)",
     "section": "",
-    "text": "Population flags, baseline, key vars.\nSpec HTML\nADSL Program HTML",
+    "text": "Analysis-ready subject dataset derived from SDTM, including treatment variables, key study dates, baseline covariates, and population flags (e.g., ITT/SAF/PP).\n\nADSL Specifications\nBuild ADSL (R Derivation Program)",
     "crumbs": [
       "ADaM",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>ADaM ADSL</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>ADaM ADSL (Subject-Level Analysis Dataset)</span>"
     ]
   },
   {

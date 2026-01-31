@@ -1,0 +1,138 @@
+<div style="margin-bottom: 12px;">
+  <h1 style="margin: 0; font-size: 42px; font-weight: 800;">
+    ADAM ADSL Mapping Specifications
+  </h1>
+  <div style="margin-top: 6px; font-size: 18px;">
+    Author: Alpha Traore
+  </div>
+</div>
+<hr />
+
+<html><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></head><body><div class="container mt-4">
+
+<table id='sashtmltable' class='table table-sm .w-auto table-striped display sashtmltable'>
+<thead><tr><th data-name='ROWORDER'>ROWORDER</th> <th data-name='VARIABLE_NAME'>VARIABLE_NAME</th> <th data-name='VARIABLE_LABEL'>VARIABLE_LABEL</th> <th data-name='TYPE'>TYPE</th> <th data-name='GENERAL_COMMENT'>GENERAL_COMMENT</th></tr></thead>
+<tbody>
+<tr>
+<td>001 </td><td>STUDYID </td><td>Study Identifier </td><td>Char </td><td>DM.STUDYID </td>
+</tr>
+<tr>
+<td>002 </td><td>USUBJID </td><td>Unique Subject Identifier </td><td>Char </td><td>DM.USUBJID </td>
+</tr>
+<tr>
+<td>003 </td><td>SUBJID </td><td>Subject Identifier for the Study </td><td>Char </td><td>DM.SUBJID </td>
+</tr>
+<tr>
+<td>004 </td><td>SITEID </td><td>Study Site Identifier </td><td>Char </td><td>DM.SITEID </td>
+</tr>
+<tr>
+<td>005 </td><td>AGE </td><td>Age </td><td>Num </td><td>DM.AGE </td>
+</tr>
+<tr>
+<td>006 </td><td>AGEU </td><td>Age Units </td><td>Char </td><td>DM.AGEU </td>
+</tr>
+<tr>
+<td>007 </td><td>AGEGR1 </td><td>Pooled Age Group 1 </td><td>Char </td><td>Populate using DM.AGE. If AGE<60 then set to "< 60 Years". Else if AGE>=60 then set to ">= 60 Years". </td>
+</tr>
+<tr>
+<td>008 </td><td>AGEGR1N </td><td>Pooled Age Group 1 (N) </td><td>Num </td><td>Populate using ADSL.AGEGR1. If AGEGR1="< 60 Years" then set to 1. Else if AGEGR1=">= 60 Years" then set to 2. </td>
+</tr>
+<tr>
+<td>009 </td><td>SEX </td><td>Sex </td><td>Char </td><td>DM.SEX </td>
+</tr>
+<tr>
+<td>010 </td><td>RACE </td><td>Race </td><td>Char </td><td>DM.RACE </td>
+</tr>
+<tr>
+<td>011 </td><td>RACE1 </td><td>Race 1 </td><td>Char </td><td>Populate using QVAL where SUPPDM.QNAM="RACE1" </td>
+</tr>
+<tr>
+<td>012 </td><td>RACE2 </td><td>Race 2 </td><td>Char </td><td>Populate using QVAL where SUPPDM.QNAM="RACE2" </td>
+</tr>
+<tr>
+<td>013 </td><td>RACESP </td><td>Race Other Specify </td><td>Char </td><td>Populate using QVAL where SUPPDM.QNAM="RACESP" </td>
+</tr>
+<tr>
+<td>014 </td><td>SAFFL </td><td>Safety Population Flag </td><td>Char </td><td>Populate as "Y" for the subjects with non missing treatment start date (ADSL.TRTSDT). Else populate as "N". </td>
+</tr>
+<tr>
+<td>015 </td><td>COMPLFL </td><td>Completers Population Flag </td><td>Char </td><td>Populate as "Y" for the subjects who completed the study (DS.DSSCAT="END OF STUDY" and DS.DSDECOD="COMPLETED"). Else populate as "N". </td>
+</tr>
+<tr>
+<td>016 </td><td>RANDFL </td><td>Randomized Population Flag </td><td>Char </td><td>Populate as "Y" for the subjects with non missing randomization date (ADSL.RANDDT). Else populate as "N". </td>
+</tr>
+<tr>
+<td>017 </td><td>ENRLFL </td><td>Enrolled Population Flag </td><td>Char </td><td>Populate as "Y" for the subjects with non missing enrollment date (ADSL.ENRLDT). Else populate as "N". </td>
+</tr>
+<tr>
+<td>018 </td><td>ARM </td><td>Description of Planned Arm </td><td>Char </td><td>DM.ARM </td>
+</tr>
+<tr>
+<td>019 </td><td>ACTARM </td><td>Description of Actual Arm </td><td>Char </td><td>DM.ACTARM </td>
+</tr>
+<tr>
+<td>020 </td><td>TRT01P </td><td>Planned Treatment for Period 01 </td><td>Char </td><td>Populate using DM.ARM. If ARM="Placebo" then "Placebo". Else if ARM="Active" then "Active". Else set to null. </td>
+</tr>
+<tr>
+<td>021 </td><td>TRT01PN </td><td>Planned Treatment for Period 01 (N) </td><td>Num </td><td>Populate using ADSL.TRT01P. If TRT01P="Placebo" then set to 1. Else if TRT01P="Active" then set to 2.. </td>
+</tr>
+<tr>
+<td>022 </td><td>TRT01A </td><td>Actual Treatment for Period 01 </td><td>Char </td><td>Populate using DM.ACTARM. If ARM="Placebo" then "Placebo". Else if ACTARM="Active" then "Active". Else set to null. </td>
+</tr>
+<tr>
+<td>023 </td><td>TRT01AN </td><td>Actual Treatment for Period 01 (N) </td><td>Num </td><td>Populate using ADSL.TRT01A. If TRT01P="Placebo" then set to 1. Else if TRT01A="Active" then set to 2.. </td>
+</tr>
+<tr>
+<td>024 </td><td>TRTSDT </td><td>Date of First Exposure to Treatment </td><td>Num </td><td>ADSL.TR01SDT </td>
+</tr>
+<tr>
+<td>025 </td><td>TRTEDT </td><td>Date of Last Exposure to Treatment </td><td>Num </td><td>ADSL.TR01EDT </td>
+</tr>
+<tr>
+<td>026 </td><td>TR01SDT </td><td>Date of First Exposure in Period 01 </td><td>Num </td><td>Populate using DM.RFXSTDTC </td>
+</tr>
+<tr>
+<td>027 </td><td>TR01EDT </td><td>Date of Last Exposure in Period 01 </td><td>Num </td><td>Populate using DM.RFXENDTC </td>
+</tr>
+<tr>
+<td>028 </td><td>EOSSTT </td><td>End of Study Status </td><td>Char </td><td>Populate using the end of study status record in disposition data (DS.DSSCAT="END OF STUDY").<br> If DSDECOD="COMPLETED" then set to "COMPLETED". <br>Else if DSDECOD is not null then set to "DISONTINUED". <br>Else if no record exists in disposition for end of study status and subject is not screen failure (ADSL.ARM is not "Screen Failure"), then set to "ONGOING". </td>
+</tr>
+<tr>
+<td>029 </td><td>EOSDT </td><td>End of Study Date </td><td>Num </td><td>Populate using DS.DSSTDTC from the record where DS.DSSCAT="END OF STUDY". </td>
+</tr>
+<tr>
+<td>030 </td><td>DCSREAS </td><td>Reason for Discontinuation from Study </td><td>Char </td><td>Populate using DS.DSDECOD form the end of study status record in disposition data (DS.DSSCAT="END OF STUDY" and DS.DSDECOD is not "COMPLETED"). </td>
+</tr>
+<tr>
+<td>031 </td><td>EOTSTT </td><td>End of Treatment Status </td><td>Char </td><td>Populate using the end of study treatment record in disposition data (DS.DSSCAT="END OF TREATMENT").<br> If DSDECOD="COMPLETED" then set to "COMPLETED". <br>Else if DSDECOD is not null then set to "DISONTINUED". <br>Else if no record exists in disposition for end of treatment status and subject is a safety subject (ADSL.SAFFL="Y"), then set to "ONGOING". </td>
+</tr>
+<tr>
+<td>032 </td><td>DCTREAS </td><td>Reason for Discontinuation of Treatment </td><td>Char </td><td>Populate using DS.DSDECOD form the end of study status record in disposition data (DS.DSSCAT="END OF TREATMENT" and DS.DSDECOD is not "COMPLETED"). </td>
+</tr>
+<tr>
+<td>033 </td><td>RFICDT </td><td>Date of Informed Consent </td><td>Num </td><td>Populate using DM.RFICDTC, after converting the date portion to numeric version. </td>
+</tr>
+<tr>
+<td>034 </td><td>ENRLDT </td><td>Date of Enrollment </td><td>Num </td><td>Populate using DS.DSSTDTC on the record where DSTERM="ENROLLED" </td>
+</tr>
+<tr>
+<td>035 </td><td>RANDDT </td><td>Date of Randomization </td><td>Num </td><td>Populate using DS.DSSTDTC on the record where DSDECOD="RANDOMIZED" </td>
+</tr>
+<tr>
+<td>036 </td><td>LSTALVDT </td><td>Date Last Known Alive </td><td>Num </td><td>Populate using DM.RFPENDTC </td>
+</tr>
+<tr>
+<td>037 </td><td>TRTDURD </td><td>Total Treatment Duration (Days) </td><td>Num </td><td>Populate as the difference between TRTEDT-TRTSDT+1. </td>
+</tr>
+<tr>
+<td>038 </td><td>DTHDT </td><td>Date of Death </td><td>Num </td><td>Populate using DM.DTHDTC. </td>
+</tr>
+<tr>
+<td>039 </td><td>HEIGHTBL </td><td>Baseline Height (cm) </td><td>Num </td><td>Populate using VS.VSSTRESN where VS.VSTESTCD="HEIGHT" and VS.VSBLFL="Y". </td>
+</tr>
+<tr>
+<td>040 </td><td>WEIGHTBL </td><td>Baseline Weight (kg) </td><td>Num </td><td>Populate using VS.VSSTRESN where VS.VSTESTCD="WEIGHT" and VS.VSBLFL="Y". </td>
+</tr>
+</tbody>
+</table>
+</div></body></html>
