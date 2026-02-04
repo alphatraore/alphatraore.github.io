@@ -2,31 +2,41 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Sample Codes",
+    "title": "Standards Driven Programming Deliverables | SAS & R",
     "section": "",
-    "text": "Alpha Traore\nExperienced Data Analyst focused on quality and traceability\nThis site showcases end-to-end, reproducible examples for clinical programming workflows:",
+    "text": "About this site\nI’m Alpha Traore, an experienced data scientist focused on quality and traceability in clinical programming.\nThis site showcases end-to-end, reproducible examples across SDTM → ADaM → TLF workflows.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sample Codes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>SAS & R Sample Code</span>"
     ]
   },
   {
-    "objectID": "index.html#what-youll-find-here",
-    "href": "index.html#what-youll-find-here",
-    "title": "Sample Codes",
-    "section": "What you’ll find here",
-    "text": "What you’ll find here\n\n\n\n\n\n\nNoteTraceability-first mindset\n\n\n\nEvery result should be traceable: TLF → ADaM → SDTM → Source",
+    "objectID": "index.html#about-this-site",
+    "href": "index.html#about-this-site",
+    "title": "Standards Driven Programming Deliverables | SAS & R",
+    "section": "",
+    "text": "NoteTraceability-first mindset\n\n\n\nEvery result should be traceable:\nTLF → ADaM → SDTM → Source",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sample Codes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>SAS & R Sample Code</span>"
     ]
   },
   {
-    "objectID": "index.html#how-to-run",
-    "href": "index.html#how-to-run",
-    "title": "Sample Codes",
-    "section": "How to run",
-    "text": "How to run\n\nLocal\n```bash quarto preview\nWelcome. Use the sidebar to navigate.",
+    "objectID": "index.html#explore-by-deliverable",
+    "href": "index.html#explore-by-deliverable",
+    "title": "Standards Driven Programming Deliverables | SAS & R",
+    "section": "Explore by deliverable",
+    "text": "Explore by deliverable\n\n\nSDTM\nDM / AE / VS examples: - structure & conventions\n- controlled terminology\n- implementation-ready patterns\n\n\nADaM\nADSL / ADAE / ADVS examples: - derivations & analysis flags\n- traceability variables\n- reviewer-friendly outputs\n\n\nTLF\nTables / Listings / Figures: - production-style outputs\n- consistent formatting\n- analysis-ready presentation",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sample Codes</span>"
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>SAS & R Sample Code</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#what-youll-see-in-each-example",
+    "href": "index.html#what-youll-see-in-each-example",
+    "title": "Standards Driven Programming Deliverables | SAS & R",
+    "section": "What you’ll see in each example",
+    "text": "What you’ll see in each example\n\nInputs: source/SDTM assumptions + specs alignment\n\nDerivations: clear logic + intermediate checks\n\nQC hooks: validations, counts, sanity checks\n\nTraceability: keys and links back to source",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>SAS & R Sample Code</span>"
     ]
   },
   {
@@ -34,7 +44,7 @@
     "href": "overview-SDTM.html",
     "title": "Overview",
     "section": "",
-    "text": "This section covers DM, AE, VS.",
+    "text": "This section covers DM (Demographics), AE (Adverse Events), and VS (Vital Signs), with links to specifications and build programs for each domain.",
     "crumbs": [
       "SDTM",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Overview</span>"
@@ -78,7 +88,7 @@
     "href": "overview-ADAM.html",
     "title": "Overview",
     "section": "",
-    "text": "This section covers ADSL, ADAE, ADVS.",
+    "text": "This section covers ADSL (Subject-Level), ADAE (Adverse Events), and ADVS (Vital Signs), with links to specifications and build programs.",
     "crumbs": [
       "ADaM",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Overview</span>"
@@ -122,7 +132,7 @@
     "href": "overview-tlg.html",
     "title": "Overview",
     "section": "",
-    "text": "Tables generated from ADaM.",
+    "text": "This section contains Tables, Listings, and Figures (TLGs) generated from ADaM, with links to each output and its source programs.",
     "crumbs": [
       "TLG",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Overview</span>"
@@ -133,7 +143,7 @@
     "href": "tlg-table1.html",
     "title": "Table 1: Demographics",
     "section": "",
-    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "text": "This page includes the generating program and final output for Table 1 (Demographics). Table Programs and Outputs (HTML)\nTable Programs and Outputs",
     "crumbs": [
       "TLG",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Table 1: Demographics</span>"
@@ -155,7 +165,7 @@
     "href": "tlg-table3.html",
     "title": "Table 3: PFS Summary Table",
     "section": "",
-    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "text": "This page includes the generating program and the final output for Table 3 (PFS Summary Table). Table Programs and Outputs (HTML)\nTable Programs and Outputs HTML",
     "crumbs": [
       "TLG",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Table 3: PFS Summary Table</span>"
@@ -166,7 +176,7 @@
     "href": "tlg-table4.html",
     "title": "Table 4: Objective Response Rate (ORR)",
     "section": "",
-    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "text": "This page includes the generating program and the final output for Table 4 (Objective Response Rate (ORR)). Table Programs and Outputs (HTML)\nTable Programs and Outputs",
     "crumbs": [
       "TLG",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Table 4: Objective Response Rate (ORR)</span>"
@@ -177,7 +187,7 @@
     "href": "tlg-table5.html",
     "title": "Figure 1: Cumulative–Incidence Plot (PFS)",
     "section": "",
-    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "text": "This page includes the generating program and the final output for Figure 1 (Cumulative–Incidence Plot (PFS)). Figure Programs and Outputs (HTML)\nTable Progrms and Outputs",
     "crumbs": [
       "TLG",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Figure 1: Cumulative–Incidence Plot (PFS)</span>"
@@ -188,7 +198,7 @@
     "href": "tlg-table6.html",
     "title": "Figure 2: Kaplan–Meier Plot (PFS)",
     "section": "",
-    "text": "Insert code/output. Table Progrms and Outputs HTML",
+    "text": "This page includes the generating program and the final output for Figure 2 (Kaplan–Meier Plot (PFS)). Figure Programs and Outputs (HTML) Insert code/output. Table Progrms and Outputs",
     "crumbs": [
       "TLG",
       "<span class='chapter-number'>16</span>  <span class='chapter-title'>Figure 2: Kaplan–Meier Plot (PFS)</span>"
