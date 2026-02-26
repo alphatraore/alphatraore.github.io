@@ -6,7 +6,7 @@ page-layout: article
 ---
 
 ::: {.callout-tip appearance="simple"}
-This section presents my **Statistical Science** work across study strategy, estimands, confirmatory inference, robustness, and modeling, focused on analysis planning, execution, and delivery readiness.
+This section presents my **Statistical Science** support across study strategy, estimands, confirmatory inference, robustness, and modeling, focused on analysis planning, execution, and delivery readiness.
 :::
 
 ## What this section demonstrates
