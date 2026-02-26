@@ -1,0 +1,51 @@
+---
+title: "MMRM"
+subtitle: "Longitudinal endpoints • covariance structure • estimand-aligned inference"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+    link-external-newwindow: true
+---
+
+::: {.callout-tip}
+### Goal
+Analyze **change-from-baseline longitudinal endpoints** using **MMRM**, aligned with clinical trial conventions and estimand-focused reporting.
+:::
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications / Notes
+- [MMRM Analysis Spec / Model Notes](spec/MMRM_model_notes.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [MMRM Analysis Program](programs/MMRM_analysis_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## Programs and Outputs (HTML)
+- [MMRM Output Report](outputs/MMRM_results.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Repeated-measures inference for continuous endpoints across visits
+- **Traceability:** Analysis dataset → visit mapping → model specification → results
+- **Typical outputs:** LS-means by visit, treatment differences, CI/p-values, fit diagnostics
+
+## Model components (typical)
+- Fixed effects: **TRT**, **VISIT**, **TRT×VISIT**
+- Baseline covariate (and optionally baseline×visit)
+- Subject as repeated unit
+- Covariance: **UN / AR(1) / CS** (per SAP or justified via diagnostics)
+
+## QC checklist
+- **Baseline definition:** Consistent baseline window and parameter alignment
+- **Visit mapping:** Windowing rules clearly documented
+- **Convergence:** Diagnostics captured; sensitivity to covariance choice
+- **Sensitivity:** Alternative covariance structures / model variants (when needed)

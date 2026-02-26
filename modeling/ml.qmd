@@ -1,0 +1,50 @@
+---
+title: "Machine Learning"
+subtitle: "Interpretable models • leakage-safe validation • reproducible pipelines"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+    link-external-newwindow: true
+---
+
+::: {.callout-tip}
+### Goal
+Build **predictive models** that are **interpretable, validated, and auditable**—with clear feature provenance and a split strategy that prevents leakage.
+:::
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications / Notes
+- [ML Model Notes / Spec](spec/ML_model_notes.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [ML Training Pipeline (R/Python)](programs/ML_training_pipeline.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## Programs and Outputs (HTML)
+- [ML Output Report](outputs/ML_results.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Predictive modeling examples that complement classical biostatistics
+- **Traceability:** Feature definitions → preprocessing → training/validation → outputs
+- **Typical outputs:** ROC/PR curves, calibration, performance table, key drivers/importance
+
+## Workflow (review-ready)
+- **Inputs:** Subject-level or visit-level analysis dataset (ADaM-ready or analysis-ready)
+- **Preprocessing:** Missingness handling, encoding, scaling (**fit on training only**)
+- **Validation:** Subject-level split; CV; time-aware split when required
+- **Explainability:** Feature importance / SHAP / partial dependence (when applicable)
+
+## QC checklist
+- **Leakage controls:** No post-baseline predictors for baseline tasks; time/order respected
+- **Population consistency:** Same analysis set definition across folds/splits
+- **Robustness:** Sensitivity to seeds/folds/feature sets

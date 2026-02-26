@@ -1,0 +1,21 @@
+---
+title: "Build & Quality"
+---
+
+# SDTM Build & Quality
+
+This section documents **reproducibility, QC, validation, and standards alignment**.
+
+## Build Assets
+- [Programs](../programs/index.qmd)
+- [Standards](../standards/index.qmd)
+
+## Quality Assets
+- [Validation Summary](../validation/validation_summary.qmd)
+- [QC](../qc/index.qmd)
+
+## Where Files Live
+- Programs: `sdtm/programs/`
+- Validation: `sdtm/validation/`
+- QC: `sdtm/qc/`
+- Standards: `sdtm/standards/`

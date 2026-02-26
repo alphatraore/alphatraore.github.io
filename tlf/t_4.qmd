@@ -1,0 +1,23 @@
+# Table 4: Table 4: ORR
+
+Core **objective response rate (ORR)** summary table reporting the proportion of subjects with **Complete Response (CR)** or **Partial Response (PR)** **by treatment group** (and overall). This page links the **generating program** and the **final output** for submission-style review and traceability.
+
+## Deliverables
+
+### Programming + Output
+- [Generate Table 4 (Program and output)](/tlf/tables/outputs/Table_4_ORR.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Summarize tumor response outcomes and ORR by treatment group
+- **Traceability:** Table shell/spec → Program → Output (review-ready)
+- **Typical rows:** N, CR, PR, ORR (CR+PR), 95% CI (e.g., Clopper–Pearson), p-value (if applicable)
+- **Typical display:** counts and percentages by response category, plus ORR with confidence intervals aligned to SAP conventions
+
+---
+
+<iframe
+  src="/tlf/tables/outputs/table4_orr.webp"
+  class="tlf-frame"
+  title="Table 4: Objective Response Rate (ORR)"
+  loading="lazy"
+></iframe>

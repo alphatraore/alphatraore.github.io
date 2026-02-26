@@ -1,0 +1,114 @@
+---
+title: "Sample Size and Power"
+subtitle: "From objectives and assumptions to decision-ready planning"
+description: "A practical, biostatistics-focused overview of sample size and power planning, linking assumptions, dropout, multiplicity, and sensitivity scenarios to defensible study design."
+toc: true
+---
+
+## Overview
+
+Sample size and power planning translate study objectives into **design choices** that must be both feasible and defensible. Beyond a single calculation, strong planning means defining the primary claim, documenting the assumptions that drive information, and checking that the design remains aligned with the estimand, analysis approach, and decision rules.
+
+::: {.callout-tip appearance="simple"}
+**Goal:** document assumptions clearly, align power with the primary estimand and multiplicity strategy, and pre-specify sensitivity scenarios so the design remains defensible and feasible.
+:::
+
+## What gets evaluated in practice
+
+### Objectives, estimand, and decision framework
+- Confirm the primary objective and estimand target (what effect is being tested and in which population).
+- Clarify the hypothesis framework (superiority, non-inferiority, equivalence) and decision criteria.
+- Ensure the power target matches the intended claim and endpoint interpretation.
+
+### Key assumptions (the inputs that drive N)
+- Define the effect size assumption (clinically meaningful difference or target effect).
+- Confirm variability assumptions (SD for continuous outcomes; event rate/hazard assumptions for time-to-event).
+- Specify Type I error (alpha), power, and allocation ratio.
+- Incorporate anticipated dropout and missingness in a transparent, reviewable way.
+
+### Design features that change information
+- Confirm design type (parallel, crossover, cluster, factorial) and implications for efficiency.
+- Review stratification, blocking, and randomization ratio choices.
+- For time-to-event studies, assess accrual period, follow-up duration, and the expected number of events.
+
+### Multiplicity and decision rules alignment
+- Confirm the multiplicity strategy (hierarchy, gatekeeping, alpha-splitting) supports the powering objective.
+- Ensure key secondary claims have adequate planned evidence given alpha allocation.
+- If interim looks exist, ensure alpha spending and decision thresholds are clearly reflected.
+
+## Assumptions checklist (by endpoint type)
+
+| Component | Continuous endpoint (e.g., change from baseline) | Binary endpoint (e.g., response) | Time-to-event endpoint (e.g., PFS/OS) |
+|---|---|---|---|
+| **Effect assumption** | Mean difference (or ratio) at primary timepoint | Response rates (p1 vs p2), risk difference/OR/RR | Hazard ratio or event rates; clinically meaningful HR |
+| **Variability / event info** | SD (and correlation if repeated measures) | Binomial variance driven by p | Number of events drives power; event rate assumptions |
+| **Primary analysis target** | Estimand + timepoint; baseline/visit windows | Estimand + responder definition/window | Event definition + censoring aligned to estimand |
+| **Alpha / power** | One- vs two-sided; power target | One- vs two-sided; power target | One- vs two-sided; power target; alpha spending if interim |
+| **Allocation ratio** | 1:1 or unbalanced; impact on precision | 1:1 or unbalanced; impact on precision | Allocation affects event counts and information |
+| **Dropout / missingness** | Missing assessments, discontinuation; missing data plan | Missing response assessment rules | Loss to follow-up; informative censoring risk |
+| **Timing assumptions** | Visit schedule, window rules, endpoint timing | Response assessment schedule | Accrual, follow-up duration, maturity of events |
+| **Multiplicity** | Hierarchy/gatekeeping affects powered claims | Hierarchy/gatekeeping affects powered claims | Hierarchy/gatekeeping + interim looks affect alpha |
+| **Sensitivity scenarios** | Higher SD, higher dropout, smaller effect | Lower response, higher missing, smaller effect | Lower event rate, slower accrual, smaller HR |
+
+## Sensitivity scenarios (stress tests)
+
+Plans are stronger when assumptions are stress-tested early. Common scenarios include:
+
+- higher-than-expected dropout or missed assessments
+- slower enrollment or delayed accrual
+- lower event rate or delayed event occurrence
+- greater variability than assumed
+- treatment effect smaller than expected
+
+Where appropriate, summarize these in a simple **scenario table** (assumption ranges → resulting N or event targets), not just a single point estimate.
+
+## Common failure modes (and how to prevent them)
+
+### Over-optimistic assumptions
+- **Issue:** effect size is too optimistic, SD/event rate is underestimated, or dropout is assumed too low.
+- **Prevention:** base inputs on prior studies or clinically justified ranges, then include conservative sensitivity scenarios.
+
+### Multiplicity mismatch
+- **Issue:** power is calculated for the primary endpoint, but the multiplicity strategy reduces alpha for the claim that matters.
+- **Prevention:** confirm the powering objective matches the claim under the planned hierarchy/gatekeeping rules.
+
+### Endpoint definition drift
+- **Issue:** endpoint timing/windows, baseline rules, or responder definitions change late, requiring re-derivations and re-analysis.
+- **Prevention:** lock endpoint definitions early and ensure SoA/CRF capture supports derivations.
+
+### Missing data rules added late
+- **Issue:** missing data and intercurrent event handling are not fully specified early, leading to SAP rework and interpretation risk.
+- **Prevention:** align estimand strategy with a primary missing data approach and pre-specify key sensitivity analyses.
+
+### Time-to-event maturity risk
+- **Issue:** event rate or follow-up assumptions are too optimistic, delaying maturity and reducing power at the planned analysis time.
+- **Prevention:** plan event-driven targets, monitor accrual and event rates, and predefine operational options (extended follow-up, timing adjustments).
+
+### Implementation feasibility gaps
+- **Issue:** assumptions are not traceable or are not reflected consistently in protocol/SAP/shells/specs.
+- **Prevention:** maintain a traceable assumptions log and ensure consistency across protocol → SAP → ADaM → TLFs.
+
+## Implementation and documentation checks
+
+- Ensure assumptions are traceable to prior studies, literature, or clinical rationale.
+- Confirm consistency across protocol, methods sections, and SAP assumptions.
+- Identify assumptions that strongly drive feasibility (enrollment, event maturity, dropout) and require monitoring during conduct.
+- Ensure shells and outputs are feasible given planned sample size, visit frequency, and endpoint timing.
+
+## Typical outputs from power planning
+
+- Sample size rationale with documented assumptions and calculation approach
+- Sensitivity scenario summary supporting robustness of the design
+- Alignment summary across estimand, multiplicity, and decision rules
+- Monitoring considerations for enrollment, dropout, and event accrual (as applicable)
+
+## How this connects to deliverables
+- **Protocol → SAP:** assumptions and design decisions become analysis methods and decision rules
+- **SAP → ADaM specs:** populations, estimand-related rules, and key variables support planned analyses
+- **ADaM → TLFs:** outputs reflect the powered objective and planned interpretation
+
+## Related pages
+- [Study Design Overview](study_design_overview.qmd)
+- [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [SAP + TLF Shells](sap_tfl_shells.qmd)

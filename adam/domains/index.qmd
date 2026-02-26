@@ -1,0 +1,21 @@
+---
+title: "Domains (with Specs)"
+---
+
+# ADaM Datasets (with Specs)
+
+ADaM deliverables organized for **analysis-readiness** and **traceability**.
+
+## Specs (ADaM)
+- Specs folder: `adam/spec/`
+- Suggested naming: `adsl_spec.html`, `adae_spec.html`, `advs_spec.html`, `adtte_spec.html`.
+
+## Dataset Pages
+- [ADSL](../adsl.qmd)
+- [ADAE](../adae.qmd)
+- [ADVS](../advs.qmd)
+- [ADTTE](../adtte.qmd)
+
+## Quick Links
+- Programs: `adam/programs/`
+- Outputs: `adam/outputs/`

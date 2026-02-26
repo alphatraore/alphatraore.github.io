@@ -1,0 +1,22 @@
+# ADaM ADAE (Adverse Events Analysis Dataset)
+
+Analysis-ready **event-level** ADaM dataset derived from SDTM AE (and ADSL) to support **treatment-emergent adverse event (TEAE)** analyses, including **analysis dates**, **severity/seriousness**, **relationship**, and **analysis flags** used for summary tables and listings.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [ADAE Specifications](/spec/ADAE_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [Build ADAE (R Derivation Program)](/adam/programs/Mini_ADAE_R_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** Event-level AE records aligned to analysis populations and treatment periods
+- **Traceability:** Spec → Program → Output alignment (including merges to ADSL)
+- **Typical variables:** `STUDYID`, `USUBJID`, `AEDECOD`, `AEBODSYS`, `AESER`, `AESEV`, `AEREL`, `ASTDT`, `AENDT`, `ASTDY`, `AENDY`, treatment variables from ADSL (e.g., `TRT01A`), and flags like `TRTEMFL` / `TEAEFL`

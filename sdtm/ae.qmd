@@ -1,0 +1,24 @@
+## SDTM AE (Adverse Events)
+
+Core **event-level** SDTM domain built from raw safety sources to define **one record per adverse event occurrence per subject**, capturing the **reported term** (and **coded term** when available), **event start/end dates**, and key qualifiers such as **severity**, **seriousness**, **relationship to treatment**, **action taken**, and **outcome**, supporting downstream safety summaries and listings.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [AE Specifications](/spec/SDTM_AE_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [AE Build Program (R)](/sdtm/programs/Mini_AE_R_Program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** One record per AE per subject (event timing + clinical qualifiers)
+- **Traceability:** Spec → Program → Output alignment (mappings, derivations, controlled terminology)
+- **Typical variables:** `STUDYID`, `DOMAIN`, `USUBJID`, `AESEQ`, `AETERM`, `AEDECOD`, `AEBODSYS`,
+  `AESOC`, `AESEV`, `AESER`, `AEREL`, `AEACN`, `AEOUT`, `AESTDTC`, `AEENDTC`,
+  `AESTDY`, `AEENDY`, `AEENRF`, `AEPRESP`, `AESDTH`, `AESLIFE`, `AESDISAB`, `AESHOSP`, `AESCONG`

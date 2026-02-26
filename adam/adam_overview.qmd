@@ -1,0 +1,178 @@
+---
+title: "ADaM Overview"
+subtitle: "Analysis Data Model — analysis readiness, traceability, and reproducible results"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+---
+
+::: {.callout-tip}
+### Goal of ADaM
+**ADaM standardizes analysis-ready datasets** so statisticians and reviewers can **reproduce analyses and outputs** directly from well-documented, traceable inputs.
+:::
+
+## What ADaM is
+**ADaM (Analysis Data Model)** is a CDISC standard that organizes clinical trial data into **analysis-ready datasets** derived from SDTM.
+ADaM is designed to:
+- support **statistical analyses described in the SAP**
+- enable **traceability** back to SDTM and source
+- ensure consistent **population definitions, parameters, baselines, and analysis timing**
+
+Common ADaM dataset types include:
+- **ADSL** (Subject-Level Analysis Dataset)
+- **BDS** (Basic Data Structure) datasets like **ADAE, ADLB, ADVS**
+- **ADTTE** (Time-to-Event)
+- **OCCDS** (Occasion Data Structure) when repeated occasions/episodes drive analysis
+
+## Why ADaM matters
+- **Reproducibility:** analyses can be rerun reliably from ADaM with clear rules.
+- **Regulatory clarity:** reviewers see consistent populations, parameters, and derivations.
+- **Traceability:** derived variables are documented via define.xml + ADRG.
+- **Downstream speed:** TLFs are typically built *directly* from ADaM.
+
+---
+
+## ADaM building blocks
+
+### ADSL is the anchor
+**ADSL** is usually the first dataset built and becomes the backbone for:
+- treatment variables (planned/actual)
+- key dates (treatment start/end, randomization, etc.)
+- analysis populations (e.g., **SAFFL**, **ITTFL**, **PPFL**)
+- stratification and baseline descriptors
+
+### Parameters (BDS mindset)
+In many analyses (labs, vitals, questionnaires), ADaM uses a **parameterized** structure:
+- `PARAMCD` / `PARAM` — the analysis parameter (e.g., ALT, SYSBP)
+- `AVAL` — analysis value
+- `BASE` — baseline value (per SAP definition)
+- `CHG` / `PCHG` — change / percent change
+- `AVISIT` / `AVISITN` — analysis visit
+- `ADT` / `ADTM` — analysis date/time
+
+::: {.callout-note}
+### ADaM dates vs SDTM dates
+- SDTM uses **ISO 8601 character** timing like `--DTC`.
+- ADaM commonly uses **numeric analysis dates** like `ADT` (and optionally `ADTM`).
+Document conversion rules and any imputation conventions in the **ADRG**.
+:::
+
+---
+
+## Core ADaM structure concepts
+
+### Analysis populations (flags)
+Common flags (study-dependent) include:
+- `SAFFL` — Safety population flag
+- `ITTFL` — Intent-to-treat flag
+- `PPFL` — Per-protocol flag
+- `EFFFL` — Efficacy population flag (if used)
+
+### Baseline and analysis windows
+Analyses often require:
+- a **baseline definition** (e.g., last non-missing pre-dose)
+- **windowing rules** for visits (especially if visits are unscheduled)
+- handling **multiple records** (e.g., worst grade, closest to nominal visit)
+
+### Traceability variables (review-friendly)
+Typical traceability hooks include:
+- `SRCDOM` / `SRCVAR` / `SRCSEQ` (implementation-dependent but very useful)
+- links back to SDTM keys (e.g., `AESEQ`, `LBSEQ`, `VSSEQ`) when applicable
+- define.xml **Origin**, **MethodDefs**, and **Computational Algorithms**
+
+---
+
+## Mini examples
+
+### Example 1 — ADSL (one record per subject)
+ADSL carries populations, treatment, and key reference dates.
+
+| STUDYID | USUBJID | SITEID | AGE | SEX | RACE | TRT01P | TRT01A | SAFFL | ITTFL | TRTSDT | TRTEDT |
+|---|---|---|---:|---|---|---|---|---|---|---|---|
+| ABC123 | ABC123-001-1001 | 001 | 62 | M | WHITE | Drug A | Drug A | Y | Y | 15JAN2025 | 28FEB2025 |
+
+### Example 2 — ADAE (analysis-ready adverse events)
+ADAE often includes analysis start/end dates, derived flags, and analysis timing.
+
+| USUBJID | AETERM | AEDECOD | ASTDT | AENDT | AESEV | AESER | AEREL | TRTEMFL | ONTRTFL |
+|---|---|---|---|---|---|---|---|---|---|
+| ABC123-001-1001 | Headache | HEADACHE | 20JAN2025 | 21JAN2025 | MILD | N | RELATED | Y | Y |
+
+> Notes:
+> - `TRTEMFL` / `ONTRTFL` definitions are study-specific and must match the SAP/ADRG.
+> - If toxicity grading is required, variables like `ATOXGR` may be included (therapeutic area–dependent).
+
+---
+
+## ADaM standards and compliance
+ADaM implementations typically depend on:
+- **ADaMIG** for structure and expectations
+- **Define-XML** for metadata (origins, methods, value-level metadata)
+- **ADRG (Analysis Data Reviewer’s Guide)** describing:
+  - population definitions
+  - key derivations (baseline, windowing, censoring, estimand alignment)
+  - known issues / data limitations
+  - reviewer navigation tips (how to reproduce key tables/figures)
+
+---
+
+## Traceability map (end-to-end)
+A review-friendly pipeline usually looks like:
+
+**Source/EDC/CRF → SDTM (tabulations) → ADaM (analysis-ready) → TLFs (outputs)**
+
+**Examples**
+- AE CRF → **SDTM AE** → **ADAE** (analysis dates, flags, analysis grading) → AE summary tables/listings  
+- Vital signs raw → **SDTM VS** → **ADVS** (baseline, windows, CHG/PCHG, parameters) → summaries/shift plots  
+- Survival inputs → **SDTM (DM/EX/DS/AE/etc.)** → **ADTTE** (censoring rules, event flags, CNSR) → KM plots / Cox models  
+
+---
+
+## Submission-style package contents (typical)
+A strong ADaM delivery usually includes:
+- ADaM datasets (often **XPT** for submission; SAS datasets internally)
+- **define.xml** (+ define.pdf rendering if needed)
+- **ADRG** (required reviewer guide for analysis data)
+- Validation report (e.g., **Pinnacle 21**) + issue adjudication rationale
+- Specs/derivations (dataset + variable-level specs, derivation notes)
+- QC evidence (independent programming or structured checks)
+
+---
+
+## Typical ADaM workflow
+1. Review protocol + SAP (endpoints, estimands, censoring rules, populations)  
+2. Build ADaM specs (including parameters, baselines, windowing rules)  
+3. Build **ADSL** (populations + key dates)  
+4. Build endpoint datasets (e.g., ADAE, ADVS, ADTTE)  
+5. QC (independent or structured checks; verify populations + key derivations)  
+6. Validation (P21 + internal checks)  
+7. define.xml + **ADRG**  
+8. Produce TLFs directly from ADaM (traceable, reproducible)
+
+---
+
+## Best practices
+- Anchor everything off **ADSL** (pop flags + treatment + reference dates).
+- Make baseline/windowing rules **explicit** and consistent across endpoints.
+- Use `PARAMCD/PARAM` consistently for BDS datasets; keep metadata tight.
+- Treat define.xml + ADRG as part of the **analysis narrative**, not “final paperwork.”
+- Include traceability hooks (source domain/seq) wherever it improves reviewability.
+
+---
+
+## Next in this portfolio
+
+### ADaM Datasets
+| Dataset | Overview | Specs | Programs | Outputs |
+|---|---|---|---|---|
+| **ADSL** | [Overview](adam/adsl/index.qmd) | [Specs](adam/adsl/specs.qmd) | [Programs](adam/adsl/programs.qmd) | [Outputs](adam/adsl/outputs.qmd) |
+| **ADAE** | [Overview](adam/adae/index.qmd) | [Specs](adam/adae/specs.qmd) | [Programs](adam/adae/programs.qmd) | [Outputs](adam/adae/outputs.qmd) |
+| **ADVS** | [Overview](adam/advs/index.qmd) | [Specs](adam/advs/specs.qmd) | [Programs](adam/advs/programs.qmd) | [Outputs](adam/advs/outputs.qmd) |
+| **ADTTE** | [Overview](adam/adtte/index.qmd) | [Specs](adam/adtte/specs.qmd) | [Programs](adam/adtte/programs.qmd) | [Outputs](adam/adtte/outputs.qmd) |
+
+### Analysis Data Review
+- [ADRG Notes + Reproducibility Guide](adam/adrg/index.qmd)

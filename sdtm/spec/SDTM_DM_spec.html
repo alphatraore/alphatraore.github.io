@@ -1,0 +1,102 @@
+<div style="margin-bottom: 12px;">
+  <h1 style="margin: 0; font-size: 42px; font-weight: 800;">
+    SDTM DM Mapping Specifications
+  </h1>
+  <div style="margin-top: 6px; font-size: 18px;">
+    Author: Alpha Traore
+  </div>
+</div>
+<hr />
+
+<html><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"></head><body><div class="container mt-4">
+
+<table id='sashtmltable' class='table table-sm .w-auto table-striped display sashtmltable'>
+<thead><tr><th data-name='Roworder'>Roworder</th> <th data-name='variable_name'>variable_name</th> <th data-name='variable_label'>variable_label</th> <th data-name='derivation'>derivation</th></tr></thead>
+<tbody>
+<tr>
+<td>001 </td><td>STUDYID </td><td>Study Identifier </td><td>Equals to the value from raw.demog.STUDY </td>
+</tr>
+<tr>
+<td>002 </td><td>DOMAIN </td><td>Domain Abbreviation </td><td>Assign as 'DM' </td>
+</tr>
+<tr>
+<td>003 </td><td>USUBJID </td><td>Unique Subject Identifier </td><td>Derive by concatenating raw.demog.STUDY and raw.demog.PT variable values, separated with a hyphen in between. </td>
+</tr>
+<tr>
+<td>004 </td><td>SUBJID </td><td>Subject Identifier for the Study </td><td>Equals to the value from raw.demog.PT </td>
+</tr>
+<tr>
+<td>005 </td><td>RFSTDTC </td><td>Subject Reference Start Date/Time </td><td>For the subjects with non-missing sdtm.dm.RFXSTDTC, Equals to the date component of sdtm.dm.RFXSTDTC. Else if a subject is randomized, then assign the value of raw.enrlment.RANDDT_RAW after converting to ISO 8601 format. Else assign the value of sdtm.dm.RFICDTC </td>
+</tr>
+<tr>
+<td>006 </td><td>RFENDTC </td><td>Subject Reference End Date/Time </td><td>Derive the date value in ISO 8601 format by obtaining the value from raw.eos.EOSTDT_RAW where raw.eos.EOSCAT="End of Study" </td>
+</tr>
+<tr>
+<td>007 </td><td>RFXSTDTC </td><td>Date/Time of First Study Treatment </td><td>Derive the datetime value in ISO 8601 format by obtaining the earliest non-missing raw.ipadmin.IPSTDT_RAW and raw.ipadmin.IPSTTM_RAW for each subject where raw.ipadmin.IPQTY_RAW is greater than 0. </td>
+</tr>
+<tr>
+<td>008 </td><td>RFXENDTC </td><td>Date/Time of Last Study Treatment </td><td>Derive the datetime value in ISO 8601 format by obtaining the latest non-missing raw.ipadmin.IPSTDT_RAW and raw.ipadmin.IPSTTM_RAW for each subject where raw.ipadmin.IPQTY_RAW is greater than 0. </td>
+</tr>
+<tr>
+<td>009 </td><td>RFICDTC </td><td>Date/Time of Informed Consent </td><td>Derive the date value in ISO 8601 format by obtaining the value from raw.enrlment.ICDT_RAW. </td>
+</tr>
+<tr>
+<td>010 </td><td>RFPENDTC </td><td>Date/Time of End of Participation </td><td>Derive the date value in ISO 8601 format by obtaining the latest date value from all raw datasets. Date variables in a dataset can be identified with the suffix of 'DT_RAW'. </td>
+</tr>
+<tr>
+<td>011 </td><td>DTHDTC </td><td>Date/Time of Death </td><td>Derive the date value in ISO 8601 format by obtaining the value from raw.eos.EOSDT_RAW where raw.eos.EOSCAT="End of Study" and raw.eos.EOSTERM="Death" </td>
+</tr>
+<tr>
+<td>012 </td><td>DTHFL </td><td>Subject Death Flag </td><td>Assign as "Y" on the records where sdtm.dm.DTHDTC is not null. </td>
+</tr>
+<tr>
+<td>013 </td><td>SITEID </td><td>Study Site Identifier </td><td>Equals to the first 2 characters from raw.demog.PT </td>
+</tr>
+<tr>
+<td>014 </td><td>AGE </td><td>Age </td><td>Equals to the value from raw.demog.AGE_RAW </td>
+</tr>
+<tr>
+<td>015 </td><td>AGEU </td><td>Age Units </td><td>Equals to the value from raw.demog.AGE_RAWU </td>
+</tr>
+<tr>
+<td>016 </td><td>SEX </td><td>Sex </td><td>Equals to the value from raw.demog.SEX after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>017 </td><td>RACE </td><td>Race </td><td>Derive sdtm.dm.RACE based on the values from raw.demog.RACE, raw.demog.RACE2, raw.demog.RACE3 and raw.demog.RACE4. <br>If more than one of the above 4 variables is populated then assign a value of 'MULTIPLE', else assign the value from the populated variable after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>018 </td><td>ETHNIC </td><td>Ethnicity </td><td>Equals to the value from raw.demog.ETHNIC after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>019 </td><td>ARMCD </td><td>Planned Arm Code </td><td>Derive sdtm.dm.ARMCD based on the information present in raw.enrlment and raw.rand datasets. <br>Part A) <br>1) Fetch the randomization number for each subject from raw.enrlment.RANDNO. <br>2) Fetch the raw.rand.TX_CD as ARMCD by joining the datasets based on RANDNO and raw.rand.RAND_ID. <br>Part B)<br> For the subjects with raw.enrlment.ICDT_RAW not null and raw.enrlment.ENRLDT_RAW is null, assign as 'SCRNFAIL'.<br> Part C)<br>  For the subjects with raw.enrlment.ENRLDT_RAW not null and raw.enrlment.RANDDT_RAW is null, assign as 'NOTASSGN'. </td>
+</tr>
+<tr>
+<td>020 </td><td>ARM </td><td>Description of Planned Arm </td><td>Assign as 'Active' when sdtm.dm.ARMCD is equal to 'ACTIVE'.<br> Else assign as 'Placebo' when sdtm.dm.ARMCD is equal to 'PBO'.<br> Else assign as 'Screen Failure' when sdtm.dm.ARMCD="SCRNFAIL". <br>Else assign as 'Not Assigned' when sdtm.dm.ARMCD="NOTASSGN" </td>
+</tr>
+<tr>
+<td>021 </td><td>ACTARMCD </td><td>Actual Arm Code </td><td>Derive sdtm.dm.ACTARMCD based on the information present in raw.ipadmin and raw.box datasets. <br>Part A)<br> 1) Fetch the raw.ipadmin.IPBOXID from the earliest record with non-missing IPQTY_RAW for each subject. <br>2) Fetch the raw.box.CONTENT as ACTARMCD by joining the datasets based on IPBOXID and raw.box.KITID. <br>Part B)<br> For subjects with sdtm.dm.ARMCD in ("SCRNFAIL" "NOTASSGN") assign the value of sdtm.dm.ARMCD.<br> Part C)<br> For the subjects with raw.rand.RANDDT_RAW not null and sdtm.dm.RFXSTDTC is null, assign as 'NOTTRT'. </td>
+</tr>
+<tr>
+<td>022 </td><td>ACTARM </td><td>Description of Actual Arm </td><td>Assign as 'Active' when sdtm.dm.ACTARMCD is equal to 'ACTIVE'. <br>Else assign as 'Placebo' when sdtm.dm.ACTARMCD is equal to 'PBO'.<br>Else assign as 'Screen Failure' when sdtm.dm.ACTARMCD="SCRNFAIL".<br> Else assign as 'Not Assigned' when sdtm.dm.ACTARMCD="NOTASSGN". <br>Else assign as 'Not Treated' when sdtm.dm.ACTARMCD="NOTTRT". </td>
+</tr>
+<tr>
+<td>023 </td><td>COUNTRY </td><td>Country </td><td>Equals to the value from raw.demog.COUNTRY </td>
+</tr>
+<tr>
+<td>024 </td><td>RACE1 </td><td>Race 1 </td><td>Equals to the value from raw.demog.RACE when sdtm.dm.RACE is 'MULTIPLE' after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>025 </td><td>RACE2 </td><td>Race 2 </td><td>Equals to the value from raw.demog.RACE2 when sdtm.dm.RACE is 'MULTIPLE' after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>026 </td><td>RACE3 </td><td>Race 3 </td><td>Equals to the value from raw.demog.RACE3 when sdtm.dm.RACE is 'MULTIPLE' after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>027 </td><td>RACE4 </td><td>Race 4 </td><td>Equals to the value from raw.demog.RACE4 when sdtm.dm.RACE is 'MULTIPLE' after converting to standard controlled terminology. </td>
+</tr>
+<tr>
+<td>028 </td><td>RACESP </td><td>Race Other Specify </td><td>Equals to the value form raw.demog.RACESP. </td>
+</tr>
+</tbody>
+</table>
+</div></body></html>

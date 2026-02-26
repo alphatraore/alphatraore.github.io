@@ -1,0 +1,20 @@
+---
+title: "regulatory_cro"
+---
+
+This section contains modeling workflows with supporting traceability (programs → outputs).
+
+## What you’ll find here
+- **Purpose:** Demonstrate core modeling approaches used in clinical research and applied analytics
+- **Traceability:** Inputs/assumptions → Program → Output (review-ready)
+- **Typical outputs:** estimates, diagnostics, plots, and sensitivity checks
+
+## Modeling Pages
+- [MMRM](../mmrm.qmd)
+- [Survival](../survival.qmd)
+- [PK/PD](../pkpd.qmd)
+- [Machine Learning](../ml.qmd)
+
+## Tips
+- If you embed HTML outputs, keep them under `modeling/outputs/` and reference them with relative paths.
+- Keep programs under `modeling/programs/` and document **software versions + random seeds** for reproducibility.

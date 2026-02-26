@@ -1,0 +1,149 @@
+---
+title: "VS (Vital Signs)"
+subtitle: "Findings SDTM domain — vital sign measurements across visits and timepoints (SDTMIG v3.4 style)"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+---
+
+::: {.callout-tip}
+### Goal of VS
+**VS standardizes vital sign measurements** (e.g., BP, pulse, temperature, weight) into a consistent **Findings** structure so reviewers can **track values over time**, confirm **units/methods**, and validate **submission readiness**.
+:::
+
+## What VS is
+**VS (Vital Signs)** is an SDTM **Findings** domain containing **vital sign test results** collected per subject, per timepoint/visit.
+It supports longitudinal review by combining:
+- a **test identifier** (`VSTESTCD` / `VSTEST`)
+- a **result** (original + standardized)
+- a **timing context** (datetime/visit/study day)
+- optional **method/position/location** qualifiers
+
+---
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [VS Specifications](/spec/SDTM_VS_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [VS Build Program (R)](/sdtm/programs/Mini_VS_R_Program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+::: {.grid}
+::: {.g-col-12}
+### Output
+- [VS Output (HTML)](/sdtm/outputs/VS.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+---
+
+## What you’ll find here
+- **Purpose:** Tabulate vital signs in a reviewable, time-ordered structure
+- **Traceability:** Source/EDC vitals forms → VS → ADaM (e.g., ADVS) → TLFs (shift tables/plots, outliers)
+- **Typical tests:** SBP/DBP, pulse, temperature, respiratory rate, height/weight (and sometimes BMI)
+
+---
+
+## Core structure (Findings pattern)
+
+### Keys you’ll see everywhere
+VS follows standard SDTM keys:
+- `STUDYID` — Study identifier  
+- `DOMAIN` — Always `"VS"`  
+- `USUBJID` — Unique subject identifier  
+- `VSSEQ` — Record sequence
+
+### Test identification
+- `VSTESTCD` — Short test code (e.g., `SYSBP`, `DIABP`, `PULSE`, `TEMP`)
+- `VSTEST` — Decoded test name (e.g., “Systolic Blood Pressure”)
+
+### Results (original vs standardized)
+- `VSORRES` / `VSORRESU` — Original result + unit (as collected)
+- `VSSTRESC` / `VSSTRESN` — Standardized result (char / numeric)
+- `VSSTRESU` — Standardized unit
+
+::: {.callout-note}
+### Units matter in VS
+If sites collect in mixed units (e.g., °F and °C), **preserve the original** (`VSORRES/VSORRESU`) and provide a **consistent standardized** unit (`VSSTRESN/VSSTRESU`) with documented conversion rules.
+:::
+
+---
+
+## Timing & visit context
+
+VS typically includes one or more of:
+- **ISO datetime:** `VSDTC` (character ISO 8601)
+- **Study day:** `VSDY` (numeric study day)
+- **Visit:** `VISIT`, `VISITNUM`
+- Optional timepoint variables when applicable (e.g., `VSTPT`, `VSTPTNUM`, `VSELTM`)
+
+---
+
+## Common qualifiers (how/where collected)
+Depending on your CRF and protocol:
+- `VSPOS` — Position (e.g., SITTING, SUPINE)
+- `VSLOC` — Location (e.g., ARM, ORAL)
+- `VSMETHOD` — Method/device (when collected)
+- `VSCAT` / `VSSCAT` — Category/subcategory (helpful for grouping panels)
+
+---
+
+## Mini examples
+
+### Example 1 — Blood pressure + pulse at Baseline
+| USUBJID | VSSEQ | VSTESTCD | VSTEST | VSORRES | VSORRESU | VSSTRESN | VSSTRESU | VSPOS | VISIT | VSDTC |
+|---|---:|---|---|---:|---|---:|---|---|---|---|
+| ABC123-001-1001 | 1 | SYSBP | Systolic Blood Pressure | 128 | mmHg | 128 | mmHg | SITTING | Baseline | 2025-01-15T09:12 |
+| ABC123-001-1001 | 2 | DIABP | Diastolic Blood Pressure | 82 | mmHg | 82 | mmHg | SITTING | Baseline | 2025-01-15T09:12 |
+| ABC123-001-1001 | 3 | PULSE | Pulse Rate | 74 | bpm | 74 | bpm | SITTING | Baseline | 2025-01-15T09:12 |
+
+### Example 2 — Temperature in original °F, standardized to °C
+| USUBJID | VSSEQ | VSTESTCD | VSTEST | VSORRES | VSORRESU | VSSTRESN | VSSTRESU | VSLOC | VISIT | VSDTC |
+|---|---:|---|---|---:|---|---:|---|---|---|---|
+| ABC123-001-1001 | 10 | TEMP | Temperature | 98.6 | F | 37.0 | C | ORAL | Week 2 | 2025-01-29T10:05 |
+
+---
+
+## Traceability map (review-friendly)
+A typical traceability chain:
+**Source/EDC vitals page → VS (tabulation) → ADVS (analysis-ready) → TLFs**
+
+**Example**
+- Vitals CRF → **VS** (`VSTESTCD/VSDTC/VSORRES/VSSTRESN/...`) → **ADVS** (baseline flags, analysis visits/windows) → shift tables, time profiles, outlier listings
+
+**Proof points**
+- **Source → VS:** aCRF annotations + define.xml origins
+- **VS → ADVS:** define.xml MethodDefs + ADRG derivations (baseline rules, visit windows)
+
+---
+
+## Common QC checks (VS)
+- `USUBJID + VSSEQ` unique; domain keys populated
+- `VSTESTCD` ↔ `VSTEST` consistent (no mismatches)
+- Original vs standardized results aligned (conversion rules correct)
+- Units present and valid; no “unit drift” within a test
+- Timing present and consistent (`VSDTC`, `VISIT/VISITNUM`, `VSDY`)
+- Position/location/method populated when required by protocol
+- Out-of-range or implausible values flagged for review (medical review consistency)
+
+---
+
+## Best practices
+- Standardize to **one canonical unit** per vital sign in `VSSTRESU`
+- Preserve **as-collected** values in `VSORRES/VSORRESU` (do not overwrite)
+- Keep datetime rules consistent (partial/missing handling documented)
+- Use qualifiers (`VSPOS`, `VSLOC`, `VSMETHOD`) to prevent mixing non-comparable measurements
+- Treat VS as **review-first**: sorted, clean, and easy to trend over time
+
+---

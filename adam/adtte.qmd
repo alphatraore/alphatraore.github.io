@@ -1,0 +1,22 @@
+# ADaM ADTTE (Time-to-Event Analysis Dataset)
+
+Analysis-ready **time-to-event** ADaM dataset derived from ADSL and event/source domains to support **survival and TTE endpoints** (e.g., PFS/OS), including **analysis time**, **censoring**, **event indicators**, and **parameterized endpoints** used for Kaplan–Meier and Cox models.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [ADTTE Specifications](/spec/ADTTE_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [Build ADTTE (R Derivation Program)](/adam/programs/Mini_ADTTE_R_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** One or more TTE records per subject per endpoint (PARAM/PARAMCD), with event/censor status and analysis time
+- **Traceability:** Spec → Program → Output alignment (including key date derivations and links back to sources)
+- **Typical variables:** `STUDYID`, `USUBJID`, `PARAM`, `PARAMCD`, `ADT`, `CNSR`, `EVNTDESC`, `STARTDT`/`ADT` (endpoint date), `AVAL` (analysis time), `AVALU` (time unit), plus treatment variables from ADSL (e.g., `TRT01A`) and analysis flags like `ANL01FL`

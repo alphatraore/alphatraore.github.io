@@ -1,0 +1,323 @@
+---
+title: "Table 2: TEAE by SOC/PT"
+
+format:
+  html:
+
+    theme:
+      light: [litera, styles.scss]
+      dark:  [darkly, styles.scss]
+
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    smooth-scroll: true
+    anchor-sections: true
+    code-tools: true
+    code-fold: true
+    code-overflow: wrap
+    df-print: paged
+    fig-align: center
+    fig-dpi: 300
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+  cache: false
+editor: visual
+---
+
+**Add this at the top to ensure dependencies are installed during rendering.**
+
+```{r}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+```
+
+```{r}
+# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+```
+
+**Install + load packages (run once; safe to re-run)**
+
+```{r}
+pacman::p_load(haven, dplyr, tidyr, purrr, glue, lubridate, stringr, EDCimport, pharmaRTF, data.table, gtsummary, gt, flextable, hms)
+```
+
+**Prepare the data**
+
+```{r}
+adsl <- read_xpt("adsl.xpt")
+
+sbj <- bind_rows(
+           adsl |>  mutate(trtn = trt01an, trt = trt01a),
+           adsl |>  mutate(trtn = 99,     trt = "Overall")) |> 
+           filter(saffl=="Y")
+
+
+adae <- read_xpt("adae.xpt")
+
+ae <- bind_rows(
+           adae |>  mutate(trtn = trtan, trt = trta),
+           adae |>  mutate(trtn = 99,     trt = "Overall")) |> 
+           filter(saffl=="Y",trtemfl=="Y")
+```
+
+**Get the columns headers with big N and Treatment Name**
+
+```{r}
+bign <- sbj |>
+  distinct(usubjid, trtn, trt) |>
+  count(trtn, trt, name = "N")
+
+finalsbj <- sbj |>
+  left_join(bign, by = c("trtn", "trt")) |>
+  mutate(trtlab = glue("{trt} (N= {N})")) 
+ 
+#finalae <- ae |>
+#  left_join(bign, by = c("trtn", "trt")) |>
+#  mutate(trtlab = glue("{trt} (N= {N})"))
+
+bigN <- finalsbj |> distinct(trtn, trtlab, N) |> 
+  arrange(trtn)
+
+bigN
+```
+
+**Impute Zeros for Treatment Arms with N = 0**
+
+```{r}
+dummytrt<- tibble(trtn = c(1, 2, 3, 99))
+```
+
+```{r}
+temptrtN<-sbj |> count(trtn, trt)
+temptrtN
+```
+
+```{r}
+trtN<-dummytrt  |> 
+    left_join(temptrtN ,by=c("trtn")) |> 
+    mutate(N=if_else(is.na(n),0,n)) |> 
+    select(-n)
+
+trtN
+```
+
+**TOP row : Overall: Number of subjects with at least one TEAE.**
+
+```{r}
+sub_n<- ae |> 
+    group_by(trtn) |> 
+    summarise(label= "Overall", count = n_distinct(usubjid), events=n()) |> 
+    ungroup()
+
+sub_n
+```
+
+**SOC rows: Number of subjects with at least one TEAE in the specified SOC.**
+
+```{r}
+soc_n <- ae |>
+    group_by(aebodsys, trtn) |>
+    summarise(
+    count  = n_distinct(usubjid),
+    events = n(),
+    .groups = "drop"        # or "drop_last" / "keep"
+  )
+
+soc_n
+```
+
+**PT Rows: Number of subjects with at least one TEAE in the specified PT.**
+
+```{r}
+pt_n <- ae |>
+    group_by(aebodsys, aedecod,trtn) |>
+    summarise(
+    count  = n_distinct(usubjid),
+    events = n(),
+    .groups = "drop"
+  )
+
+pt_n
+```
+
+**Combine Top Row (Overall), SOC-level, and PT-level counts into a single dataset and replace missing values (NAs) with blanks.**
+
+```{r}
+all_Ntemp <- bind_rows(sub_n, soc_n, pt_n) |> 
+    mutate(across(c(label, aebodsys, aedecod), ~ if_else(is.na(.), "", .)))
+```
+
+**Create zero counts for treatment groups where an event is not observed.**
+
+-   Get all available SOC and PT values (Overall, SOC, and SOC/PT combinations).
+
+-   Create one row per treatment group for each Overall/SOC/PT row.
+
+```{r}
+dummy_ae<-all_Ntemp |> 
+    complete(nesting(label,aebodsys,aedecod),trtn=c(1,2,3,99)) |> 
+    select(-count,-events)
+dummy_ae
+```
+
+**Merge the dummy AE grid with the observed counts.\
+For rows not present in the data, set subject counts and event counts to 0.**
+
+```{r}
+all_Ntemp2<-dummy_ae |> 
+    left_join(all_Ntemp,by=c("label","aebodsys", "aedecod", "trtn")) |>
+    mutate(across(c(count,events),~if_else(is.na(.),0,.)))
+
+all_Ntemp2
+```
+
+Merge with the denominator Big N count for percentage calculation
+
+```{r}
+all_N<-all_Ntemp2 %>%
+    left_join(bigN,by="trtn")
+```
+
+**Compute the percentage column and concatenate with count**
+
+```{r}
+all_Perc<-all_N |> 
+    mutate(
+    percent=if_else(N!=0,count/N*100,0),
+    percentc=str_c(" (",sprintf("%.1f",percent),"%)"),
+    cp=if_else(count==0,"0",str_c(count, percentc))
+ )
+
+all_Perc
+```
+
+**Create the row labels column;**
+
+```{r}
+prefinal1<-all_Perc |> 
+    mutate(
+    label=case_when(
+    aebodsys=="" & aedecod=="" ~ label,
+    aebodsys!="" & aedecod=="" ~ aebodsys,
+    aebodsys!="" & aedecod!="" ~ str_c("\u00A0\u00A0\u00A0",aedecod),
+    TRUE~""
+ )
+ )
+
+prefinal1
+```
+
+```{r}
+prefinal2 <- prefinal1 |> 
+    pivot_wider(
+    id_cols = c(aebodsys, aedecod, label),
+    names_from = trtlab,
+    values_from = cp) |> 
+ arrange(aebodsys,aedecod,label)
+ 
+prefinal2
+```
+
+```{r}
+# view(counts06)
+final <- prefinal2 |> 
+    select( -aebodsys, -aedecod )
+
+glimpse(final)
+```
+
+```{r}
+tlf_gt <- function(df,
+                   title = "Table X. Treatment-Emergent Adverse Events by System Organ Class and Preferred Term",
+                   subtitle = "Safety Population",
+                   stub_width = gt::px(420),   # <-- add
+                   trt_width  = gt::px(90)) {  # <-- optional
+
+  df <- as.data.frame(df)
+
+  stub     <- names(df)[1]
+  trt_cols <- names(df)[-1]
+
+  # Section header rows = all treatment cells blank/NA
+  is_section <- apply(df[, trt_cols, drop = FALSE], 1, function(x) {
+    all(is.na(x) | trimws(as.character(x)) == "")
+  })
+
+  # Sub-rows = stub starts with spaces
+  is_sub <- grepl("^\\s+", df[[stub]])
+  df[[stub]] <- sub("^\\s+", "", df[[stub]])   # remove spaces; we’ll indent via gt
+
+  # 2-line column headers: "Placebo (N= 19)" -> "Placebo<br>(N=19)"
+  lab_trt <- setNames(lapply(trt_cols, function(x) {
+    x2 <- gsub("\\s+", " ", x)
+    gt::html(sub("\\s*\\(N\\s*=\\s*([0-9]+)\\s*\\)\\s*$",
+                 "<br>(N=\\1)", x2, perl = TRUE))
+  }), trt_cols)
+
+  labs <- c(setNames(list(gt::html("")), stub), lab_trt)
+
+  # ---- key fix: embed width values in formulas (no 'stub_width' symbol to resolve later) ----
+  f_stub <- rlang::new_formula(1, stub_width, env = environment())                   # col 1
+  f_trt  <- rlang::new_formula(dplyr::all_of(trt_cols), trt_width, env = environment())
+
+  g <- gt::gt(df) %>%
+    gt::tab_header(
+      title = gt::md(paste0("**", title, "**")),
+      subtitle = subtitle
+    ) %>%
+    gt::opt_row_striping() %>%
+    gt::cols_width(f_stub, f_trt) %>%                      # <-- widen first col
+    gt::cols_align("left",   columns = 1) %>%              # <-- use col position (robust)
+    gt::cols_align("center", columns = dplyr::all_of(trt_cols)) %>%
+    gt::opt_table_font(font = list("Courier New", "Consolas", "monospace")) %>%
+    gt::tab_options(
+      table.font.size = gt::px(12),
+      data_row.padding = gt::px(2),
+
+      table.border.top.style = "solid",
+      table.border.top.width = gt::px(2),
+      column_labels.border.bottom.style = "solid",
+      column_labels.border.bottom.width = gt::px(2),
+      table.border.bottom.style = "solid",
+      table.border.bottom.width = gt::px(2),
+
+      table_body.hlines.style = "none",
+      table_body.vlines.style = "none",
+      column_labels.vlines.style = "none"
+    )
+
+  # apply labels (programmatically)
+  g <- do.call(gt::cols_label, c(list(g), labs))
+
+  # Bold section headers (first column)
+  g <- g %>%
+    gt::tab_style(
+      style = gt::cell_text(weight = "bold"),
+      locations = gt::cells_body(columns = 1, rows = is_section)
+    ) %>%
+    # Indent sub-rows (first column)
+    gt::tab_style(
+      style = gt::cell_text(indent = gt::px(18)),
+      locations = gt::cells_body(columns = 1, rows = is_sub & !is_section)
+    ) %>%
+    gt::tab_source_note(gt::md("*Percentages are based on the column N.*"))
+
+  g
+}
+
+
+```
+
+```{r}
+
+# tlf_gt(final, stub_width = gt::px(420))
+# or
+# tlf_gt(final, stub_width = gt::pct(60))
+
+tlf_gt(final, stub_width = gt::px(420), trt_width = gt::px(85))
+
+
+```

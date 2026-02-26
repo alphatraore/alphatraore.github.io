@@ -1,0 +1,29 @@
+---
+title: "Listing 3: ORR"
+---
+
+
+# Objective Response Rate (ORR)
+
+This page summarizes **ORR (CR + PR)** with supporting traceability (programs → outputs).
+
+## What you’ll find here
+- **Endpoint:** ORR = % of subjects with **confirmed BOR = CR or PR** (per protocol/RECIST)
+- **Population:** ITT (or mITT / response-evaluable — define explicitly)
+- **Display:** `n/N (%)` with **Exact (Clopper–Pearson) 95% CI** (and treatment comparison if applicable)
+
+## Deliverables
+- **Program:** [ORR Summary Program](../programs/t_orr_summary.qmd)
+- **Output:**  [ORR Table (HTML)](../outputs/t_orr_summary.html)
+
+## Traceability
+**Table → ADRS (Response) → SDTM RS/TR/TU → Source**
+
+## Key variables (typical)
+- **Response:** `BOR`, `CONFIRMFL` (or confirmation rule variable), `BORADT`
+- **Analysis flags:** `ITTFL`, `EFFFL` (or response-evaluable flag)
+- **Treatment:** `TRT01A`
+
+## Notes
+- Specify **RECIST version**, **confirmation window/rule**, and **cut-off date** in the footnote.
+- Define handling of **missing/unevaluable** assessments (often non-responder unless specified).

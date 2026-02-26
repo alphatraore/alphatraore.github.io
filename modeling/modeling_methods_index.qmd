@@ -1,0 +1,72 @@
+---
+title: "Modeling Methods"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This section presents applied **statistical modeling methods** used in clinical and biomedical analysis workflows, with emphasis on **method selection**, **assumption awareness**, **interpretability**, and **implementation readiness**.
+:::
+
+## Why this section matters
+
+Modeling choices influence both statistical conclusions and operational execution. A strong modeling workflow should be:
+
+- **Scientifically appropriate** to the endpoint and study design
+- **Transparent** about assumptions and limitations
+- **Reproducible** in implementation
+- **Traceable** to analysis objectives and outputs
+- **Practical** for review and delivery timelines
+
+This section highlights how I approach modeling in a way that balances rigor and real-world study execution.
+
+## What I focus on
+
+- Matching methods to the **clinical/statistical question**
+- Making **assumptions explicit**
+- Supporting **interpretable results** for cross-functional teams
+- Building methods into **traceable analysis workflows**
+- Aligning implementation with **QC and review readiness**
+
+## Methods included in this section
+
+### MMRM
+- Repeated-measures modeling for longitudinal outcomes
+- Estimation strategy, covariance structure considerations, and interpretation
+- Practical implementation and reporting implications
+
+### Survival Analysis
+- Time-to-event methods for efficacy/safety endpoints
+- Event/censoring definitions, estimation, and inferential interpretation
+- Traceable output support (e.g., KM summaries/plots, HR reporting)
+
+### PK/PD Modeling
+- Modeling concepts and workflow framing for exposure-response / PK-PD analysis
+- Assumption awareness and implementation considerations
+- Communication of model purpose, outputs, and limitations
+
+## Working style
+
+My modeling approach is **question-driven and delivery-aware**:
+
+- Start with the endpoint, estimand, and decision need
+- Choose methods that are defensible and practical
+- Document assumptions and analysis choices clearly
+- Ensure outputs are reproducible and reviewer-friendly
+- Connect modeling results back to study interpretation
+
+## Navigation
+
+- [Modeling Overview](overview.qmd)
+- [MMRM](mmrm.qmd)
+- [Survival Analysis](survival.qmd)
+- [PK/PD Modeling](pkpd.qmd)
+
+---
+
+## Notes for portfolio reviewers
+
+This page is intended as a **methods hub**. It complements the detailed modeling pages by providing context for how methods are selected, implemented, and interpreted in a standards-driven analytical workflow.

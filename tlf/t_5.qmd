@@ -1,0 +1,47 @@
+# Table 5: Heart Rate Change
+
+Core **analysis summary** table for **Change from Vehicle** in **Heart Rate** on **Dosing Day 3**, presented by treatment group and time interval. This page links the **generating program** and the **final output** for submission-style review and traceability.
+
+## Endpoint definition
+
+For each animal and time interval *t* on **Dosing Day 3** (including baseline):
+
+**Change from Vehicle** = (Value at Day 3, time *t*) − (Value at Vehicle Day 1, same time *t*).
+
+## Study-day phases
+
+- **Phase 1:** Hours 1–6 (six 1-hour subphases)  
+- **Phase 2:** Hours 7–12 (six 1-hour subphases)  
+- **Phase 3:** Hours 13–18 (six 1-hour subphases)  
+- **Phase 4:** Hours 19–24 (six 1-hour subphases)
+
+## Analysis method
+
+Within each phase, a **repeated-measures ANCOVA (RANCOVA)** is fit using **PROC MIXED** with:
+- **Fixed effects:** TRT, TIME, TRT×TIME  
+- **Covariate:** baseline Change from Vehicle  
+- **Repeated effect:** TIME  
+- **Subject:** SUBJID  
+- **Covariance structure:** selected by **AICC** across candidate structures
+
+For each treatment group, **H₀: Change from Vehicle = 0** is tested at **α = 0.05** at each time interval.
+
+## Deliverables
+
+### Programming + Output
+- [Generate Table 5 (Program and output)](/tlf/tables/outputs/Table_5_PMIX.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Summarize Heart Rate Change from Vehicle across Day 3 time intervals, by treatment group
+- **Traceability:** Table shell/spec → Program → Output (review-ready)
+- **Typical columns:** LS mean (SE), 95% CI, t-value, p-value (vs 0), covariance structure (selected by AICC)
+- **Typical display:** phase-wise repeated-measures ANCOVA results aligned to SAP conventions
+
+---
+
+<iframe
+  src="/tlf/tables/outputs/table5_pmix.webp"
+  class="tlf-frame"
+  title="Table 5: Analysis Summary Table for Change from Vehicle: Heart Rate"
+  loading="lazy"
+></iframe>

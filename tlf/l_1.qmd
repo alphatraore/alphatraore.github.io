@@ -1,0 +1,32 @@
+---
+title: "Listing 1: Demographics & Baseline (Analysis Set)"
+---
+
+# Listing 1: Subject Demographics & Baseline Characteristics (Analysis Set)
+
+This listing provides **subject-level demographics and baseline characteristics** for the **analysis population**, supporting review, QC, and traceability (programs → outputs).
+
+## Deliverables
+- **Program:** [Generate Listing 1](../programs/l_1_demog_baseline.qmd)
+- **Output:**  [Listing 1 Output (HTML)](../outputs/l_1_demog_baseline.html)
+
+## Traceability
+**Listing → ADSL → SDTM DM → Source**
+
+## Display conventions
+- **Population:** ITT / SAF / PP (as defined for this listing)
+- **One record per subject**
+- **Sort (recommended):** `TRT01A` → `SITEID` → `USUBJID`
+
+## Key columns (typical)
+- **Identifiers:** `STUDYID`, `SITEID`, `USUBJID`
+- **Treatment:** `TRT01A`, `TRT01P`
+- **Population flags:** `ITTFL`, `SAFFL`, `PPFL`
+- **Demographics:** `AGE`, `AGEU`, `SEX`, `RACE`, `ETHNIC`
+- **Baseline characteristics (examples):** `HEIGHTBL`, `WEIGHTBL`, `BMIBL`, `REGION`, `COUNTRY`
+- **Key dates:** `RFSTDTC`, `RFENDTC`
+
+## Notes
+- Baseline values reflect **pre-treatment** (per protocol definition) and are documented in the program/output footnote.
+- If derived variables are displayed (e.g., BMI), include derivation notes in the listing footnote for reviewer clarity.
+

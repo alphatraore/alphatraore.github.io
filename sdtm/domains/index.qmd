@@ -1,0 +1,20 @@
+---
+title: "Domains (with Specs)"
+---
+
+# SDTM Domains (with Specs)
+
+This section contains SDTM domain deliverables with **traceability** from spec → program → output.
+
+## Specs (SDTM)
+- Specs folder: `sdtm/spec/`
+- Suggested: keep SDTM spec files named like `dm_spec.html`, `ae_spec.html`, `vs_spec.html`.
+
+## Domain Pages
+- [DM](../dm.qmd)
+- [AE](../ae.qmd)
+- [VS](../vs.qmd)
+
+## Quick Links
+- Programs: `sdtm/programs/`
+- Outputs: `sdtm/outputs/`

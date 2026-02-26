@@ -1,0 +1,113 @@
+---
+title: "Statistical Study Leadership"
+subtitle: "From protocol kickoff to review-ready statistical deliverables"
+description: "A practical, study-level overview of statistical leadership—covering project activity evaluation and monitoring, protocol/CRF review, programming alignment, SAP and TLF shell development, ADaM specification planning, QC-driven execution, and delivery readiness."
+toc: true
+---
+
+## Overview
+
+Effective statistical study leadership connects **protocol intent**, **cross-functional execution**, and **review-ready deliverables**. My role is to translate study objectives into a clear, executable statistical pathway—from kickoff planning through document development and review cycles, dataset and TLF planning, QC support, and final delivery.
+
+This work is grounded in **ICH-aligned, CDISC standards-driven practices**, with emphasis on **traceability**, **reproducibility**, and **quality governance** across the study lifecycle.
+
+::: {.callout-tip}
+**Goal:** establish a statistically sound, operationally feasible, reviewer-friendly framework early—so key deliverables (SAP, TLF shells, ADaM specs, and outputs) progress with fewer rework cycles and stronger consistency.
+:::
+
+## What study leadership means in practice
+
+At the study level, statistical leadership is not only about writing analysis methods—it also includes:
+
+- **Translate** protocol objectives into executable statistical deliverables
+- **Identify and resolve** inconsistencies across the protocol, CRF, and planned analyses
+- **Coordinate** internal and external stakeholder review cycles with clear, decision-focused rationale
+- **Plan** datasets and TLFs with implementation and QC considerations in mind
+- **Support** final delivery readiness through a traceable, quality-controlled workflow
+
+## Core areas of contribution
+
+### Study kickoff and early planning
+- Participate in **study kickoff** and early planning discussions
+- Clarify objectives, endpoint strategy, timelines, deliverables, and dependencies
+- Identify early risks affecting analysis planning, data capture, or delivery readiness
+
+### Protocol review and statistical framing
+- Review the **study protocol** to confirm:
+  - objectives and hypotheses
+  - endpoint definitions and timing
+  - analysis populations
+  - key design features (randomization, stratification, visit schedule)
+  - implications for SAP, ADaM, and TLFs
+- Translate protocol intent into a clear statistical framework for study documents and deliverables
+
+### CRF review and protocol–CRF alignment
+- Review draft **CRFs** and provide statistical input on:
+  - protocol inconsistencies
+  - endpoint capture feasibility
+  - visit/timing alignment
+  - required data elements for planned derivations and analyses
+- Reduce late-cycle rework by strengthening protocol-to-CRF alignment early
+
+### SAP development and review management
+- Draft the **SAP** using the approved protocol, templates, SOPs, and applicable ICH expectations
+- Manage review cycles by:
+  - addressing internal comments
+  - preparing external stakeholder-ready versions
+  - incorporating feedback through final approval
+- Maintain consistency across protocol intent, SAP methods, and planned outputs
+
+### TLF mock shell development
+- Develop **TLF mock shells** using reporting standards and templates
+- Align shells with objectives, endpoints, populations, methods, and reporting conventions
+- Incorporate feedback through iterative review to final shell approval
+
+### ADaM specification planning
+- Build **ADaM specifications** informed by SAP requirements, approved shells, and CDISC guidance
+- Define derivations to support populations, endpoints, baseline rules, and outputs
+- Promote traceability across **SAP ↔ ADaM specs ↔ TLF shells**
+
+### QC-led execution support and delivery readiness
+- Plan datasets and outputs with a **QC-first** approach
+- Provide hands-on QC support to confirm:
+  - consistency with specs and shells
+  - traceability of derivations and outputs
+  - issue identification and resolution before delivery
+- Support preparation and finalization of **review-ready deliverables**
+
+## Typical decisions and risks I help manage
+
+| Area | Examples |
+|---|---|
+| **Document consistency** | protocol vs CRF mismatch; endpoint wording differences across protocol/SAP/shells; inconsistent population definitions; timing/window ambiguity affecting interpretation |
+| **Analysis readiness** | missing data elements needed for derivations; shell designs misaligned with feasible implementation; unclear SAP language driving review churn; traceability gaps between methods, specs, and outputs |
+| **Delivery** | late-cycle changes cascading across SAP, shells, and specs; QC findings driven by unclear definitions (not coding errors); reduced reviewer readability due to inconsistent terminology or structure |
+
+## Typical outputs from study-level statistical leadership
+- Protocol/CRF comments with statistical rationale and alignment recommendations
+- External stakeholder-ready **SAP drafts** through final approved version
+- Approved **TLF mock shells** aligned with methods and reporting intent
+- **ADaM specifications** mapped to shell and analysis requirements
+- Dataset/TLF execution plans informed by QC and delivery priorities
+- **Review-ready deliverables** supported by traceability and quality checks
+
+## How this connects to deliverables
+- **Protocol + CRF → SAP:** scientific intent becomes executable analysis methods
+- **SAP + shells → ADaM specs:** derivations and structures are defined to support planned analyses
+- **ADaM specs + programming → TLFs:** outputs are produced and QC-validated against shells and methods
+- **QC + traceability → delivery:** deliverables are reviewer-friendly, reproducible, and easier to defend
+
+## Working style and delivery principles
+- **QC-first planning** (quality is built in early, not only checked at the end)
+- **Traceability-driven execution** (clear links across protocol, SAP, specs, and outputs)
+- **Reviewer-friendly documentation** (consistent terminology, logic, and structure)
+- **Cross-functional collaboration** (biostatistics, programming, data management, clinical teams, and external stakeholders)
+- **Practical decision-making** (balancing rigor, feasibility, and timelines)
+
+## Related pages
+- [Study Design Overview](study_design_overview.qmd)
+- [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)
+- [SAP + TLF Shells](sap_tfl_shells.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [Missing Data](missing_data.qmd)
+- [QC, Validation, and Delivery Readiness](qc_validation.qmd)

@@ -1,0 +1,46 @@
+---
+title: "Missing Data"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This page presents a practical approach to **missing data** focused on **assumption transparency**, **estimand alignment**, and **robust interpretation**.
+:::
+
+## Why it matters
+
+Missing data can meaningfully affect estimates and conclusions. The key is not just choosing a method — it is making assumptions explicit and testing whether conclusions remain credible.
+
+## What I focus on
+
+- Aligning missing data strategy to:
+  - **estimand**
+  - **endpoint type**
+  - **study design**
+- Summarizing **missingness patterns and reasons**
+- Making **primary analysis assumptions** explicit
+- Planning **sensitivity analyses** that test key assumptions
+
+## Practical contribution areas
+
+- SAP wording support for missing data assumptions and strategy
+- Review of missingness summaries and risk areas
+- Alignment of missing data handling with ADaM/TLF implementation
+- Clear communication of assumptions, limitations, and robustness
+
+## Common pitfalls I help prevent
+
+- Default method selection without estimand context
+- Weak or unclear assumption documentation
+- Limited characterization of missingness patterns
+- Sensitivity analyses that do not meaningfully test the primary assumption
+
+## Related pages
+
+- [Confirmatory Inference and Robustness](confirmatory_inference_index.qmd)
+- [Sensitivity Analyses](sensitivity_analyses.qmd)
+- [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)

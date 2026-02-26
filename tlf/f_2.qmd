@@ -1,0 +1,23 @@
+# Figure 2: PFS Kaplan–Meier
+
+Core **Kaplan–Meier (KM)** plot for **progression-free survival (PFS)**, displayed **by treatment group**. This page links the **generating program** and the **final output** for submission-style review and traceability.
+
+## Deliverables
+
+### Programming + Output
+- [Generate Figure 2 (Program and output)](/tlf/tables/outputs/Figure_2_KM.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Visualize the KM-estimated PFS distribution over time, by treatment group
+- **Traceability:** Figure shell/spec → Program → Output (review-ready)
+- **Typical elements:** KM curves by treatment, censoring marks, at-risk counts, median PFS reference lines (if shown)
+- **Typical display:** publication-style survival figure aligned to SAP conventions
+
+---
+
+<iframe
+  src="/tlf/figures/outputs/figure2_km.webp"
+  class="tlf-frame"
+  title="Figure 2: Kaplan–Meier Plot (PFS)"
+  loading="lazy"
+></iframe>

@@ -1,0 +1,137 @@
+---
+title: "Randomization and Blinding"
+subtitle: "Design choices that protect validity and support reliable execution"
+description: "A practical, biostatistics-focused overview of randomization and blinding, including stratification, allocation methods, operational implementation, and analysis implications."
+toc: true
+---
+
+## Overview
+
+Randomization and blinding protect the interpretability of trial results by reducing bias and improving balance between treatment groups. In practice, these design choices must be **statistically sound**, **operationally feasible**, and **analysis-ready**, with clear documentation that carries through to SAP language, ADaM specifications, and reporting.
+
+::: {.callout-tip appearance="simple"}
+**Goal:** choose a randomization and blinding strategy that supports unbiased estimation, practical execution, and clear, defensible analysis and reporting.
+:::
+
+## What gets evaluated in practice
+
+### Trial objective and design context
+- Confirm the trial objective (superiority, non-inferiority, equivalence) and primary endpoint type.
+- Identify key sources of potential bias (open-label behaviors, assessment bias, differential follow-up).
+- Confirm practical constraints (site footprint, enrollment rate, emergency unblinding needs).
+
+### Randomization approach
+Common options include:
+- **Simple randomization:** often acceptable in large samples; less balance protection early.
+- **Blocked randomization:** improves balance over time; block size and concealment must be managed carefully.
+- **Stratified randomization:** balances key prognostic factors; requires clean factor capture and analysis alignment.
+- **Response-adaptive designs (less common):** can complicate inference; requires specialized planning and justification.
+
+### Stratification factors (if used)
+- Justify stratification factors based on:
+  - prognostic importance for the primary endpoint
+  - operational feasibility (can the factor be captured accurately at randomization?)
+  - expected distribution (avoid rare strata)
+- Confirm factor definitions are clear and testable (e.g., cut points, category rules).
+- Ensure factors are captured consistently across protocol, IRT/IXRS setup, CRF, and SDTM.
+
+### Allocation ratio and balance targets
+- 1:1 allocation is most efficient for precision in a two-arm comparison.
+- Unequal allocation (e.g., 2:1) may be used for safety or recruitment reasons, but typically increases total N for the same power.
+- Confirm any planned balance checks (overall and within strata) and what actions (if any) are permissible.
+
+## Stratification factor checklist (practical)
+
+Use stratification when it is likely to improve interpretability and will be captured reliably.
+
+### Good candidates
+- Strongly prognostic baseline factors tied to the primary endpoint
+- Factors expected to be reasonably balanced across sites and enrollment periods
+- Variables with stable, objective definitions at randomization (e.g., disease stage category)
+
+### Higher-risk candidates
+- Rare categories that create sparse strata
+- Factors not reliably known at randomization (pending lab results, imaging not yet read)
+- Variables that frequently change (unstable clinical status between screening and baseline)
+- Highly site-specific factors that lead to fragmented strata across regions
+
+### Practical rules of thumb
+- Keep the number of stratification factors small (avoid over-fragmentation).
+- Prefer fewer, clinically meaningful categories over many fine-grained levels.
+- Confirm the analysis plan clearly states how strata will be used (stratified test vs covariate adjustment).
+
+## Blinding strategy (and why it matters)
+
+### Common blinding approaches
+- **Double-blind:** participants and investigators blinded; reduces performance and assessment bias.
+- **Single-blind:** typically participant blinded; risk of investigator behavior bias remains.
+- **Open-label:** may be necessary, but requires mitigation (blinded endpoint assessment, objective endpoints).
+
+### Operational considerations
+- Define how blinding is maintained (packaging, labeling, emergency code breaks).
+- Specify unblinding procedures and documentation requirements.
+- Confirm who has access to treatment assignment and when (e.g., unblinded pharmacists, DMC).
+
+### Bias mitigation in open-label or partially blinded settings
+- Use blinded endpoint assessment when feasible.
+- Prefer objective endpoints and prespecified adjudication rules.
+- Predefine protocol and SAP language to prevent analysis flexibility.
+
+## Analysis implications (SAP and reporting)
+
+### Stratification and analysis alignment
+- If stratified randomization is used, confirm whether the primary analysis will:
+  - stratify the test/model by the same factors, or
+  - include them as covariates, consistent with the estimand strategy.
+- Ensure strata are not overly granular (sparse strata complicate models and reporting).
+
+### Handling randomization errors and deviations
+- Define how randomization errors are handled (e.g., wrong kit dispensed).
+- Specify impacted populations (ITT, PP) and documentation expectations.
+- Ensure deviations are traceable and reflected in ADaM flags where needed.
+
+### Interim looks and unblinding risk
+- If interim analyses exist, confirm governance (DMC, firewalls) and alpha spending.
+- Ensure partial unblinding does not compromise study conduct or endpoint assessment.
+
+## Common pitfalls (and how to avoid them)
+
+### Too many strata (sparse cells)
+- **Risk:** unstable estimates, messy reporting, and operational complexity.
+- **Avoid:** limit number of factors; collapse categories where clinically defensible.
+
+### Factor capture inconsistency
+- **Risk:** strata defined in protocol but captured differently in CRF/IRT/SDTM.
+- **Avoid:** lock definitions early; ensure one source of truth and consistent derivations.
+
+### Predictable block sizes
+- **Risk:** treatment assignment becomes guessable in small sites.
+- **Avoid:** use varying block sizes and maintain strict allocation concealment.
+
+### Open-label bias leakage
+- **Risk:** assessment bias or differential care affects outcomes.
+- **Avoid:** blinded endpoint assessment, objective endpoints, and prespecified rules.
+
+### Analysis mismatch
+- **Risk:** stratified randomization but unstratified primary analysis (or unclear plan).
+- **Avoid:** explicitly align stratification factors with the primary analysis approach.
+
+## Typical outputs from randomization and blinding planning
+
+- Randomization specification summary (method, blocks, stratification factors, allocation ratio)
+- Clear factor definitions and capture rules (protocol/CRF/IRT alignment)
+- SAP text describing analysis alignment to randomization design
+- ADaM-ready definitions for stratification variables, treatment assignment, and deviations
+- Blinding/unblinding procedures and governance summary (where applicable)
+
+## How this connects to deliverables
+- **Protocol → SAP:** randomization/blinding decisions become analysis specifications and decision rules
+- **SAP → ADaM specs:** stratification and treatment variables are defined with traceable rules
+- **ADaM → TLFs:** analyses and displays reflect the randomization design and bias controls
+
+## Related pages
+- [Study Design Overview](study_design_overview.qmd)
+- [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)
+- [Sample Size and Power](sample_size_power.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [SAP + TLF Shells](sap_tfl_shells.qmd)

@@ -1,0 +1,26 @@
+# SDTM DM (Demographics)
+
+Core **subject-level** SDTM domain built from raw sources to define **one record per subject**, capturing **study/site identifiers**, **demographic attributes**, **treatment assignment**, and **key reference dates** that anchor timing for other SDTM domains.
+
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [DM Specifications](/spec/SDTM_DM_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [DM Build Program (R)](/sdtm/programs/Mini_DM_R_Program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** One record per subject (core identifiers + demographics)
+- **Traceability:** Spec → Program → Output alignment
+- **Typical variables:** `STUDYID`, `SITEID`, `USUBJID`, `AGE`, `SEX`, `RACE`, reference dates
+
+
+

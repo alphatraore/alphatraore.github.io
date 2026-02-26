@@ -1,0 +1,51 @@
+---
+title: "PK/PD"
+subtitle: "Exposure–response • covariates • diagnostics • simulation-ready reporting"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+    link-external-newwindow: true
+---
+
+::: {.callout-tip}
+### Goal
+Demonstrate **PK/PD modeling workflows** that are **transparent and reproducible**, with clear diagnostics and clinically interpretable parameters.
+:::
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications / Notes
+- [PK/PD Model Notes / Spec](spec/PKPD_model_notes.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [PK/PD Modeling Program](programs/PKPD_modeling_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## Programs and Outputs (HTML)
+- [PK/PD Output Report](outputs/PKPD_results.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Concentration-time and exposure–response modeling examples
+- **Traceability:** Raw/derived PK → modeling dataset → model → diagnostics → outputs
+- **Typical outputs:** Parameter table, GOF plots, residual diagnostics, VPC (if applicable)
+
+## Core components (typical)
+- **Structural model:** 1–2 compartment (as applicable)
+- **Variability:** IIV + residual error model
+- **Covariates:** Weight, renal/hepatic function, age, formulation, etc.
+- **Reporting:** Diagnostics + interpretation + (optional) simulation scenarios
+
+## QC checklist
+- **Time alignment:** Dosing, sampling, and units consistently handled
+- **BLQ handling:** Documented approach and impact assessment
+- **Sensitivity:** Alternative error/covariate forms where appropriate
+- **Reproducibility:** Versioned runs and locked outputs

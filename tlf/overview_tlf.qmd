@@ -1,0 +1,202 @@
+---
+title: "TLF Overview"
+subtitle: "Tables • Listings • Figures — submission-style outputs from ADaM with full traceability"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+---
+
+This section contains **Tables, Listings, and Figures (TLFs/TLGs)** generated from **ADaM**, with direct links to each **output** and its **source program**.
+
+::: {.callout-tip}
+### Goal of TLFs
+**TLFs translate analysis-ready ADaM datasets into reviewer-ready outputs** (tables, listings, figures) that are **SAP-aligned**, **traceable**, and **reproducible**.
+:::
+
+## What you’ll find here
+- **Indexes** for Tables, Listings, and Figures (by output ID)
+- Links to **Programs** (source code) and **Outputs** (HTML/PDF/RTF/PNG/WEBP)
+- Notes on **populations**, **denominators**, and key rules (baseline, windowing, censoring)
+- A clear **traceability trail**: **Output → Program → ADaM → SDTM → Source**
+
+---
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Output shells / specs
+- Shell-driven structure (titles, footnotes, populations, methods)
+- Defines expected layout and analysis rules
+- [TLF Shells / Specs](tlg/specs/index.qmd)
+:::
+
+::: {.g-col-6}
+### Programs + outputs
+- One program per output (or driver + modular components)
+- Stored outputs with stable naming and reproducible runs
+- [Programs](tlg/programs/index.qmd)  
+- [Outputs](tlg/outputs/index.qmd)
+:::
+:::
+
+---
+
+## What TLFs are
+**TLFs (Tables, Listings, Figures)** are the primary analysis deliverables created from **ADaM** to support:
+- efficacy and safety endpoints (per **SAP**)
+- clinical study reporting and regulatory review
+- consistent, review-friendly presentation of results
+
+**Common examples**
+- **Tables:** baseline characteristics, AE summaries, disposition, lab shift tables  
+- **Listings:** subject-level AE, deaths, protocol deviations, concomitant meds  
+- **Figures:** Kaplan–Meier, forest plots, mean profiles, bar/shift plots  
+
+---
+
+## Why TLFs matter
+- **Decision-making:** TLFs are what teams use to interpret outcomes.
+- **Regulatory readability:** consistent titles/footnotes/populations reduce reviewer friction.
+- **Reproducibility:** outputs must be regeneratable from ADaM using controlled programs.
+- **Traceability:** every number should map back to **ADaM → SDTM → source**.
+
+::: {.callout-note}
+### Reviewer mindset
+A reviewer should be able to go from **Output → Program → ADaM dataset(s) → Define/ADRG** with minimal effort.
+:::
+
+---
+
+## TLF building blocks
+
+### 1) Output shells (spec-driven)
+Strong TLF production starts with shells that define:
+- output identifier (e.g., *Table 14.1.1*)
+- title/subtitle, footnotes, required populations
+- analysis methods (counts/percent, summaries, models)
+- denominators and missing data handling
+
+### 2) Analysis inputs (ADaM-first)
+Most outputs are built directly from:
+- **ADSL** (populations, treatment, key dates)
+- endpoint ADaM datasets (e.g., **ADAE, ADLB, ADVS, ADTTE**)
+
+### 3) Programs (reproducible, standardized)
+A reviewer-ready output program documents:
+- datasets used + filters/populations
+- key parameters (visits, windows, baselines, censoring)
+- consistent formatting (decimals, ordering, labels, titles/footnotes)
+
+### 4) Outputs (versioned + auditable)
+Outputs are stored with:
+- stable file names
+- logs and run metadata
+- clear link between output and program
+
+---
+
+## Naming conventions (recommended)
+Use consistent IDs so everything lines up:
+
+- **Tables:** `t_14_1_1_*`  
+- **Listings:** `l_16_2_1_*`  
+- **Figures:** `f_11_3_1_*`
+
+Example pairing:
+- Output: `t_14_1_1_ae_summary.html`
+- Program: `t_14_1_1_ae_summary.sas` (or `.R`)
+- Inputs: `ADSL + ADAE`
+
+---
+
+## Mini examples
+
+### Example 1 — Table (AE summary)
+A table summarizing **subjects with ≥1 TEAE** by treatment arm.
+
+| Treatment | N | Any TEAE n (%) | Serious TEAE n (%) | TEAE leading to DC n (%) |
+|---|---:|---:|---:|---:|
+| Drug A | 120 | 64 (53.3) | 8 (6.7) | 5 (4.2) |
+| Placebo | 118 | 51 (43.2) | 6 (5.1) | 3 (2.5) |
+
+> Notes:
+> - Denominator should be **SAF** unless SAP states otherwise.
+> - TEAE definition (on/after first dose through X days) must match ADRG/SAP.
+
+### Example 2 — Listing (subject-level detail)
+
+| USUBJID | TRT | AETERM | AEDECOD | ASTDT | AENDT | AESEV | AESER | AEREL |
+|---|---|---|---|---|---|---|---|---|
+| ABC123-001-1001 | Drug A | Headache | HEADACHE | 20JAN2025 | 21JAN2025 | MILD | N | RELATED |
+
+### Example 3 — Figure (KM plot)
+A KM figure from **ADTTE** typically includes:
+- event/censoring rules (CNSR, EVNTDESC)
+- number at risk
+- median + CI (if required)
+- consistent styling and labels
+
+---
+
+## Traceability map (end-to-end)
+**Source/EDC/CRF → SDTM (tabulations) → ADaM (analysis-ready) → TLFs (outputs)**
+
+**Examples**
+- AE CRF → **SDTM AE** → **ADAE** → AE tables + AE listings  
+- VS raw → **SDTM VS** → **ADVS** → profile plots + shift tables  
+- Time-to-event → SDTM + **ADSL** → **ADTTE** → KM plots + Cox summaries  
+
+---
+
+## Typical TLF workflow
+1. Finalize shells (titles, footnotes, populations, methods)  
+2. Confirm ADaM readiness (baseline/windowing/censoring rules)  
+3. Build output programs (consistent conventions + documentation)  
+4. QC outputs (denominators, spot checks, independent verification)  
+5. Validate (style + content + rerun reproducibility)  
+6. Publish outputs + archive logs + inputs used  
+
+---
+
+## Best practices
+- Anchor populations and treatment off **ADSL** (single source of truth).
+- Centralize formatting rules (decimals, ordering, labels, titles).
+- Keep programs **self-documenting** (inputs, filters, methods).
+- Store outputs with stable naming (`t_`, `l_`, `f_`) and versioning.
+- Treat ADRG + reproducibility notes as part of the deliverable.
+
+---
+
+## Next in this portfolio
+
+::: {.grid .gap-3}
+::: {.g-col-12 .g-col-md-4 .card}
+### Tables
+- [Table Index](tlg/tables/index.qmd)
+- [Programs](tlg/tables/programs.qmd)
+- [Outputs](tlg/tables/outputs.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-4 .card}
+### Listings
+- [Listing Index](tlg/listings/index.qmd)
+- [Programs](tlg/listings/programs.qmd)
+- [Outputs](tlg/listings/outputs.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-4 .card}
+### Figures
+- [Figure Index](tlg/figures/index.qmd)
+- [Programs](tlg/figures/programs.qmd)
+- [Outputs](tlg/figures/outputs.qmd)
+:::
+:::
+
+### Reproducibility + QC
+- [TLF Repro Guide](tlg/repro/index.qmd)
+- [QC Checks + Validation Notes](tlg/qc/index.qmd)

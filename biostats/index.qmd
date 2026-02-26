@@ -1,0 +1,100 @@
+---
+title: "Statistical Science"
+title-block: true
+toc: false
+page-layout: article
+---
+
+::: {.callout-tip appearance="simple"}
+This section presents my **Statistical Science** work across study strategy, estimands, confirmatory inference, robustness, and modeling, focused on analysis planning, execution, and delivery readiness.
+:::
+
+## What this section demonstrates
+
+- **Scientific leadership in clinical development** (beyond programming execution)
+- **Design-to-analysis continuity** (objectives → estimands → SAP/TLF strategy → inference)
+- **Regulatory-grade rigor** (multiplicity, missing data, sensitivity analyses, QC/validation)
+- **Applied modeling capability** (e.g., **MMRM** for longitudinal endpoints, **KM/Cox** methods for time-to-event analyses, and **PK/PD** modeling foundations)
+- **Review-ready delivery mindset** (traceability, reproducibility, and communication readiness)
+
+## How to navigate this section
+
+You can read this section in order, or jump directly to the area most relevant to your review.
+
+### Scientific Positioning and Leadership
+- [Study Leadership and Scientific Contribution](study_leadership.qmd)
+
+### Trial Design, Estimands, and Planning
+- [Study Design Overview](study_design_overview.qmd)
+- [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)
+- [Sample Size and Power](sample_size_power.qmd)
+- [Randomization and Blinding](randomization_blinding.qmd)
+- [SAP and TLF Shell Planning](sap_tfl_shells.qmd)
+
+### Confirmatory Inference and Robustness
+- [Multiplicity Strategy](multiplicity.qmd)
+- [Missing Data Strategy](missing_data.qmd)
+- [Sensitivity Analyses](sensitivity_analyses.qmd)
+
+### Statistical Modeling
+- [Modeling Overview](../modeling/index.qmd)
+- [Modeling Methods and Applications](../modeling/overview.qmd)
+- [MMRM Methods and Applications](../modeling/mmrm.qmd)
+- [Survival Analysis Methods and Applications](../modeling/survival.qmd)
+- [PK/PD Modeling Foundations](../modeling/pkpd.qmd)
+
+### Quality, Validation, and Delivery Readiness
+- [QC, Validation, and Delivery Readiness](qc_validation.qmd)
+
+## End-to-end workflow reflected in this portfolio
+
+1. **Define the scientific question**
+   - Clinical objectives, endpoints, estimand framing, and decision criteria
+
+2. **Design the trial and analysis framework**
+   - Design options, randomization/blinding, sample size, and SAP/TLF planning
+
+3. **Specify confirmatory inference and robustness**
+   - Multiplicity control, missing data strategy, and sensitivity analyses
+
+4. **Apply fit-for-purpose statistical models**
+   - Longitudinal, time-to-event, and PK/PD approaches aligned to study objectives
+
+5. **Deliver review-ready outputs with QC discipline**
+   - Validation checks, traceability, reproducibility, and communication readiness
+
+## What reviewers and hiring teams can expect
+
+::: {.callout-note}
+Across this section, I emphasize:
+- **Method selection rationale** (why the approach fits the objective)
+- **Assumption awareness** (what must hold for conclusions to be reliable)
+- **Interpretability** (how results support clinical decision-making)
+- **Execution readiness** (how strategy translates into SAP/TLFs and production workflows)
+:::
+
+## Recommended reading paths
+
+### For scientific leadership and trial strategy
+1. [Study Leadership and Scientific Contribution](study_leadership.qmd)
+2. [Study Design Overview](study_design_overview.qmd)
+3. [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)
+
+### For confirmatory inference and statistical rigor
+1. [Multiplicity Strategy](multiplicity.qmd)
+2. [Missing Data Strategy](missing_data.qmd)
+3. [Sensitivity Analyses](sensitivity_analyses.qmd)
+
+### For applied modeling capability
+1. [Modeling Overview](../modeling/index.qmd)
+2. [MMRM Methods and Applications](../modeling/mmrm.qmd)
+3. [Survival Analysis Methods and Applications](../modeling/survival.qmd)
+4. [PK/PD Modeling Foundations](../modeling/pkpd.qmd)
+
+### For delivery discipline and submission readiness
+1. [SAP and TLF Shell Planning](sap_tfl_shells.qmd)
+2. [QC, Validation, and Delivery Readiness](qc_validation.qmd)
+
+## Positioning statement
+
+This section is designed to show how I approach statistical work as both a **scientific** and **operational** discipline: aligning study questions with estimands and analysis strategy, selecting appropriate methods, stress-testing conclusions, and delivering outputs with the quality expected in regulated environments.

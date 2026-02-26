@@ -1,0 +1,161 @@
+---
+title: "SDTM Overview"
+subtitle: "Study Data Tabulation Model — structure, traceability, and submission readiness"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+---
+
+::: {.callout-tip}
+### Goal of SDTM
+**SDTM standardizes collected clinical trial data into consistent domain datasets** so regulators and stakeholders can **review, reproduce, and validate** results efficiently.
+:::
+
+## What SDTM is
+**SDTM (Study Data Tabulation Model)** is a CDISC standard that organizes clinical trial data into **domain-based tabulation datasets**
+(e.g., **DM, AE, EX, LB, VS**). Domains follow consistent variable naming and structure, enabling clear traceability from source
+collection to submission-ready tabulations and downstream analysis.
+
+## Why SDTM matters
+- **Regulatory readiness:** submission packages are easier to review and validate.
+- **Consistency across studies:** predictable structure reduces analysis friction.
+- **Traceability:** documented provenance supports auditing and inspection readiness.
+- **Downstream efficiency:** clean SDTM accelerates ADaM and TLF production.
+
+---
+
+## SDTM building blocks
+
+### Domains
+SDTM data is organized into **domains**, each representing a topic area.
+
+**Common domains**
+- **DM:** Demographics (one record per subject)
+- **AE:** Adverse Events
+- **EX:** Exposure / dosing
+- **MH:** Medical History
+- **CM:** Concomitant Medications
+- **LB:** Laboratory Tests
+- **VS:** Vital Signs
+- **EG:** ECG
+- **QS:** Questionnaires
+- **SV:** Subject Visits
+
+### Observation classes (structure drivers)
+- **Interventions (EX, CM):** what was administered/done  
+- **Events (AE, MH):** something that occurred  
+- **Findings (LB, VS, EG, QS):** tests/measurements  
+- **Special-purpose (DM, SV):** subject/study scaffolding  
+- **Trial design (TA/TE/TI/TV):** planned design elements  
+
+---
+
+## Core SDTM structure
+
+### Keys you’ll see everywhere
+Most SDTM domains include:
+- `STUDYID` — Study identifier  
+- `DOMAIN` — Domain code (e.g., "AE")  
+- `USUBJID` — Unique subject identifier  
+- `--SEQ` — Record sequence (e.g., `AESEQ`, `VSSEQ`)  
+
+### Timing variables (conceptual)
+SDTM supports multiple representations:
+- **ISO datetime:** `--DTC` (character ISO 8601), e.g., `AESTDTC`, `AENDTC`
+- **Study day:** `--DY` (numeric), e.g., `AESTDY`
+- **Visit:** `VISIT`, `VISITNUM` (when applicable)
+
+::: {.callout-note}
+### SDTM date/time fields
+`--DTC` variables are **character ISO 8601**. Missing/partial dates (and any imputation conventions) should be **consistent and documented**.
+:::
+
+---
+
+## Mini examples
+
+### Example 1 — DM (one record per subject)
+Typical subject-level anchors in DM include `USUBJID`, treatment arm, and reference dates.
+
+| STUDYID | DOMAIN | USUBJID | SUBJID | SITEID | AGE | SEX | RACE | ARM | RFSTDTC |
+|---|---|---|---|---|---:|---|---|---|---|
+| ABC123 | DM | ABC123-001-1001 | 1001 | 001 | 62 | M | WHITE | Drug A | 2025-01-15 |
+
+### Example 2 — AE timing + seriousness fields
+AEs commonly include onset/end timing, severity, seriousness, and relationship.
+
+| USUBJID | AESEQ | AETERM | AESTDTC | AENDTC | AESEV | AESER | AEREL |
+|---|---:|---|---|---|---|---|---|
+| ABC123-001-1001 | 1 | Headache | 2025-01-20 | 2025-01-21 | MILD | N | RELATED |
+
+---
+
+## Controlled terminology and compliance
+SDTM implementations typically depend on:
+- **CDISC Controlled Terminology (CT)** for coded values (e.g., SEX, RACE, outcomes)
+- **SDTMIG** for rules, expectations, and examples
+- **Define-XML** for metadata (origins, codelists, value-level metadata)
+
+---
+
+## Traceability map
+A review-friendly pipeline usually looks like:
+
+**Source/EDC/CRF → SDTM (tabulations) → ADaM (analysis-ready) → TLFs (outputs)**
+
+**Examples**
+- AE CRF → **AE** (`AETERM/AESTDTC/AESEV/...`) → **ADAE** (flags, analysis dates) → AE summary tables/listings  
+- Lab raw → **LB** (`LBTEST/LBSTRESN/LBDTC/...`) → **ADLB** (analysis windows/derivations) → shift plots/listings  
+
+**Traceability proof points**
+- **Source → SDTM:** aCRF annotations + **define.xml Origin** + **cSDRG** narrative  
+- **SDTM → ADaM:** **define.xml MethodDefs** + **ADRG** derivation documentation  
+
+---
+
+## Submission-style package contents (typical)
+A strong SDTM delivery usually includes:
+- SDTM datasets (often **XPT** for submission; SAS datasets internally)
+- **define.xml** (+ define.pdf rendering if needed)
+- **cSDRG** explaining decisions, assumptions, known issues
+- Validation report (e.g., **Pinnacle 21**) + issue adjudication rationale
+- Specs/mapping (source-to-target mapping, transformation logic)
+- QC evidence (independent programming or structured checks)
+
+---
+
+## Typical SDTM workflow
+1. Review protocol / CRFs / annotations  
+2. Build mapping spec (source → SDTM variables)  
+3. Implement domains (often DM first; then AE/EX/CM; then findings like LB/VS)  
+4. QC (independent or structured checks)  
+5. Validation (P21 + internal checks)  
+6. define.xml + cSDRG  
+7. Package and publish (traceable, review-ready)
+
+---
+
+## Best practices
+- Start with **DM early**: anchors `USUBJID` and subject-level reference dates.
+- Standardize **ISO 8601** creation + missing/partial date handling.
+- Keep derivations **explicit, reproducible, and documented**.
+- Apply CT consistently; document deviations.
+- Treat validation findings as part of a **review narrative**, not just error counts.
+
+---
+
+## Next in this portfolio
+
+### SDTM Domains
+| Domain | Overview | Specs | Programs | Outputs |
+|---|---|---|---|---|
+| **DM** | [Overview](dm/index.qmd) | [Specs](sdtm/dm/specs.qmd) | [Programs](sdtm/dm/programs.qmd) | [Outputs](sdtm/dm/outputs.qmd) |
+| **AE** | [Overview](sdtm/ae/index.qmd) | [Specs](sdtm/ae/specs.qmd) | [Programs](sdtm/ae/programs.qmd) | [Outputs](sdtm/ae/outputs.qmd) |
+| **VS** | [Overview](sdtm/vs/index.qmd) | [Specs](sdtm/vs/specs.qmd) | [Programs](sdtm/vs/programs.qmd) | [Outputs](sdtm/vs/outputs.qmd) |
+
+### Study Data Review
+- [SDTM Validation + cSDRG Notes](/sdtm/validation/index.qmd)

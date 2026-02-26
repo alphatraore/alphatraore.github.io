@@ -1,0 +1,17 @@
+---
+title: "Submission Package"
+---
+
+# ADaM Submission Package
+
+This section groups analysis submission artifacts.
+
+## Deliverables
+- [Outputs](../outputs/index.qmd)
+- [define.xml Package](../define/index.qmd)
+- [ADRG](../adrg/index.qmd)
+
+## Where Files Live
+- Outputs folder: `adam/outputs/`
+- Define folder: `adam/define/`
+- ADRG folder: `adam/adrg/`

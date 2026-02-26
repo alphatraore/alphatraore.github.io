@@ -1,0 +1,51 @@
+---
+title: "Multiplicity"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This page outlines how I approach **multiplicity control** in confirmatory analyses to support **valid inference**, **clear decision logic**, and **review-ready reporting**.
+:::
+
+## Why it matters
+
+When multiple hypotheses or endpoints are tested, the risk of false-positive findings increases. A clear multiplicity strategy helps ensure conclusions are:
+
+- **Statistically valid**
+- **Prespecified**
+- **Traceable to SAP/TLF logic**
+- **Clearly interpretable for reviewers**
+
+## What I focus on
+
+- Defining **hypothesis families**
+- Clarifying **testing order / hierarchy**
+- Distinguishing **confirmatory vs descriptive** results
+- Aligning multiplicity logic across:
+  - protocol/SAP language
+  - TLF shells
+  - output footnotes and interpretation
+
+## Practical contribution areas
+
+- Multiplicity planning support during study design/SAP development
+- Testing strategy traceability in outputs
+- Review-friendly labeling of inferential vs nominal results
+- Consistency checks across tables and figures
+
+## Common pitfalls I help prevent
+
+- Ambiguous testing hierarchy
+- Mixing confirmatory and exploratory conclusions
+- Inconsistent SAP vs output interpretation language
+- Nominal p-values presented as confirmatory evidence
+
+## Related pages
+
+- [Confirmatory Inference and Robustness](confirmatory_inference_index.qmd)
+- [Missing Data](missing_data.qmd)
+- [Sensitivity Analyses](sensitivity_analyses.qmd)

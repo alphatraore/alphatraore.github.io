@@ -1,0 +1,78 @@
+---
+title: "Statistical Modeling"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This section presents a practical, portfolio-oriented view of **statistical modeling** in clinical and biomedical workflows, with emphasis on **scientific fit**, **assumption awareness**, **interpretability**, and **implementation readiness**.
+:::
+
+## Overview
+
+Modeling plays a central role in translating clinical questions into quantitative evidence. In this portfolio, I use modeling to support:
+
+- **Longitudinal outcome analysis** (e.g., repeated measures)
+- **Time-to-event analysis** (e.g., survival endpoints)
+- **PK/PD and exposure-response thinking**
+- **Traceable, review-ready analytical workflows**
+
+My focus is not only on selecting the right method, but also on ensuring that methods are implemented in a way that is:
+
+- **scientifically appropriate**
+- **transparent**
+- **reproducible**
+- **QC-aware**
+- **practical for delivery**
+
+## What this section covers
+
+### Modeling Methods (hub)
+A method-focused overview of the main modeling families included in this portfolio, including how they connect to study objectives, assumptions, and outputs.
+
+### Modeling Overview
+A broader framing of modeling workflows, including method selection, implementation considerations, and interpretation in a regulated analysis context.
+
+### MMRM
+Repeated-measures modeling for longitudinal endpoints, including practical considerations for estimation, covariance structure, and reporting.
+
+### Survival Analysis
+Time-to-event methods for clinical endpoints, including Kaplan-Meier workflows, event/censoring considerations, and inferential interpretation.
+
+### PK/PD Modeling
+PK/PD and exposure-response modeling concepts and implementation framing, with attention to model purpose, assumptions, and communication of results.
+
+## How I approach modeling work
+
+### Question-driven method selection
+I start with the **endpoint**, **estimand/analysis objective**, and **decision context** before choosing a modeling approach.
+
+### Assumption-aware implementation
+I treat assumptions as part of the analysis deliverable—not hidden details. This supports better interpretation and more credible conclusions.
+
+### Traceability and reproducibility
+I aim to make modeling workflows easy to follow from:
+- analysis objective
+- data inputs
+- modeling choices
+- outputs and interpretation
+
+### Delivery readiness
+Modeling outputs are most useful when they are organized for review, aligned with study reporting needs, and supported by clear documentation.
+
+## Navigation
+
+- [Modeling Methods](modeling_methods_index.qmd)
+- [Modeling Overview](overview.qmd)
+- [MMRM](mmrm.qmd)
+- [Survival Analysis](survival.qmd)
+- [PK/PD Modeling](pkpd.qmd)
+
+---
+
+## Notes for portfolio reviewers
+
+This section is designed to show how I combine **statistical methodology** with **implementation discipline** and **review-ready communication** in applied modeling workflows.

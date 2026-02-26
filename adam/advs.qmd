@@ -1,0 +1,22 @@
+# ADaM ADVS (Vital Signs Analysis Dataset)
+
+Analysis-ready **record-level** ADaM dataset derived from SDTM VS (and ADSL) to support **vital signs** analyses across visits and timepoints, including **analysis values**, **baseline/changes**, **visit/timepoint metadata**, and **analysis flags** used in summaries, shift tables, and listings.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [ADVS Specifications](/spec/ADVS_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [Build ADVS (R Derivation Program)](/adam/programs/Mini_ADVS_R_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** Vital signs records aligned to analysis populations and treatment periods (with one record per subject/parameter/visit/timepoint as applicable)
+- **Traceability:** Spec → Program → Output alignment (including merges to ADSL)
+- **Typical variables:** `STUDYID`, `USUBJID`, `PARAM`, `PARAMCD`, `AVAL`, `AVALU`, `ADT`, `ADY`, `VISIT`, `VISITNUM`, `ATPT`, `ATPTN`, plus derived analysis variables like `BASE`, `CHG`, `PCHG`, and flags such as `ABLFL` / `ANL01FL`

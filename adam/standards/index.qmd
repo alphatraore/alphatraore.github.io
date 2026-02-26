@@ -1,0 +1,68 @@
+---
+title: "Standards"
+---
+
+::: {.callout-note}
+## Standards used in this portfolio (ADaM)
+
+This page documents the **current released CDISC ADaM standards** used to build the ADaM examples in this portfolio.  
+These versions align with the **example datasets, specs, and metadata snapshots** included in this repo.
+:::
+
+## Core ADaM standards (current released)
+
+| Standard / Artifact | Latest released version | Published | Why it matters |
+|---|---:|---:|---|
+| **ADaM (Model)** | **v2.1** | 2009-12-07 | Foundational ADaM principles and model concepts |
+| **ADaMIG (Human Clinical Trials)** | **v1.3** | 2021-11-29 | Core analysis dataset structures/variables (ADSL, BDS) |
+| **ADaM Conformance Rules** | **v5.0** | 2023-10-06 | Validation rule set used by conformance tools |
+| **ADaM Metadata Submission Guidelines (ADaM-MSG)** | **v1.0** | 2023-04-18 | Guidance for the eCTD Module 5 “adam” folder/package |
+| **ADaM Controlled Terminology (NCI EVS)** | **2025-09-26** | 2025-09-26 | Terminology package date used for codelists/values |
+
+## Companion ADaM implementation guides (commonly used)
+
+| Companion IG | Version | Published | Typical use |
+|---|---:|---:|---|
+| **Occurrence Data Structure (OCCDS) IG** | **v1.1** | 2021-11-29 | Occurrence-style analyses (AE/CM/MH-like structures) |
+| **NCA Input Data (ADNCA) IG** | **v1.0** | 2021-11-29 | PK non-compartmental analysis inputs |
+| **Medical Devices (ADaMIG-MD) IG** | **v1.0** | 2021-11-29 | Medical device analysis structures |
+| **BDS for Time-to-Event (TTE) Analyses** | **v1.0** | 2016-02-12 | Time-to-event endpoints and censoring conventions |
+| **BDS for popPK IG** | **v1.0** | 2023-10-06 | BDS extensions for population PK |
+
+## High-signal examples (what reviewers love)
+
+| Examples document | Version | Published | Why it’s useful |
+|---|---:|---:|---|
+| **ADaM Examples of Traceability** | **v1.0** | 2022-05-12 | Shows end-to-end traceability patterns (SDTM → ADaM → results) |
+| **ADaM Oncology Examples** | **v1.0** | 2025-06-10 | Oncology-focused analysis approaches using ADaM structures |
+
+## Official references (source of truth)
+
+- ADaM v2.1 — <https://www.cdisc.org/standards/foundational/adam/adam-v2-1>
+- ADaMIG v1.3 — <https://www.cdisc.org/standards/foundational/adam/adamig-v1-3>
+- ADaM Conformance Rules v5.0 — <https://www.cdisc.org/standards/foundational/adam/adam-conformance-rules-v5-0>
+- ADaM-MSG v1.0 — <https://www.cdisc.org/standards/foundational/adam/adam-metadata-submission-guidelines-v1-0>
+- ADaM OCCDS IG v1.1 — <https://www.cdisc.org/standards/foundational/adam/adam-structure-occurrence-data-implementation-guide-v1-1>
+- ADNCA v1.0 — <https://www.cdisc.org/standards/foundational/adam/adamig-non-compartmental-analysis-input-data-v1-0>
+- ADaMIG-MD v1.0 — <https://www.cdisc.org/standards/foundational/adam-medical-devices/adamig-medical-devices-v1-0>
+- BDS for TTE Analyses v1.0 — <https://www.cdisc.org/standards/foundational/adam/adam-basic-data-structure-bds-time-event-tte-analyses-v1-0>
+- BDS for popPK IG v1.0 — <https://www.cdisc.org/standards/foundational/adam/basic-data-structure-adam-poppk-implementation-guide-v1-0>
+- ADaM Examples of Traceability v1.0 — <https://www.cdisc.org/standards/foundational/adam/adam-examples-traceability-v1-0>
+- ADaM Oncology Examples v1.0 — <https://www.cdisc.org/standards/foundational/adam/adam-oncology-examples-v1-0-0>
+- Controlled Terminology landing page — <https://www.cdisc.org/standards/terminology/controlled-terminology>
+- NCI EVS ADaM terminology downloads — <https://evs.nci.nih.gov/ftp1/CDISC/ADaM/>
+
+## Portfolio conventions (how these are applied)
+
+- **Baseline:** ADaM examples assume **ADaM v2.1** + **ADaMIG v1.3**.
+- **Validation:** conformance checks reference **ADaM Conformance Rules v5.0** where applicable.
+- **Terminology:** values align to the **CT package date** listed above.
+- **Submission awareness:** always confirm required versions per sponsor/regulatory expectations.
+
+::: {.callout-tip}
+### Maintenance note
+Controlled Terminology updates more frequently than ADaM/ADaMIG.  
+When CT updates, change the **CT date** in the table (and optionally add a changelog entry).
+:::
+
+**Last updated:** 2026-02-14

@@ -1,0 +1,68 @@
+---
+title: "TLFs"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## What this section covers
+
+This section presents **Tables, Listings, and Figures (TLFs)** with a focus on **shell-aligned implementation**, **traceability to ADaM/SAP intent**, **QC review**, and **delivery readiness**.
+:::
+
+## Overview
+
+TLFs are the visible outputs of statistical analysis and must balance scientific clarity, formatting precision, and reproducibility. My TLF approach emphasizes:
+
+- **Shell alignment** (SAP/TLF shell fidelity)
+- **Traceability** (output → ADaM → derivation/source intent)
+- **Review readiness** (clear labeling, consistency, and formatting)
+- **QC-first execution** (content, logic, and presentation checks)
+
+The goal is to deliver outputs that are accurate, interpretable, and submission/reporting ready.
+
+## What you’ll find in this section
+
+### TLF Overview
+- TLF delivery workflow and organization
+- Relationship to SAP/TLF shells and ADaM inputs
+- Output traceability and review considerations
+
+### Tables
+- Example statistical summary tables
+- Population/endpoint alignment
+- Formatting and consistency checks
+
+### Figures
+- Example plots and graphical outputs
+- Labeling, scales, interpretation support, and QC checks
+- Reproducible generation and review considerations
+
+### Listings
+- Example patient/data listings
+- Sorting, grouping, and display conventions
+- Readability and review utility
+
+## Representative TLF contributions
+
+- Translate shell specifications into reproducible output programs
+- Validate consistency between outputs, populations, and ADaM inputs
+- Organize output packages for efficient medical/statistical review
+- Support delivery with traceable, QC-reviewed outputs
+
+## Working style
+
+My TLF workflow is **shell-driven and reviewer-focused**:
+
+- Start from shell intent and analysis definitions
+- Standardize formatting and output conventions
+- Build QC checks into production and review cycles
+- Ensure outputs are easy to trace and interpret
+
+## Navigation
+
+- [TLF Overview](overview_tlf.qmd)
+- [Tables](tables/index.qmd)
+- [Figures](figures/index.qmd)
+- [Listings](listings/index.qmd)

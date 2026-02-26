@@ -1,0 +1,24 @@
+# Figure 1: Cumulative Incidence Function (CIF) Plot (PFS)
+
+Core **cumulative incidence function (CIF)** plot for **progression-free survival (PFS)**, displayed **by treatment group**. This page links the **generating program** and the **final output** for submission-style review and traceability.
+
+## Deliverables
+
+### Programming + Output
+- [Generate Figure 1 (Program and output)](/tlf/tables/outputs/Figure_1_CIP.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Visualize the cumulative incidence of progression/death over time for PFS, by treatment group
+- **Traceability:** Figure shell/spec → Program → Output (review-ready)
+- **Typical elements:** CIF curves by treatment, censoring marks (if applicable), key timepoints/landmarks, at-risk counts (if shown)
+- **Typical display:** publication-style figure aligned to SAP conventions
+
+---
+
+<iframe
+  src="/tlf/figures/outputs/figure1_cip.webp"
+  class="tlf-frame"
+  title="Figure 1: Cumulative Incidence Function (CIF) Plot (PFS)"
+  loading="lazy"
+></iframe>
+

@@ -1,0 +1,15 @@
+---
+title: "Tables"
+---
+
+This section contains tables with supporting traceability (programs → outputs).
+
+## Table Pages
+- [Table 1](../t_1.qmd)
+- [Table 2](../t_2.qmd)
+- [Table 3](../t_3.qmd)
+- [Table 4](../t_4.qmd)
+- [Table 5](../t_5.qmd)
+
+## Tips
+- If you embed HTML outputs, keep them under `tlg/outputs/` and reference them with relative paths.

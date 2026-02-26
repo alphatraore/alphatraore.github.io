@@ -1,0 +1,23 @@
+# Figure 3: BMI Over Time by Treatment
+
+Core **individual-subject (spaghetti) plot** of **Body Mass Index (BMI, kg/m²)** over **study day**, displayed **by treatment group**. This page links the **generating program** and the **final output** for submission-style review and traceability.
+
+## Deliverables
+
+### Programming + Output
+- [Generate Figure 3 (Program and output)](/tlf/tables/outputs/Figure_3_ISG.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Visualize within-subject BMI trajectories over time and compare patterns across treatment groups
+- **Traceability:** Figure shell/spec → Program → Output (review-ready)
+- **Typical elements:** individual subject lines, treatment-group grouping/panels, study-day axis, baseline/reference markers (if shown)
+- **Typical display:** review-style figure highlighting variability, trends, and potential outliers
+
+---
+
+<iframe
+  src="/tlf/figures/outputs/figure3_isg.webp"
+  class="tlf-frame"
+  title="Figure 3: Individual Subject Body Mass Index (kg/m²) Over Study Day by Treatment Group"
+  loading="lazy"
+></iframe>

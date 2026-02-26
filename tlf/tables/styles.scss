@@ -1,0 +1,195 @@
+/* =========================================================
+   Quarto polish (clean sidebar + typography + no numbering)
+   + Remove right margin panel safely (no grid override)
+   + Clean sidebar + typography + "↗" new-tab cue
+   + Headshot styling (rounded + subtle border/shadow)
+========================================================= */
+
+/*-- scss:defaults --*/
+/* Optional Bootstrap variable overrides can go here. */
+
+/*-- scss:rules --*/
+
+/* ---------------------------
+   Remove numbering everywhere
+---------------------------- */
+.header-section-number,
+.sidebar .chapter-number,
+.sidebar .toc-section-number,
+#TOC .toc-section-number {
+  display: none !important;
+}
+
+/* ---------------------------
+   SAFELY remove the right panel (margin sidebar)
+   (No grid-template overrides!)
+---------------------------- */
+#quarto-margin-sidebar {
+  display: none !important;
+}
+
+/* ---------------------------
+   Headshot (portfolio photo) - FIXED
+   Forces square crop + perfect circle, prevents oval shape
+---------------------------- */
+.headshot {
+  width: 140px;
+  height: 140px;          /* force square */
+  object-fit: cover;      /* crop nicely */
+  border-radius: 9999px;  /* perfect circle */
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+  display: block;
+  margin: 0 auto;
+}
+
+[data-bs-theme="dark"] .headshot {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* Optional wrapper spacing when used on home/about pages */
+.headshot-wrap {
+  text-align: center;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------------------------
+   Page typography + width
+---------------------------- */
+.content {
+  max-width: 2000x;
+  line-height: 1.65;
+}
+
+@media (min-width: 2000px) {
+  .content {
+    max-width: 1320px;
+  }
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+/* ---------------------------
+   Sidebar polish + prevent horizontal scroll
+---------------------------- */
+.sidebar {
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-bs-theme="dark"] .sidebar {
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.sidebar-navigation {
+  padding-top: 0.5rem;
+  overflow-x: hidden; /* removes bottom scrollbar */
+}
+
+.sidebar-navigation .sidebar-item {
+  margin: 0.1rem 0;
+}
+
+.sidebar-navigation .sidebar-item .sidebar-item-text {
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  text-decoration: none;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.sidebar-navigation .sidebar-item.active > .sidebar-item-container > .sidebar-item-text {
+  font-weight: 800;
+}
+
+/* Section labels (Define-XML, SDRG, QC, Standards) */
+.sidebar-navigation .sidebar-item.section > .sidebar-item-container {
+  margin-top: 0.85rem;
+}
+
+
+.sidebar-navigation .sidebar-item {
+  margin: 0.10rem 0;          /* space between items */
+}
+
+/* Optional: more space between section headers (SDTM / ADaM / TLG...) */
+.sidebar-navigation .sidebar-item.section > .sidebar-item-container {
+  margin-top: 1.1rem;
+}
+
+
+
+.sidebar-navigation .sidebar-item.section > .sidebar-item-container > .sidebar-item-text {
+  font-size: 0.80rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.70;
+}
+
+[data-bs-theme="dark"] .sidebar-navigation .sidebar-item.section > .sidebar-item-container > .sidebar-item-text {
+  opacity: 0.82;
+}
+
+/* Indentation for nested chapters */
+.sidebar-navigation .sidebar-item .sidebar-item-container {
+  padding-left: 0.25rem;
+}
+
+.sidebar-navigation .sidebar-item .sidebar-item {
+  padding-left: 0.65rem;
+}
+
+
+/* Wider line spacing in the LEFT sidebar menu */
+.sidebar-navigation .sidebar-item-text {
+  line-height: 1.55;          /* interligne */
+  padding: 0.22rem 0;         /* more vertical breathing room */
+  display: block;             /* makes padding apply cleanly */
+}
+
+.sidebar-navigation .sidebar-item {
+  margin: 0.10rem 0;          /* space between items */
+}
+
+/* Optional: more space between section headers (SDTM / ADaM / TLG...) */
+.sidebar-navigation .sidebar-item.section > .sidebar-item-container {
+  margin-top: 1.1rem;
+}
+/* ---------------------------
+   Code blocks
+---------------------------- */
+pre code {
+  font-size: 0.92rem;
+}
+
+/* ---------------------------
+   Link guidance sign (↗) for "open in new tab"
+---------------------------- */
+.content a.newtab::after {
+  content: " ↗";
+  font-size: 0.85em;
+  opacity: 0.75;
+  margin-left: 0.15em;
+}
+
+
+/* ---------------------------
+   The frame size
+---------------------------- */
+
+.tlf-frame{
+  width: 100%;
+  height: 900px;
+  border: 0;
+}
+
+/* optional: better on mobile */
+@media (max-width: 768px){
+  .tlf-frame{ height: 650px; }
+}
+

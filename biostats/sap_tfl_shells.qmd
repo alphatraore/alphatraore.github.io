@@ -1,0 +1,168 @@
+---
+title: "SAP and TLF Shells"
+subtitle: "Turning analysis intent into review-ready specifications"
+description: "How I translate protocol/SAP requirements into clear, consistent TLF shells and specifications that drive ADaM design, programming, QC, and client-ready reporting."
+toc: true
+---
+
+## Overview
+
+**TLF shells** are the bridge between the **Statistical Analysis Plan (SAP)** and the final deliverables. I build shells and specifications that are **implementation-ready**, **traceable**, and **review-friendly**, so programming and QC can execute with minimal ambiguity.
+
+::: {.callout-tip}
+**Principle:** every table, listing, and figure should map cleanly to an SAP section, endpoint definition, population, and analysis method.
+:::
+
+## SAP → Shells: what I translate
+
+From the SAP, I extract and operationalize:
+
+- **Objectives and endpoints:** what the output must demonstrate
+- **Estimands and intercurrent event strategies:** what data contributes and how
+- **Analysis populations:** ITT, Safety, PP, etc.
+- **Handling rules:** baselines, visit windows, censoring, missing data
+- **Statistical methods:** model, covariates, stratification, estimators, CI, p-values
+- **Multiplicity strategy:** hierarchy/adjustments and testing order
+- **Mock output requirements:** layout conventions and required footnotes
+
+## What a strong TLF shell includes
+
+### Common shell components
+- **Title + identifier:** stable naming (Table/Figure/Listing ID)
+- **Population + timepoint:** explicit analysis set and visit/time window
+- **Endpoint definition:** including units and derivation notes
+- **Denominators:** subject counts and rules (e.g., treated, randomized, safety)
+- **Statistics to display:** n, mean, SD, median, min/max, CI, p-value, etc.
+- **Method notes:** model type, covariates, strat factors, censoring rules
+- **Footnotes:** baseline definition, missing data strategy, rounding rules, imputation notes
+- **Traceability hooks:** references to SAP section and ADaM variables
+
+### Review-readiness checks
+- No ambiguous wording (e.g., “baseline” without definition)
+- All denominators and populations are explicit
+- Output can be programmed from ADaM without guessing
+- Footnotes are consistent across outputs
+
+## My workflow (SAP + shells)
+
+### 1) Output inventory and mapping
+- Build a complete list of required outputs (Primary, Key Secondary, Safety, PK/PD).
+- Map each output to the SAP: **SAP section → endpoint → estimand → population → method**.
+
+### 2) Shell design and standardization
+- Use a consistent style: titles, decimals, column structure, footnotes, ordering.
+- Standardize categorical ordering (SOC/PT, severity, relationship, flags) and visit structure.
+
+### 3) Align with ADaM specs
+- Confirm every shell can be supported by:
+  - required analysis flags (e.g., `ANL01FL`, `SAFFL`)
+  - baseline and change variables (`BASE`, `CHG`, `PCHG`)
+  - visit variables (`AVISIT`, `AVISITN`, windows)
+  - censoring/event variables for TTE (`CNSR`, `EVNTDESC`, `ADT`, `CNSDT`)
+- Close gaps early (before programming begins).
+
+### 4) Review cycles (internal + client)
+- Run internal review with Biostat oversight.
+- Iterate with client feedback and manage controlled revisions.
+
+## TLF naming + metadata conventions (portfolio-ready)
+
+Clear naming and metadata make outputs **traceable**, **searchable**, and **QC-friendly**.
+
+### Output IDs (example patterns)
+Use stable IDs that align with your reporting convention:
+
+- **Tables:** `T14-1-1` (or `Table_14_1_1`)
+- **Listings:** `L16-2-3`
+- **Figures:** `F14-3-2`
+
+If you maintain sections by domain:
+- **Efficacy:** `T14-*`, `F14-*`
+- **Safety:** `T16-*`, `L16-*`
+- **PK/PD:** `T17-*`, `F17-*`
+
+### File naming (recommended)
+Keep file names machine-friendly and consistent:
+
+- `tlf/T14-1-1_primary_endpoint_summary.html`
+- `tlf/F14-3-2_km_plot_pfs.png`
+- `tlf/L16-2-3_ae_listing.xlsx`
+
+**Rules I follow**
+- lower-case where possible
+- hyphens/underscores only (no spaces)
+- include the output ID first for sorting
+
+### Shell header metadata (template)
+Add a short metadata header to each shell (even in mock form):
+
+- **Output ID:** T14-1-1  
+- **Title:** Primary Endpoint Summary at Week 12  
+- **Population:** ITT (ANL01FL="Y")  
+- **Endpoint:** Change from Baseline in Score (units)  
+- **Timepoint:** Week 12 (window rule)  
+- **Method:** MMRM (covariates: baseline, treatment, visit, trt*visit; strat factors if applicable)  
+- **Missing data:** MAR (primary), MI sensitivity  
+- **SAP reference:** Section X.Y  
+- **ADaM source:** ADQS (vars: AVAL, BASE, CHG, AVISITN, PARAMCD, flags)
+
+### Output index (mapping table)
+I maintain an index that links each output to specs and datasets. Example columns:
+
+- Output ID
+- Title
+- Population
+- Endpoint / Parameter
+- Timepoint / Visit
+- Method
+- SAP section
+- ADaM dataset(s)
+- Key variables (PARAMCD, flags, analysis vars)
+- QC checks (spot-checks, reconciliation notes)
+
+## Example shell types I typically develop
+
+### Efficacy tables
+- Baseline characteristics / demographics
+- Primary endpoint summary (by visit or at primary timepoint)
+- Change from baseline tables with MMRM/ANCOVA summaries
+- Responder/ORR tables with CI and testing logic
+
+### Time-to-event outputs
+- Kaplan–Meier plots and risk tables
+- Median time-to-event with CI
+- Cox model hazard ratios (stratified if required)
+- Sensitivity analyses with alternative censoring rules
+
+### Safety outputs
+- TEAE summary tables (by SOC/PT, severity, relationship)
+- Serious AEs, discontinuations due to AEs
+- Lab shift tables and worst-grade summaries
+- Vital signs and ECG summaries (baseline + change)
+
+### Listings
+- Subject disposition and protocol deviations (if required)
+- AE listings with key flags (TEAE, SAE, related, leading to discontinuation)
+- Concomitant medications (by WHO/ATC if applicable)
+
+## QC approach for shells and specs
+
+Before programming begins, I QC shells/specs to ensure:
+- **Completeness:** all outputs required by SAP are present
+- **Consistency:** titles, populations, timepoints, and footnotes agree across outputs
+- **Implementability:** every output is supported by ADaM variables and clear rules
+- **Traceability:** each output links back to SAP sections and analysis definitions
+
+## Deliverables
+
+- SAP-driven **TLF shell package** (Tables/Listings/Figures)
+- Output mapping index (Output ID ↔ SAP reference ↔ dataset/variables)
+- Version-controlled updates (client/oversight feedback incorporated)
+- Review notes / resolution log (as needed)
+
+## Related pages
+- [Study Leadership](study_leadership.qmd)
+- [Study Design Overview](study_design_overview.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [Missing Data](missing_data.qmd)
+- [QC & Validation](qc_validation.qmd)

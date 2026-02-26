@@ -1,0 +1,64 @@
+---
+title: "Confirmatory Inference and Robustness"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## What this section covers
+
+This section presents how I approach **confirmatory statistical inference** with attention to **error control, missing data, assumptions, and robustness**, including sensitivity analyses that support credible interpretation.
+:::
+
+## Overview
+
+Confirmatory analysis is not just about producing p-values—it is about delivering conclusions that are:
+
+- **Statistically valid** — aligned to prespecified objectives and inferential strategy
+- **Transparent** — assumptions and limitations are clearly documented
+- **Robust** — conclusions are assessed under alternative assumptions where appropriate
+- **Traceable** — analysis choices connect cleanly to SAP, datasets, and outputs
+
+This section shows how I think about confirmatory rigor in a practical, study-delivery setting.
+
+## What you’ll find in this section
+
+### Multiplicity
+- Family-wise error considerations and testing strategy
+- Hierarchical and structured testing concepts
+- Practical implications for interpretation and reporting
+
+### Missing Data
+- Missingness considerations and analytic consequences
+- Method selection aligned to endpoint and design context
+- Documentation of assumptions and limitations
+
+### Sensitivity Analyses
+- Role of sensitivity analyses in confirmatory interpretation
+- Alternative assumptions and stress-testing conclusions
+- Consistency checks for decision support and reporting
+
+## Representative confirmatory contributions
+
+- **Inference planning:** help align hypotheses, testing order, and reporting logic
+- **Risk identification:** flag assumptions that may materially affect interpretation
+- **Missing data strategy support:** connect endpoint context to defensible analysis choices
+- **Robustness framing:** define sensitivity analyses that are meaningful, not just procedural
+
+## Working style
+
+I treat confirmatory analysis as a **discipline of consistency**:
+
+- Align inferential goals with SAP language
+- Separate prespecified analyses from exploratory follow-up clearly
+- Make assumptions visible and reviewable
+- Evaluate robustness in a decision-relevant way
+- Communicate results with both rigor and interpretability
+
+## Navigation
+
+- **Pages in this section:**
+  - [Multiplicity](multiplicity.qmd)
+  - [Missing Data](missing_data.qmd)
+  - [Sensitivity Analyses](sensitivity_analyses.qmd)

@@ -1,0 +1,130 @@
+---
+title: "DM (Demographics)"
+subtitle: "Special-purpose SDTM domain — one record per subject (SDTMIG v3.4)"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+---
+
+::: {.callout-tip}
+### Goal of DM
+**DM provides the subject-level backbone** for SDTM: one record per subject with core identifiers, demographics, key reference dates, and planned/actual treatment assignment — enabling **traceability**, **reviewability**, and **submission readiness**. :contentReference[oaicite:0]{index=0}
+:::
+
+## What DM is
+**DM (Demographics)** is a **Special-Purpose** SDTM domain containing **one record per subject**.  
+It anchors subject identity and timing, and supports links to other domains using `USUBJID`.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [DM Specifications](/spec/SDTM_DM_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [DM Build Program (R)](/sdtm/programs/Mini_DM_R_Program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+::: {.grid}
+::: {.g-col-12}
+### Output
+- [DM Output (HTML)](/sdtm/outputs/DM.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+---
+
+## What you’ll find here
+- **Purpose:** Subject-level SDTM “spine” (one record per subject)
+- **Traceability:** Source/EDC → DM → downstream SDTM domains → ADaM
+- **Review value:** Enables clean joins, consistent subject counts, and transparent arm/reference-date definitions
+
+---
+
+## Core identifiers (always expected)
+DM typically includes:
+- `STUDYID` — Study identifier  
+- `DOMAIN` — Always `"DM"`  
+- `USUBJID` — Unique subject identifier (join key across SDTM)  
+- `SUBJID` — Subject ID as collected  
+- `SITEID` — Site identifier (if applicable)
+
+---
+
+## Timing anchors (reference dates)
+DM is where reviewers commonly look first for **study participation timing**. Typical anchors include:
+- `RFSTDTC` — Subject reference start date/time (ISO 8601 character)
+- `RFENDTC` — Subject reference end date/time (ISO 8601 character)
+- `RFXSTDTC` / `RFXENDTC` — Exposure reference start/end (if used/available)
+- `DTHDTC` — Death date/time (if applicable)
+
+::: {.callout-note}
+### SDTM date/time conventions
+SDTM `--DTC` variables are **character ISO 8601**. Partial dates and any conventions must be **consistent and documented** (define.xml origins + cSDRG narrative). :contentReference[oaicite:1]{index=1}
+:::
+
+---
+
+## Demographics variables (typical)
+Common demographics include:
+- `AGE`, `AGEU` (e.g., YEARS)
+- `SEX`
+- `RACE`
+- `ETHNIC` (when collected/required)
+- `COUNTRY` (when applicable)
+
+---
+
+## Treatment assignment (planned vs actual)
+DM commonly carries both **planned** and **actual** assignment:
+- `ARM`, `ARMCD` — Planned arm / coded arm
+- `ACTARM`, `ACTARMCD` — Actual arm / coded actual arm
+
+SDTMIG v3.4 also highlights variables that help explain **mismatches**:
+- `ARMNRS` — Reason subject did not receive expected treatment
+- `ACTARMUD` — Actual arm derivation details / explanation (useful when `ACTARM` is derived) :contentReference[oaicite:2]{index=2}
+
+---
+
+## Mini example (one record per subject)
+
+| STUDYID | DOMAIN | USUBJID | SUBJID | SITEID | AGE | AGEU | SEX | RACE  | ARM    | ACTARM | RFSTDTC     |
+|---|---|---|---|---|---:|---|---|---|---|---|---|
+| ABC123 | DM | ABC123-001-1001 | 1001 | 001 | 62 | YEARS | M | WHITE | Drug A | Drug A | 2025-01-15 |
+
+---
+
+## Traceability checklist (review-friendly)
+To make DM “submission clean,” reviewers expect:
+- **Clear origins** for each variable (define.xml Origin)
+- **Explainable derivations** (MethodDefs where applicable)
+- **Consistent arm logic** (ARM vs ACTARM; document exceptions)
+- **Consistent DTC creation rules** (including partial/missing handling)
+- **Counts reconcile** to subject disposition / enrollment tracking
+
+A typical traceability narrative:
+**Source/EDC/CRF → DM → other SDTM domains → ADaM → TLFs**
+
+---
+
+## Common QC checks for DM
+- 1 record per `USUBJID` (no duplicates)
+- `USUBJID` uniqueness and consistent formatting
+- `RFSTDTC` present for enrolled/treated subjects as expected
+- Planned vs actual arm rules applied consistently
+- Demographics completeness (SEX/AGE/RACE) per protocol expectations
+- Cross-domain consistency (e.g., subjects in AE/EX exist in DM)
+
+---
+
+## Version note (portfolio-friendly)
+This page is aligned to **SDTMIG v3.4** and the SDTM conceptual model (**SDTM v2.0**, published 29-Nov-2021). :contentReference[oaicite:3]{index=3}  
+FDA also announced support beginning for SDTM v2.0 / SDTMIG v3.4 in a Federal Register notice (Dec 13, 2023). :contentReference[oaicite:4]{index=4}

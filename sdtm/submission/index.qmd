@@ -1,0 +1,17 @@
+---
+title: "Submission Package"
+---
+
+# SDTM Submission Package
+
+This section groups submission-ready artifacts.
+
+## Deliverables
+- [Outputs](../outputs/index.qmd)
+- [define.xml Package](../define/index.qmd)
+- [SDRG](../sdrg/index.qmd)
+
+## Where Files Live
+- Outputs folder: `sdtm/outputs/`
+- Define folder: `sdtm/define/`
+- SDRG folder: `sdtm/sdrg/`

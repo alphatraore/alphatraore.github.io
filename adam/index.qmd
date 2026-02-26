@@ -1,0 +1,87 @@
+---
+title: "ADaM"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## What this section covers
+
+This section presents ADaM-focused work including **analysis dataset design**, **derivation traceability**, **validation/QC workflows**, and **submission-supporting documentation** (including ADRG).
+:::
+
+## Overview
+
+ADaM enables reproducible statistical analysis and direct support for TLF production. My ADaM approach emphasizes:
+
+- **Analysis readiness** aligned to SAP/planned analyses
+- **Traceable derivations** from SDTM to analysis variables
+- **Clear population and endpoint definitions**
+- **QC and validation discipline**
+- **Submission-ready documentation and reviewer support**
+
+The focus is on building datasets that are scientifically useful, operationally reliable, and easy to audit.
+
+## What you’ll find in this section
+
+### ADaM Overview
+- ADaM strategy and analysis-use framing
+- Relationship to SAP/TLF planning
+- Traceability and reproducibility mindset
+
+### Domain Examples
+- **ADSL**
+- **ADAE**
+- **ADVS**
+- **ADTTE**
+- Example derivation and analysis-use considerations
+
+### Submission and Documentation Support
+- Submission package organization
+- Define metadata support
+- **ADRG** preparation and reviewer-oriented explanations
+
+### Build Quality, Programs, Validation, and QC
+- Program organization and derivation flow
+- Validation and consistency checks
+- QC approaches for datasets and analysis variables
+- Review and issue-resolution practices
+
+### Standards
+- ADaM standards alignment and implementation consistency
+- Practical standards interpretation across studies/endpoints
+
+## Representative ADaM contributions
+
+- Translate SAP analysis intent into reproducible analysis datasets
+- Build derivations with explicit traceability to source/SDTM inputs
+- Support QC and validation reviews with documented rationale
+- Prepare ADaM/ADRG deliverables for reviewer-friendly navigation
+
+## Working style
+
+My ADaM workflow is **analysis-driven and traceability-first**:
+
+- Start from analysis questions and TLF needs
+- Define derivation logic clearly and consistently
+- Validate key variables and populations early
+- Package outputs and documentation for efficient review
+
+## Navigation
+
+- [ADaM Overview](adam_overview.qmd)
+- [Domains](domains/index.qmd)
+- [ADSL](adsl.qmd)
+- [ADAE](adae.qmd)
+- [ADVS](advs.qmd)
+- [ADTTE](adtte.qmd)
+- [Submission](submission/index.qmd)
+- [Outputs](outputs/index.qmd)
+- [Define](define/index.qmd)
+- [ADRG](adrg/index.qmd)
+- [Build Quality](build_quality/index.qmd)
+- [Programs](programs/index.qmd)
+- [Validation](validation/index.qmd)
+- [QC](qc/index.qmd)
+- [Standards](standards/index.qmd)

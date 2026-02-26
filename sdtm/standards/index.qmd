@@ -1,0 +1,45 @@
+---
+title: "Standards"
+---
+
+::: {.callout-note}
+## Standards used in this portfolio
+
+This page documents the **current released CDISC SDTM standards** used to build the SDTM examples in this portfolio.  
+These versions align with the **example datasets, specs, and metadata snapshots** included in this repo.
+:::
+
+## Current released versions (SDTM)
+
+| Standard / Artifact | Latest released version | Published | Why it matters |
+|---|---:|---:|---|
+| **SDTM (Model)** | **v2.0** | 2021-11-29 | Defines SDTM classes, structure, and core variables |
+| **SDTMIG (Human Clinical Trials)** | **v3.4** | 2021-11-29 | Implementation guidance for domains, assumptions, and examples |
+| **SDTM & SDTMIG Conformance Rules** | **v2.0** | 2021-11-29 | Validation rule set used by conformance tools |
+| **SDTM Metadata Submission Guidelines (SDTM-MSG)** | **v2.0** | 2021-03-30 | Guidance for SDTM submission metadata/package expectations |
+| **SDTM Controlled Terminology (NCI EVS)** | **2025-09-26** | 2025-09-26 | Terminology package date used for codelists and controlled values |
+
+## Official references (source of truth)
+
+- **SDTM v2.0** — <https://www.cdisc.org/standards/foundational/sdtm/sdtm-v2-0>  
+- **SDTMIG v3.4** — <https://www.cdisc.org/standards/foundational/sdtmig/sdtmig-v3-4>  
+- **SDTM & SDTMIG Conformance Rules v2.0** — <https://www.cdisc.org/standards/foundational/sdtmig/sdtm-and-sdtmig-conformance-rules-v2-0>  
+- **SDTM-MSG v2.0** — <https://www.cdisc.org/standards/foundational/sdtm/sdtm-metadata-submission-guidelines-v2-0>  
+- **Controlled Terminology landing page** — <https://www.cdisc.org/standards/terminology/controlled-terminology>  
+- **NCI EVS SDTM terminology downloads** — <https://evs.nci.nih.gov/ftp1/CDISC/SDTM/SDTM%20Terminology.html>  
+
+## Portfolio conventions (how these are applied)
+
+- **Mapping baseline:** SDTM examples assume **SDTM v2.0** + **SDTMIG v3.4**.
+- **Terminology baseline:** values align to the **CT package date** listed above.
+- **Traceability:** key assumptions and mapping decisions are documented to support QC and review.
+- **Submission awareness:** always confirm required versions per sponsor/regulatory expectations for your submission.
+
+::: {.callout-tip}
+### Maintenance note
+Controlled Terminology updates more frequently than SDTM/SDTMIG.  
+When CT updates, change the **CT date** in the table (and optionally add a changelog entry).
+:::
+
+**Last updated:** 2026-02-14
+

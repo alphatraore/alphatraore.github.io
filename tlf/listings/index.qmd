@@ -1,0 +1,16 @@
+---
+title: "Listings"
+---
+
+# Listings
+
+This section contains listings with supporting traceability (programs → outputs).
+
+## Listing Pages
+- [Listing 1](../l_1.qmd)
+- [Listing 2](../l_2.qmd)
+- [Listing 3](../l_3.qmd)
+
+
+## Tips
+- If you embed HTML outputs, keep them under `tlg/outputs/` and reference them with relative paths.

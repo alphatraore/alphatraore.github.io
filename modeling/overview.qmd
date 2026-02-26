@@ -1,0 +1,68 @@
+---
+title: "Modeling Overview"
+subtitle: "ML • MMRM • PK/PD • Survival — reproducible, review-ready analyses"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+    link-external-newwindow: true
+---
+
+::: {.callout-tip}
+### Goal
+This section showcases **analysis-grade modeling workflows** with **clear assumptions, validation, and traceability**.
+
+**Model → Analysis Dataset → SDTM → Source**
+:::
+
+## Tracks
+
+::: {.grid .gap-3}
+::: {.g-col-12 .g-col-md-6 .card}
+### Machine Learning (ML)
+Interpretable predictive modeling + leakage-safe validation.
+
+- Feature engineering + splits
+- Training + tuning
+- Explainability (drivers/SHAP)
+- [Go to ML](ml.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6 .card}
+### MMRM (Repeated Measures)
+Longitudinal continuous endpoints using mixed models.
+
+- Baseline adjustment + visit effects
+- Covariance structure + inference
+- LS-means + contrasts
+- [Go to MMRM](mmrm.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6 .card}
+### PK/PD Modeling
+Exposure–response and concentration-time modeling.
+
+- Structural + error models
+- Covariates + diagnostics
+- Simulation-ready reporting
+- [Go to PK/PD](pkpd.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6 .card}
+### Survival / Time-to-Event
+KM/Cox and modern survival workflows.
+
+- KM + medians + at-risk
+- Cox HR + diagnostics
+- Sensitivity checks
+- [Go to Survival](survival.qmd)
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** Practical modeling examples aligned with clinical analysis expectations
+- **Traceability:** Model outputs link back to **analysis datasets**, **specs**, and **programs**
+- **Review readiness:** Assumptions stated, QC checks documented, results reproducible

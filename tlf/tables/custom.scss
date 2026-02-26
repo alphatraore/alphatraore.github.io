@@ -1,0 +1,30 @@
+/*-- scss:defaults --*/
+/* Bootstrap / theme variables go here (optional) */
+$font-family-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$body-color: #111;
+$link-color: #0b57d0;
+
+/*-- scss:rules --*/
+/* Regular CSS rules go here */
+body { line-height: 1.6; }
+
+.quarto-title-block .title {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.quarto-title-block .subtitle { opacity: 0.85; }
+
+h2, h3 { margin-top: 1.6rem; }
+
+/* Code blocks: prevent cutoff */
+pre {
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+pre.sourceCode {
+  max-height: none !important;
+  overflow: visible !important;
+}

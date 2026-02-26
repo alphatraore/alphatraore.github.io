@@ -1,0 +1,75 @@
+---
+title: "Trial Design, Estimands, and Planning"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## What this section covers
+
+This section highlights how I support **early study statistical planning**: study design and endpoint strategy, estimands, sample size/power, randomization/blinding, and SAP/TLF shell planning.
+:::
+
+## Overview
+
+Strong statistical execution starts with strong planning. In this section, I show how I translate protocol intent into an analysis plan that teams can execute with confidence. The focus is on scientific clarity, fit-for-purpose design choices, early analysis readiness, and practical implementation in ADaM/TLF workflows.
+
+- **Scientific clarity:** align objectives, endpoints, and estimands to the clinical question  
+- **Design appropriateness:** choose methods that fit the study purpose, phase, and operational constraints  
+- **Analysis readiness:** define populations, assumptions, and analysis strategy early  
+- **Delivery feasibility:** ensure plans translate into ADaM/TLF workflows and clear documentation  
+
+My goal is to help teams move from protocol intent to a practical, traceable, statistically sound analysis plan.
+
+## What you’ll find in this section
+
+### Study Design Overview
+- Trial design considerations across common development settings
+- Endpoint hierarchy and alignment to analysis strategy
+- How design choices shape analyses and interpretation
+
+### Estimands and Intercurrent Events
+- Define the treatment effect for the clinical question of interest
+- Address intercurrent events in a structured, transparent way
+- Align estimand strategy with the analysis approach and interpretation
+
+### Sample Size and Power
+- Translate objectives and effect assumptions into power-driven sample size planning
+- Assess sensitivity to variability, dropout, and key design assumptions
+- Document rationale clearly to support review and decision-making
+
+### Randomization and Blinding
+- Evaluate design implications for balance, bias control, and interpretability
+- Address operational and statistical considerations for implementation
+- Connect design choices to analysis populations, estimands, and reporting
+
+### SAP and TLF Shell Planning
+- Translate protocol intent and statistical strategy into executable SAP and shell plans
+- Define shells, populations, and analysis conventions early to support consistent implementation
+- Strengthen traceability and reduce rework during ADaM/TLF production
+
+## Representative planning contributions
+- **Protocol/SAP alignment:** clarify endpoint definitions, analysis populations, and planned methods
+- **Estimand framing:** maintain consistent language and decision logic for intercurrent events
+- **Feasibility review:** identify early risks in scope, timing, and data dependencies
+- **Shell planning:** structure TLF expectations to improve production efficiency and QC readiness
+
+## Working style
+
+My planning approach is **submission-minded and implementation-aware**:
+
+- Start with the clinical question and estimand target
+- Make assumptions explicit and testable
+- Anticipate ADaM/TLF implementation implications
+- Document decisions clearly for cross-functional teams
+- Build plans that are rigorous *and* executable
+
+## Navigation
+
+- **Pages in this section:**
+  - [Study Design Overview](study_design_overview.qmd)
+  - [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)
+  - [Sample Size and Power](sample_size_power.qmd)
+  - [Randomization and Blinding](randomization_blinding.qmd)
+  - [SAP and TLF Shells](sap_tfl_shells.qmd)

@@ -1,0 +1,53 @@
+---
+title: "Sensitivity Analyses"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This page highlights how I use **sensitivity analyses** to evaluate whether study conclusions remain robust under **reasonable alternative assumptions or analysis choices**.
+:::
+
+## Why it matters
+
+Primary analyses depend on assumptions. Sensitivity analyses help determine whether conclusions are stable or whether they rely on assumptions that materially affect interpretation.
+
+## What I focus on
+
+- Identifying **key assumptions** in the primary analysis
+- Designing **targeted** sensitivity analyses (not checkbox extras)
+- Distinguishing **prespecified sensitivity** analyses from exploratory analyses
+- Reporting results in a **review-friendly** and interpretable way
+
+## Typical assumption areas assessed
+
+- Missing data assumptions
+- Model specification choices
+- Population definitions
+- Endpoint derivation rules
+- Intercurrent event handling
+- Time-to-event/censoring rules (when applicable)
+
+## Practical contribution areas
+
+- Sensitivity analysis planning and rationale support
+- SAP alignment and traceable implementation
+- Reviewer-friendly summary of consistency vs divergence
+- Interpretation support for robustness conclusions
+
+## Common pitfalls I help prevent
+
+- Too many low-value sensitivity analyses
+- Poor linkage to primary assumptions
+- Ad hoc interpretation after results are produced
+- Under-reporting meaningful divergence from primary conclusions
+
+## Related pages
+
+- [Confirmatory Inference and Robustness](confirmatory_inference_index.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [Missing Data](missing_data.qmd)
+- [Estimands and Intercurrent Events](estimands_intercurrent_events.qmd)

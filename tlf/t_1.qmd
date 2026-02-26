@@ -1,0 +1,28 @@
+# Table 1: Demographics
+
+Core **baseline demographics** table summarizing key subject characteristics **by treatment group** (and overall). This page links the **generating program** and the **final HTML output** for submission-style review and traceability.
+
+## Deliverables
+
+
+### Programming
+- [Generate Table 1 (Program and output)](/tlf/tables/Table_1_Demog.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+
+## What you’ll find here
+- **Purpose:** Baseline snapshot of the analysis population (demographics summary table)
+- **Traceability:** Table shell/spec → Program → Output (review-ready)
+- **Typical rows:** N, Age, Sex, Race
+- **Typical display:** counts and percentages for categorical variables; summary stats for continuous variables (e.g., mean (SD), median, min–max)
+
+---
+
+<iframe
+  src="/tlf/tables/outputs/table1_demographics.webp"
+  class="tlf-frame"
+  title="TLF Output 1"
+  loading="lazy"
+></iframe>
+
+
+

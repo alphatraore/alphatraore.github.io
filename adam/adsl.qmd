@@ -1,0 +1,22 @@
+# ADaM ADSL (Subject-Level Analysis Dataset)
+
+Core **subject-level** ADaM dataset built from SDTM to define **one record per subject**, capturing **treatment variables**, **key study dates**, **baseline covariates**, and **analysis population flags** (e.g., ITT/SAF/PP) that anchor downstream analyses.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [ADSL Specifications](/spec/ADSL_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [Build ADSL (R Derivation Program)](/adam/programs/Mini_ADSL_R_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** One record per subject (analysis-ready subject backbone)
+- **Traceability:** Spec → Program → Output alignment
+- **Typical variables:** `STUDYID`, `USUBJID`, `SITEID`, `AGE`, `SEX`, `RACE`, `TRT01P`, `TRT01A`, `TRTSDT`, `TRTEDT`, `RFSTDTC`, and population flags like `ITTFL`, `SAFFL`, `PPROTFL`

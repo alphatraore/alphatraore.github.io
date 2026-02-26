@@ -1,0 +1,23 @@
+# Table 3: Table 3: PFS Summary
+
+Core **progression-free survival (PFS)** summary table presenting key time-to-event results **by treatment group** (and overall). This page links the **generating program** and the **final output** for submission-style review and traceability.
+
+## Deliverables
+
+### Programming + Output
+- [Generate Table 3 (Program and output)](/tlf/tables/Table_3_PFS.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** Summarize PFS by treatment group
+- **Traceability:** Table shell/spec → Program → Output (review-ready)
+- **Typical rows:** N, Events (n, %), Median PFS (95% CI), HR (95% CI), Log-rank p-value
+- **Typical display:** Kaplan–Meier estimates plus model-based comparison (e.g., Cox PH), aligned to SAP conventions
+
+---
+
+<iframe
+  src="/tlf/tables/outputs/table3_pfs.webp"
+  class="tlf-frame"
+  title="Table 3: PFS Summary Table"
+  loading="lazy"
+></iframe>

@@ -1,0 +1,22 @@
+---
+title: "Listing 2: TEAEs by SOC/PT"
+---
+
+# Listing — TEAEs by SOC / PT
+
+This listing provides subject-level **TEAE** detail organized by **MedDRA SOC → PT**, with full traceability (programs → outputs).
+
+## Deliverables
+- **Program:** [Generate Listing](../programs/L_TEAE_SOCPT_program.qmd)
+- **Output:**  [Listing Output (HTML)](../outputs/L_TEAE_SOCPT.html)
+
+## Traceability
+**Listing → ADAE → SDTM AE → Source**
+
+## Display conventions
+- **Population:** SAF
+- **TEAE rule:** On/after first dose (per protocol definition documented in footnote)
+- **Sort (recommended):** `TRT01A` → `AEBODSYS` → `AEDECOD` → `USUBJID` → `ASTDT/ASTDTM`
+
+## Key columns (typical)
+`USUBJID`, `TRT01A`, `AEBODSYS`, `AEDECOD`, `AETERM`, `ASTDT/ASTDTM`, `AENDT/AENDTM`, `AESEV`, `AESER`, `AEREL`, `AEACN`, `AEOUT`, `TRTEMFL`

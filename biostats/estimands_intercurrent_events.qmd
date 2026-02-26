@@ -1,0 +1,217 @@
+---
+title: "Estimands and Intercurrent Events"
+subtitle: "Defining the treatment effect and handling post-randomization events"
+description: "A practical, biostatistics-focused guide to estimands (ICH E9(R1)) and intercurrent event strategies, with clear links to analysis methods, sensitivity planning, and review-ready deliverables."
+toc: true
+---
+
+## Overview
+
+Estimands provide a structured way to define the **treatment effect** that answers the clinical question of interest. They make the target of inference explicit and guide consistent choices across endpoint definitions, analysis populations, handling of intercurrent events, analysis methods, and sensitivity analyses.
+
+::: {.callout-tip appearance="simple"}
+**Goal:** define the estimand and intercurrent event strategy early so analyses align, assumptions are explicit, and conclusions are clear and defensible.
+:::
+
+## What an estimand is
+
+An estimand is a precise description of **what effect** is being estimated, for **which patients**, using **which endpoint definition**, and **how intercurrent events are handled**. This framework is aligned with **ICH E9(R1) principles** and supports consistency from protocol to SAP and final reporting.
+
+## Core estimand attributes (ICH E9(R1))
+
+A complete estimand specifies:
+
+- **Population:** who is targeted (e.g., ITT, mITT)
+- **Treatment condition:** what is compared (e.g., randomized treatment assignments)
+- **Variable (endpoint):** what is measured and when (including definition and derivation rules)
+- **Intercurrent event strategy:** how post-randomization events are handled
+- **Summary measure:** how the comparison is summarized (e.g., difference in means, hazard ratio, odds ratio, risk difference)
+
+## Intercurrent events
+
+Intercurrent events are post-randomization events that affect interpretation or measurement of the endpoint. Examples include:
+
+- treatment discontinuation
+- rescue medication or treatment switch
+- prohibited concomitant medication
+- missed assessments due to adverse events
+- death (for non-mortality endpoints)
+- initiation of new therapy (common in oncology time-to-event settings)
+
+The key is not only listing them, but defining a consistent strategy for how they are handled in the estimand and implemented in the analysis.
+
+## Common intercurrent event strategies and what they imply
+
+| Strategy | What it targets | Typical analysis implications |
+|---|---|---|
+| **Treatment policy** | Effect regardless of intercurrent events | Use all post-randomization data as observed; missing data strategy becomes critical |
+| **Hypothetical** | Effect if the intercurrent event did not occur | Requires assumptions; may use MI or model-based approaches under a specified scenario |
+| **Composite** | Intercurrent event becomes part of the endpoint | Endpoint derivations change; requires clear, testable rules |
+| **While on treatment** | Effect while adhering to treatment | Define censoring/truncation rules; interpret as on-treatment effect |
+| **Principal stratum** | Effect within a subgroup defined by potential intercurrent event behavior | Strong assumptions; often complex and requires careful justification |
+
+## Aligning estimand strategy with endpoint type
+
+### Continuous or longitudinal endpoints
+Typical choices and implications:
+
+- **Treatment policy:** primary analysis often uses MMRM, supported by a robust missing data plan
+- **Hypothetical:** may use MI approaches that reflect the hypothetical scenario
+- **Composite:** requires explicit derivation rules (for example, set outcome to worst value after rescue)
+
+Key planning points:
+- confirm baseline definition and visit windows
+- document missingness assumptions and intercurrent event timing rules
+- pre-specify sensitivity analyses that probe key assumptions
+
+### Time-to-event endpoints
+Key planning points:
+- define how intercurrent events relate to the event definition
+- define censoring rules and ensure they correspond to the estimand target
+- pre-specify sensitivity analyses for alternative censoring assumptions when needed
+
+### Binary endpoints (e.g., responder analyses)
+Key planning points:
+- define response window and confirmation rules (if applicable)
+- define how rescue medication, discontinuation, or missing assessments affect response status
+- choose a strategy (often treatment policy or composite) that matches the clinical question
+
+## What I evaluate during design alignment
+
+- Is the **clinical question** explicitly tied to the estimand target?
+- Are intercurrent events identified, and is the strategy **consistent and implementable**?
+- Do endpoint definitions, visit windows, and derivations support the estimand strategy?
+- Is the analysis method aligned, and are assumptions clear and testable?
+- Are sensitivity analyses pre-specified and decision-relevant?
+
+## Typical outputs from estimand planning
+
+- Estimand statements ready for protocol and SAP language
+- Intercurrent events list with a strategy per event (by endpoint when needed)
+- Analysis implications documented (endpoint derivations, censoring rules, missing data plan)
+- Sensitivity analysis plan aligned with key assumptions
+- Traceability mapping across **Protocol/SAP intent → ADaM derivations → TLF definitions**
+
+## How this connects to deliverables
+
+- **Protocol → SAP:** clinical question and estimand become analysis methods and decision rules
+- **SAP → ADaM specs:** derivations encode endpoints, visit windows, intercurrent event rules, and analysis sets
+- **ADaM → TLFs:** outputs reflect estimands, align with shells, and are easier to defend during review
+
+## Worked examples (practical)
+
+### Example 1: Longitudinal continuous endpoint (Week 24 change from baseline)
+
+**Scenario (typical):**
+A Phase 3 study evaluates change from baseline in a continuous endpoint (e.g., HbA1c) at Week 24, collected across multiple scheduled visits. Key intercurrent events include **treatment discontinuation** and **rescue medication**. Some visits are missed.
+
+#### Estimand statement (illustrative)
+- **Population:** ITT (all randomized participants)
+- **Treatment condition:** randomized treatment groups
+- **Variable (endpoint):** change from baseline at Week 24 (with visit windows and baseline rules defined)
+- **Intercurrent events:** discontinuation, rescue medication, missed assessments
+- **Summary measure:** difference in LS means at Week 24 (or difference in mean change)
+
+#### Intercurrent event handling (illustrative choices)
+| Intercurrent event | Strategy | Practical meaning |
+|---|---|---|
+| Rescue medication | **Treatment policy** (primary) | Include data as observed after rescue; interpret effect regardless of rescue use |
+| Treatment discontinuation | **Treatment policy** (primary) | Use observed post-discontinuation data if collected; otherwise manage via missing data strategy |
+| Missed assessments | Missing data plan aligned to estimand | Make assumptions explicit (e.g., MAR for primary), then test robustness |
+
+> A common alternative is a **hypothetical** strategy for rescue medication (effect “as if no rescue”), often implemented via MI or model-based approaches and supported by sensitivity analyses.
+
+#### Analysis approach (aligned to a treatment policy estimand)
+- **Primary model:** MMRM (visit-based), including treatment, visit, treatment-by-visit, baseline (and stratification factors if applicable)
+- **Key assumptions:** MAR for primary analysis; clear baseline and visit window rules
+
+#### Sensitivity plan (examples reviewers recognize)
+- **MI under alternative assumptions:** reference-based MI (e.g., jump-to-reference/copy-reference) where appropriate
+- **Tipping-point analyses:** assess how strong departures from MAR would need to be to change conclusions
+- **Pattern-mixture sensitivity:** explore robustness to non-random dropout mechanisms
+
+#### Implementation notes (ADaM / TLF alignment)
+- Ensure ADaM supports:
+  - baseline and change derivations (e.g., BASE, CHG)
+  - visit windows (analysis visit and visit number definitions)
+  - intercurrent event flags/timing (e.g., rescue start date, discontinuation date)
+- Ensure shells specify:
+  - which visits are summarized/model-estimated
+  - population rules and missing data handling expectations
+
+### Example 2: Time-to-event endpoint (e.g., PFS) with new therapy
+
+**Scenario (typical oncology):**
+A study evaluates **progression-free survival (PFS)**. Intercurrent events include **initiation of new anti-cancer therapy**, **missed assessments**, and **loss to follow-up**.
+
+#### Estimand statement (illustrative)
+- **Population:** ITT
+- **Treatment condition:** randomized treatment groups
+- **Variable (endpoint):** time from randomization to progression or death (per endpoint definition)
+- **Intercurrent events:** new therapy, missed tumor assessments, loss to follow-up
+- **Summary measure:** hazard ratio (Cox model) and KM-based medians/rates
+
+#### Intercurrent event handling (two defensible approaches)
+**Approach A: Hypothetical strategy for new therapy (common)**
+- **New therapy:** hypothetical (“as if new therapy were not initiated”)
+- **Implementation:** censor at last adequate assessment before new therapy, with prespecified adequacy rules
+
+**Approach B: Treatment policy strategy for new therapy (must be justified)**
+- **New therapy:** treatment policy (effect regardless of subsequent therapy)
+- **Implementation:** avoid censoring for new therapy; interpret as a policy effect
+
+#### Analysis approach
+- **Primary:** KM curves + Cox proportional hazards model (stratified if stratification factors exist)
+- **Censoring rules:** explicitly tied to the estimand strategy and endpoint definition
+- **Assumptions:** non-informative censoring (often questionable if censoring at new therapy)
+
+#### Sensitivity plan (examples that strengthen defensibility)
+- **Alternative censoring:** compare censor-at-new-therapy vs no-censoring for new therapy
+- **IPCW sensitivity (when appropriate):** address potential informative censoring driven by new therapy initiation
+- **Assessment schedule sensitivity:** evaluate impact of missed assessments or delayed visits on event timing rules
+
+#### Implementation notes (ADaM / TLF alignment)
+- Ensure ADaM supports:
+  - event/censor indicators and dates (event date, censor date, reason)
+  - new therapy dates and censoring reason codes
+  - adequate assessment rules aligned to protocol/SAP wording
+- Ensure shells specify:
+  - event/censor definitions, censoring hierarchy, and sensitivity displays
+  - clear interpretation statements for KM and HR outputs
+
+## Estimand wording templates (protocol/SAP-ready)
+
+Use these as short, copy-ready paragraphs. Adjust endpoint names, visit timing, and intercurrent event rules to match the study.
+
+### Template A: Longitudinal continuous endpoint (treatment policy estimand)
+**Estimand (primary):** The treatment effect is defined as the difference between treatment groups in the mean change from baseline in **[endpoint]** at **[Week/Visit]** among the **[ITT/mITT]** population, regardless of treatment discontinuation or use of rescue medication (**treatment policy strategy**). The endpoint is assessed using measurements collected through **[Week/Visit]** per the protocol schedule and visit window rules. The treatment comparison will be summarized as the difference in least-squares mean change between groups at **[Week/Visit]**.
+
+**Intercurrent events:** Treatment discontinuation and rescue medication will be handled using a treatment policy strategy. Missing assessments will be addressed in the primary analysis under a prespecified missing data assumption, with sensitivity analyses to assess robustness.
+
+### Template B: Longitudinal continuous endpoint (hypothetical estimand for rescue medication)
+**Estimand (primary):** The treatment effect is defined as the difference between treatment groups in the mean change from baseline in **[endpoint]** at **[Week/Visit]** among the **[ITT/mITT]** population under a scenario in which **rescue medication is not initiated** (**hypothetical strategy**). The treatment comparison will be summarized as the difference in mean (or least-squares mean) change between groups at **[Week/Visit]**.
+
+**Intercurrent events:** Rescue medication will be handled using a hypothetical strategy implemented via a prespecified approach (e.g., MI under defined assumptions). Treatment discontinuation and missing assessments will be handled as prespecified, with sensitivity analyses to evaluate departures from the primary assumptions.
+
+### Template C: Time-to-event endpoint (hypothetical strategy for new therapy with censoring)
+**Estimand (primary):** The treatment effect is defined as the comparison between treatment groups in **[endpoint, e.g., PFS]** among the **[ITT]** population under a scenario in which **initiation of new anti-cancer therapy does not occur** (**hypothetical strategy**). The endpoint is defined as time from randomization to **[event definition, e.g., disease progression or death]**. Initiation of new therapy will be handled by censoring at the last adequate disease assessment prior to new therapy initiation, according to prespecified adequacy criteria.
+
+**Summary measure:** The treatment comparison will be summarized using the hazard ratio from a Cox proportional hazards model (stratified by **[factors]** if applicable) and Kaplan–Meier estimates (e.g., medians and event-free rates).
+
+### Template D: Time-to-event endpoint (treatment policy strategy, no censoring for new therapy)
+**Estimand (primary):** The treatment effect is defined as the comparison between treatment groups in **[endpoint]** among the **[ITT]** population regardless of initiation of new anti-cancer therapy (**treatment policy strategy**). The endpoint is defined as time from randomization to **[event definition]**, with censoring applied only for **[standard censoring reasons, e.g., lost to follow-up or end of study]** as prespecified.
+
+**Summary measure:** The treatment comparison will be summarized using a Cox proportional hazards model and Kaplan–Meier estimates. Sensitivity analyses will assess robustness to alternative censoring assumptions related to new therapy initiation.
+
+### Template E: Binary responder endpoint (composite strategy example)
+**Estimand (primary):** The treatment effect is defined as the difference between treatment groups in the proportion of responders for **[endpoint]** at **[time window]** among the **[ITT]** population, where **initiation of rescue medication or treatment discontinuation prior to response assessment is considered non-response** (**composite strategy**).
+
+**Summary measure:** The treatment comparison will be summarized using **[risk difference / odds ratio / relative risk]** with corresponding confidence intervals and p-values as prespecified.
+
+## Related pages
+- [Study Design Overview](study_design_overview.qmd)
+- [Sample Size and Power](sample_size_power.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [Missing Data](missing_data.qmd)
+- [Sensitivity Analyses](sensitivity_analyses.qmd)
+- [SAP + TLF Shells](sap_tfl_shells.qmd)

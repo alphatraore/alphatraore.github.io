@@ -1,0 +1,88 @@
+---
+title: "SDTM"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## What this section covers
+
+This section shows SDTM-focused work including **domain construction**, **standards interpretation**, **validation/QC practices**, and **submission-supporting artifacts**.
+:::
+
+## Overview
+
+SDTM is the foundation for standardized clinical tabulation data and downstream traceability. My SDTM workflow emphasizes:
+
+- **Standardized structure and metadata consistency**
+- **Protocol/CRF-to-domain traceability**
+- **Controlled terminology and variable role discipline**
+- **Validation and issue resolution readiness**
+- **Submission support (define/SDRG/CRF alignment)**
+
+The goal is to deliver SDTM packages that are not only valid, but also easy to review and maintain.
+
+## What you’ll find in this section
+
+### SDTM Overview
+- SDTM strategy and implementation approach
+- Domain planning and standards interpretation
+- Traceability principles and submission context
+
+### Domain Examples
+- **DM**
+- **AE**
+- **VS**
+- Example domain-level implementation and QC considerations
+
+### Submission and Documentation Support
+- Submission packaging considerations
+- CRF mapping support
+- Define metadata support
+- SDRG support and reviewer guidance
+
+### Build Quality, Programs, Validation, and QC
+- Build process organization
+- Programming workflow practices
+- Validation summaries and issue tracking approach
+- QC structure and repeatable checks
+
+### Standards
+- Versioning awareness
+- Standards interpretation practices
+- Consistency across domains and studies
+
+## Representative SDTM contributions
+
+- Build and review domain datasets with traceable source alignment
+- Support variable-level consistency checks and standards compliance
+- Organize validation findings and resolutions for efficient review
+- Prepare SDTM deliverables in a reviewer-friendly structure
+
+## Working style
+
+My SDTM work is **standards-first and review-aware**:
+
+- Interpret standards carefully and document assumptions
+- Prioritize consistency across domains
+- Build QC into the workflow, not just at the end
+- Maintain clear submission-supporting documentation
+
+## Navigation
+
+- [SDTM Overview](sdtm_overview.qmd)
+- [Domains](domains/index.qmd)
+- [DM](dm.qmd)
+- [AE](ae.qmd)
+- [VS](vs.qmd)
+- [Submission](submission/index.qmd)
+- [CRF](crf/index.qmd)
+- [Outputs](outputs/index.qmd)
+- [Define](define/index.qmd)
+- [SDRG](sdrg/index.qmd)
+- [Build Quality](build_quality/index.qmd)
+- [Programs](programs/index.qmd)
+- [Validation Summary](validation/validation_summary.qmd)
+- [QC](qc/index.qmd)
+- [Standards](standards/index.qmd)

@@ -1,0 +1,71 @@
+---
+title: "Scientific Leadership and Positioning"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## What this section covers
+
+This section shows how I contribute beyond programming execution as a **statistical scientist / biostatistician**—providing **study-level statistical leadership**, aligning cross-functional stakeholders on key analysis decisions, and driving **QC-first, delivery-ready work** that results in **traceable, reproducible, review-ready outputs**.
+:::
+
+## Overview
+
+My scientific leadership approach is grounded in four principles:
+
+- **Clinical relevance** — align analyses to study objectives, endpoints, estimands, and decision needs
+- **Methodological rigor** — select appropriate methods, make assumptions explicit, and plan sensitivity analyses
+- **Operational feasibility** — design strategies that can be executed reliably within timelines and data realities
+- **Submission readiness** — maintain traceability, QC controls, and reviewer-friendly documentation
+
+In practice, I partner early with clinical, data management, programming, and the client study team to shape a statistical strategy that is **aligned with the study protocol** and **compliant with applicable regulations**, while remaining scientifically sound and operationally executable.
+
+## What you’ll find in this section
+
+### Study Leadership
+- Provide statistical input to study design, endpoints, and estimand strategy
+- Align SAP and TLF shells with study objectives and decision criteria
+- Partner cross-functionally to resolve issues and drive timely decisions
+- Support decision-making during study conduct, interim reviews, and final reporting
+- Identify analysis delivery risks early and implement mitigation plans
+
+### Scientific Positioning
+- Communicate statistical rationale clearly to technical and non-technical audiences
+- Translate statistical concepts into study-level decisions and action plans
+- Balance methodological rigor, interpretability, and operational constraints
+- Frame analyses for internal review, governance, and submission-facing contexts
+
+## Representative leadership contributions
+
+The examples in this section illustrate how I support cross-functional teams across the study lifecycle:
+
+- **Planning phase:** clarify endpoint definitions, estimands, analysis populations, and sensitivity analysis plans
+- **Execution phase:** align analysis expectations, resolve data/analysis ambiguities, and maintain timeline readiness
+- **Reporting phase:** support interpretation, consistency checks, and traceable communication from specifications to outputs
+
+## Working style
+
+I emphasize a **QC-first, traceability-first** workflow:
+
+- **Align** analysis decisions to protocol and SAP intent
+- **Document** assumptions, derivations, and analysis choices clearly
+- **Anticipate** downstream impacts on ADaM builds and TLF production
+- **Communicate** risks early and propose practical alternatives
+- **Support** review readiness with organized, reproducible deliverables
+
+## Navigation
+
+- **Next page:** [Study Leadership](study_leadership.qmd)
+
+---
+
+## Notes for portfolio readers
+
+This portfolio section is intended to show **scientific leadership capability** in a practical, submission-minded environment. It complements the technical sections on:
+
+- Statistical modeling
+- Programming and data standards (SDTM / ADaM)
+- TLF development
+- QC and validation readiness

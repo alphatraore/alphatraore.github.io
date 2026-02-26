@@ -1,0 +1,23 @@
+## SDTM VS (Vital Signs)
+
+Core **findings-level** SDTM domain built from raw vital signs assessments to define **one record per vital sign test result per subject per timepoint**, capturing the **test code/name** (e.g., systolic/diastolic BP, pulse, temperature), **results and units** (original and standardized), and **collection/visit timing** (date/time, visit, timepoint). Optional qualifiers (e.g., **position**, **method**, **location**) add clinical context, supporting longitudinal safety review and downstream analysis.
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications
+- [VS Specifications](/spec/SDTM_VS_spec.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [VS Build Program (R)](/sdtm/programs/Mini_VS_R_Program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## What you’ll find here
+- **Purpose:** One record per subject per vital sign per timepoint (core timing + results)
+- **Traceability:** Spec → Program → Output alignment (derivations and mappings)
+- **Typical variables:** `STUDYID`, `DOMAIN`, `USUBJID`, `VSSEQ`, `VSTESTCD`, `VSTEST`, `VSORRES`, `VSORRESU`,
+  `VSSTRESC`, `VSSTRESN`, `VSSTRESU`, `VSDTC`, `VISIT`, `VISITNUM`, `VSDY`, `VSTPT`, `VSTPTNUM`, `VSPOS`, `VSMETHOD`, `VSLOC`

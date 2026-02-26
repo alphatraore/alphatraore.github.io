@@ -1,0 +1,15 @@
+---
+title: "Figures"
+---
+
+# Figures
+
+This section contains figures with supporting traceability.
+
+## Figure Pages
+- [Figure 1](../f_1.qmd)
+- [Figure 2](../f_2.qmd)
+- [Figure 3](../f_3.qmd)
+
+## Tips
+- Store image assets under `tlg/outputs/` (or `tlg/figures/`) and link with relative paths.

@@ -1,0 +1,74 @@
+---
+title: "Quality, Validation, and Delivery Readiness"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This section highlights my **QC-first approach** to statistical and programming deliverables, with emphasis on **validation discipline**, **traceability**, and **review-ready packaging**.
+:::
+
+## Why this section matters
+
+High-quality deliverables require more than correct code or methods. They also need to be:
+
+- **Consistent**
+- **Traceable**
+- **Reproducible**
+- **Easy to review**
+- **Ready for submission/supporting documentation**
+
+This section shows how I structure work to reduce delivery risk and improve confidence in final outputs.
+
+## What I focus on
+
+- **QC-first execution**
+  - Build checks into the workflow early (not only at the end)
+
+- **Validation discipline**
+  - Review key outputs, assumptions, and dataset/output consistency
+
+- **Traceability**
+  - Maintain clear links across specifications, datasets, programs, and outputs
+
+- **Delivery readiness**
+  - Organize files and results so reviewers can navigate efficiently
+
+## Practical contribution areas
+
+- Pre-delivery completeness and consistency checks
+- QC review of datasets/outputs against shells/specs/SAP intent
+- Validation summaries and issue-resolution documentation
+- Reviewer-friendly packaging of analysis deliverables
+- Support for reproducible and traceable workflows
+
+## Common pitfalls I help prevent
+
+- QC performed too late in the delivery cycle
+- Inconsistent labels, populations, or results across outputs
+- Weak traceability from outputs back to specifications
+- Deliverables that are technically correct but difficult to review
+- Poorly documented issue resolution decisions
+
+## Working style
+
+My delivery approach is **systematic, practical, and reviewer-focused**:
+
+- Prioritize high-risk areas early
+- Standardize recurring checks where possible
+- Document findings and resolutions clearly
+- Keep deliverables organized and easy to audit
+- Support quality without slowing execution unnecessarily
+
+## Navigation
+
+- [QC and Validation](qc_validation.qmd)
+
+---
+
+## Notes for portfolio reviewers
+
+This section complements the scientific and technical pages by showing how I support **reliable execution and review-ready delivery** in a standards-driven clinical development environment.

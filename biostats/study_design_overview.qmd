@@ -1,0 +1,86 @@
+---
+title: "Study Design Overview"
+subtitle: "From protocol intent to analysis-ready design decisions"
+description: "A practical, biostatistics-focused overview of study design: endpoints, estimands, populations, visit structure, randomization, sample size, and analysis implications."
+toc: true
+---
+
+## Overview
+
+A strong study design connects **scientific objectives** to **operational execution** and **statistical validity**. I help translate protocol intent into clear, analysis-ready decisions and make assumptions explicit, so endpoints, populations, timing, and methods stay consistent from **data capture** through **analysis and reporting**.
+
+::: {.callout-tip}
+**Goal:** align objectives, endpoints, estimands, and operational constraints early to reduce rework and support clear, defensible conclusions.
+:::
+
+## Core design elements I evaluate
+
+### Objectives and hypotheses
+- Confirm **primary/secondary/exploratory objectives** and how success will be measured.
+- Clarify the **hypothesis framework** (superiority, non-inferiority, equivalence) and the decision criteria.
+
+### Endpoints and estimands
+- Define endpoints precisely (what is measured, when it is assessed, and how it is derived).
+- Specify estimands aligned with ICH E9(R1):
+  - **Population**
+  - **Treatment condition**
+  - **Variable (endpoint)**
+  - **Intercurrent event strategy** (e.g., discontinuation, rescue medication, death)
+  - **Summary measure** (e.g., difference in means, hazard ratio, ORR)
+
+### Study population and analysis sets
+- Define analysis populations and rules:
+  - **Intent-to-Treat (ITT)**
+  - **Modified ITT (mITT)** (if applicable, clearly justified)
+  - **Per-Protocol (PP)**
+  - **Safety** population
+- Ensure consistent rules across SAP, ADaM, and TLFs.
+
+### Visit structure and assessment schedule
+- Validate visit windows, baseline rules, and endpoint assessment timing.
+- Confirm alignment across the **Schedule of Activities/visit schedule**, CRF, and analysis requirements.
+
+### Randomization and stratification
+- Assess the randomization scheme and stratification factors for:
+  - fit to the endpoint and planned analysis
+  - operational feasibility and expected balance
+- Ensure stratification factors are captured cleanly and applied consistently in analysis.
+
+### Sample size and power assumptions
+- Review assumptions (effect size, variance/event rate, alpha, power, dropout).
+- Confirm planned analyses and multiplicity control align with the power strategy.
+- Identify sensitivity scenarios (e.g., higher dropout, lower event rate, delayed enrollment).
+
+### Multiplicity and decision rules
+- Define Type I error control across:
+  - multiple endpoints
+  - multiple timepoints
+  - interim looks (if any)
+  - subgroup claims (if any)
+- Confirm the hierarchy/adjustment approach is practical and clearly testable.
+
+### Missing data and intercurrent events
+- Anticipate missingness drivers and operational risks.
+- Align the primary strategy to the estimand and endpoint type:
+  - **Continuous endpoints:** MMRM and/or MI, with tipping-point sensitivity analyses as needed
+  - **Time-to-event endpoints:** censoring rules with pre-specified sensitivity analyses
+- Ensure the CRF supports capturing reasons for missingness and key intercurrent events.
+
+## Typical outputs from design alignment
+- Clear endpoint and estimand definitions ready for the SAP
+- Analysis population rules plus baseline and visit definitions
+- Key assumptions supporting sample size and multiplicity strategy
+- Data capture guidance for CRF design and SDTM mapping
+- Early risk register (data availability, timing, missing data, operational constraints)
+
+## How this connects to deliverables
+
+- **Protocol → SAP:** design decisions become analysis methods and decision rules
+- **SAP → ADaM specs:** derivations encode populations, baselines, visit windows, and endpoints
+- **ADaM → TLFs:** outputs follow shells, reflect estimands, and align with reporting standards
+
+## Related pages
+- [Study Leadership](study_leadership.qmd)
+- [SAP + TLF Shells](sap_tfl_shells.qmd)
+- [Multiplicity](multiplicity.qmd)
+- [Missing Data](missing_data.qmd)

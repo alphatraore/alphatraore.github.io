@@ -1,0 +1,103 @@
+---
+title: "QC and Validation"
+format:
+  html:
+    toc: false
+---
+
+::: {.callout-tip}
+## Executive summary
+
+This page outlines how I apply **QC and validation practices** to support **accurate, traceable, and review-ready** statistical and programming deliverables.
+:::
+
+## Why QC and validation matter
+
+In regulated clinical workflows, quality is not only about getting the final result—it is about ensuring that results are:
+
+- **Correct**
+- **Consistent**
+- **Reproducible**
+- **Traceable**
+- **Reviewable**
+
+QC and validation practices help reduce rework, improve confidence in deliverables, and support efficient internal/external review.
+
+## What I focus on
+
+### QC-first execution
+I prefer to build QC checkpoints into the process rather than relying only on end-stage review. This helps identify issues earlier and reduces delivery risk.
+
+### Validation discipline
+I focus on validating key outputs, assumptions, and data/output consistency in a way that supports both technical confidence and reviewer clarity.
+
+### Traceability support
+I maintain clear links across:
+- specifications / shells / SAP intent
+- datasets and derivations
+- output programs and final results
+
+### Review readiness
+I organize deliverables so reviewers can quickly understand:
+- what was produced,
+- what was checked,
+- what issues were identified,
+- and how they were resolved.
+
+## Practical QC / validation activities
+
+Examples of activities I commonly support include:
+
+- Dataset and output consistency checks
+- Population and label verification across outputs
+- Shell-to-output alignment review
+- Cross-checks between analysis definitions and reported results
+- Review of formatting, footnotes, and interpretation-sensitive elements
+- Validation summaries and issue tracking documentation
+
+## How I structure QC and validation work
+
+### 1) Plan checks early
+- Identify high-risk outputs/variables
+- Clarify key review expectations
+- Align checks to deliverable timelines
+
+### 2) Perform targeted and repeatable checks
+- Use standardized checks where possible
+- Prioritize decision-critical outputs and values
+- Document review scope and findings clearly
+
+### 3) Resolve and document issues
+- Track issues to closure
+- Record rationale for decisions and corrections
+- Maintain consistency across related deliverables after fixes
+
+### 4) Prepare for review
+- Organize files logically
+- Make traceability easier for reviewers
+- Summarize what was checked and any notable decisions
+
+## Common pitfalls I help prevent
+
+- QC concentrated only at the end of production
+- Inconsistent populations/results across tables and figures
+- Weak documentation of review findings and resolutions
+- Fixes applied in one output but not propagated consistently
+- Deliverables that are hard for reviewers to navigate
+
+## Working style
+
+My QC/validation approach is **practical and risk-based**:
+
+- Focus first on what could materially affect interpretation or delivery
+- Build consistency checks into the workflow
+- Communicate issues early and clearly
+- Keep documentation concise but audit-friendly
+- Balance thoroughness with timeline discipline
+
+## Related pages
+
+- [Quality, Validation, and Delivery Readiness](qc_validation_delivery_index.qmd)
+- [SAP and TLF Shells](sap_tfl_shells.qmd)
+- [ADaM](../adam/index.qmd)
+- [TLFs](../tlf/index.qmd)

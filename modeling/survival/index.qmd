@@ -1,0 +1,51 @@
+---
+title: "Survival Analysis"
+subtitle: "KM • Cox • diagnostics • explicit censoring and estimand clarity"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-copy: true
+    smooth-scroll: true
+    link-external-newwindow: true
+---
+
+::: {.callout-tip}
+### Goal
+Deliver **time-to-event analyses** that are **estimand-aligned**, with explicit event/censoring rules and reproducible outputs.
+:::
+
+## Deliverables
+
+::: {.grid}
+::: {.g-col-6}
+### Specifications / Notes
+- [Survival Analysis Spec / Notes](spec/SURV_model_notes.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+
+::: {.g-col-6}
+### Programming
+- [Survival Analysis Program](programs/SURV_analysis_program.html){.newtab target="_blank" rel="noopener noreferrer"}
+:::
+:::
+
+## Programs and Outputs (HTML)
+- [Survival Output Report](outputs/SURV_results.html){.newtab target="_blank" rel="noopener noreferrer"}
+
+## What you’ll find here
+- **Purpose:** KM/Cox workflows consistent with clinical reporting expectations
+- **Traceability:** ADTTE-like dataset → event/censoring definitions → model → outputs
+- **Typical outputs:** KM plot + at-risk, medians, HR/CI, PH diagnostics, sensitivity checks
+
+## Core deliverables (typical)
+- Kaplan–Meier plot (with at-risk table)
+- Event counts and median survival (with CI)
+- Cox model hazard ratio (HR) with CI (stratified when required)
+- Diagnostics: proportional hazards checks (when applicable)
+
+## QC checklist
+- **Event definition:** Precisely stated; consistent across outputs
+- **Censoring rules:** Explicit and testable
+- **Time origin:** Clear (randomization, first dose, etc.)
+- **Sensitivity:** Alternative censoring or model variants (as needed)
